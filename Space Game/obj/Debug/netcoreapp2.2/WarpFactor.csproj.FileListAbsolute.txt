@@ -1,0 +1,11 @@
+C:\Users\justi\source\repos\WarpFactor\bin\Debug\netcoreapp2.2\WarpFactor.deps.json
+C:\Users\justi\source\repos\WarpFactor\bin\Debug\netcoreapp2.2\WarpFactor.runtimeconfig.json
+C:\Users\justi\source\repos\WarpFactor\bin\Debug\netcoreapp2.2\WarpFactor.runtimeconfig.dev.json
+C:\Users\justi\source\repos\WarpFactor\bin\Debug\netcoreapp2.2\WarpFactor.dll
+C:\Users\justi\source\repos\WarpFactor\bin\Debug\netcoreapp2.2\WarpFactor.pdb
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.csprojAssemblyReference.cache
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.csproj.CoreCompileInputs.cache
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.AssemblyInfoInputs.cache
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.AssemblyInfo.cs
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.dll
+C:\Users\justi\source\repos\WarpFactor\obj\Debug\netcoreapp2.2\WarpFactor.pdb
