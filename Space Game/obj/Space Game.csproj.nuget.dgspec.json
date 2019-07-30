@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj": {}
+    "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\Space Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj": {
+    "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\Space Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj",
+        "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\Space Game.csproj",
         "projectName": "Space Game",
-        "projectPath": "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj",
+        "projectPath": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\Space Game.csproj",
         "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\justi\\source\\repos\\WarpFactor\\obj\\",
+        "outputPath": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

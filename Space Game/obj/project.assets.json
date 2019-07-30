@@ -166,11 +166,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj",
-      "projectName": "Space Game",
-      "projectPath": "C:\\Users\\justi\\source\\repos\\WarpFactor\\Space Game.csproj",
+      "projectUniqueName": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\SpaceGame.csproj",
+      "projectName": "SpaceGame",
+      "projectPath": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\SpaceGame.csproj",
       "packagesPath": "C:\\Users\\justi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\justi\\source\\repos\\WarpFactor\\obj\\",
+      "outputPath": "C:\\Users\\justi\\OneDrive\\Desktop\\Space Game\\Space Game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
