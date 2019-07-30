@@ -2,43 +2,45 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Space_Game
+namespace SpaceGame
 {
+    class Universe
+    {
+        public Planet Earth = new Planet() { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", danger = 0.0 };
+        //public Planet ProximaCentauri1 = new Planet();
+        //public Planet Planet3 = new Planet();
+
+
+    }
+
     class Planet
     {
         public double xLoc, yLoc, danger;
         public string inhabitants;
 
-        /*public Planet(double x, double y, string i, double d)
+        //Planet(double xLoc, double yLoc, string inhabitants, double danger)
+       // {
+        //    this.xLoc = xLoc;
+        //    this.yLoc = yLoc;
+        //    this.inhabitants = inhabitants;
+        //    this.danger = danger;
+        //}
+        public Tuple<double, double> Location()
         {
-            xLoc = x;
-            yLoc = y;
-            inhabitants = i;
-            danger = d;
-        }*/
-        public Tuple<double, double> Location(double xLoc, double yLoc)
-        {
-            var location = Tuple.Create(xLoc, yLoc);
+            var location = Tuple.Create(this.xLoc, this.yLoc);
             return location;
         }
 
-        public string Inhabitants(string inhabitants)
+        public string Inhabitants()
         {
-            return inhabitants;
+            return this.inhabitants;
         }
-        public double DangerRating(double danger)
+        public double DangerRating()
         {
-            return danger;
+            return this.danger;
         }
 
     }
-
-    class Earth : Planet
-    {
-        double ExLoc = 0.0;
-        double yLoc = 0.0;
-    }
-
 
     class Goods
     {
