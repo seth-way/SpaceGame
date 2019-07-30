@@ -6,9 +6,12 @@ namespace SpaceGame
 {
     class Universe
     {
-        public Planet Earth = new Planet() { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", danger = 0.0 };
-        //public Planet ProximaCentauri1 = new Planet();
+        public Planet Earth = new Planet()
+        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", danger = 0.0, name = "Earth" };
+        //public Planet ProximaCentauriB = new Planet();
         //public Planet Planet3 = new Planet();
+        //public Planet Planet4 = new Planet();
+        //public Planet Planet5 = new Planet();
 
 
     }
@@ -16,15 +19,8 @@ namespace SpaceGame
     class Planet
     {
         public double xLoc, yLoc, danger;
-        public string inhabitants;
+        public string inhabitants, name;
 
-        //Planet(double xLoc, double yLoc, string inhabitants, double danger)
-       // {
-        //    this.xLoc = xLoc;
-        //    this.yLoc = yLoc;
-        //    this.inhabitants = inhabitants;
-        //    this.danger = danger;
-        //}
         public Tuple<double, double> Location()
         {
             var location = Tuple.Create(this.xLoc, this.yLoc);
@@ -40,9 +36,14 @@ namespace SpaceGame
             return this.danger;
         }
 
+        public string Name()
+        {
+            return this.name;
+        }
+
     }
 
-    class Goods
+    class Good
     {
         public string type;
         public double price;
