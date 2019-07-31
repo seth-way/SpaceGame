@@ -10,7 +10,7 @@ namespace SpaceGame
         { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth" };
         public static readonly Planet ProximaCentauriB = new Planet ()
         { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B" };
-        public static readonly Planet Planet3 = new Planet ()
+        public static readonly Planet Gazorpazorp = new Planet ()
         { xLoc = 14.0, yLoc = -6.0, inhabitants = "Gazorpazorp", dangerRating = 6.0 , name = "Gazorpazorp" };
         public static readonly Planet Planet4 = new Planet ()
         { xLoc = -3.0, yLoc = -5.5, inhabitants = "Tired Earthlings", dangerRating = 1.5, name = "Screaming Sun Earth" };
@@ -26,8 +26,6 @@ namespace SpaceGame
     {
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
-
-
     }
 
     public class WarpFactor
@@ -37,6 +35,7 @@ namespace SpaceGame
 
     public class Good
     {
+        public string description;
         public string name;
         public double price;
         public int size;
@@ -47,10 +46,12 @@ namespace SpaceGame
     {
         public Good MegaTreeSeeds = new Good ()
         {
-            name = "MegaTreeSeeds",
+            name = "Mega Tree Seeds",
             price = 0.00,
             size = 1,
-            originPlanet = Universe.C35.name
+            originPlanet = Universe.C35.name,
+            description = "A highly controlled seed that was smuggled out of Planet 35-C. Causes the" +
+            "consumer to have temporary super intelligence. Don't ask how they were smuggled out."
         };
 
         public Good CentaurianFur = new Good ()
@@ -58,7 +59,26 @@ namespace SpaceGame
             name = "Proxima Centaurian Fur",
             price = 0.00,
             size = 1,
-            originPlanet = Universe.ProximaCentauriB.name
+            originPlanet = Universe.ProximaCentauriB.name,
+        };
+
+        public Good ServiceRobot = new Good ()
+        {
+            name = "Gazorpian Service Robot",
+            price = 0.00,
+            size = 1,
+            originPlanet = Universe.Gazorpazorp.name,
+            description = ""
+        };
+
+        public Good CannedAir = new Good ()
+        {
+            name = "Canned Earth Air",
+            price = 0.00,
+            size = 1,
+            originPlanet = Universe.Earth.name,
+            description = "A can of air from Earth. While it seems like an ordinary item to you, other" +
+            "species that live in atmospheres different to Earth use this as a recreational drug."
         };
     }
 }
