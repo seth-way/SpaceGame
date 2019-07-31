@@ -60,13 +60,13 @@ namespace SpaceGame
 
     class Products
     {
-        Good MegaTreeSeeds = new Good ()
+        /*Good MegaTreeSeeds = new Good ()
         {
             name = "MegaTreeSeeds",
             price = 0.00,
             size = 1,
-            originPlanet = Universe.Earth.name;
-        };
+            //originPlanet = Universe.Earth.name
+        }*/
     }
 }
 

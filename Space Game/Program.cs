@@ -9,10 +9,11 @@ namespace SpaceGame
     {  
         static void Main (string [] args)
         {
-            Universe GameUniverse = new Universe();
+
             //Bitmap image1 = new Bitmap();
             //Draw.ConsoleWriteImage(image1);
-            Console.WriteLine($"{GameUniverse.Earth.Inhabitants()}");
+            Game MainGame = new Game();
+            MainGame.RunGame();
         }
     }
 }
