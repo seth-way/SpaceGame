@@ -17,8 +17,6 @@ namespace SpaceGame
         public static readonly Planet C35 = new Planet ()
         { xLoc = -20.0, yLoc = 1.5, inhabitants = "Galactic Federation", dangerRating = 5.0, name = "35-C" };
 
-
-
         //Possible planet name ideas: 
         //Rick and Morty: Gazopazop, On a Cob Planet, Cronenberg World, Gromflom Prime, Alphabetrium, Pluto, Screaming Sun Earth
         //Futurama: Omicron Persei 8:, V-Giny, Nude Beach Planet, Neutral Planet, Amazonia, Decapod 10
@@ -28,6 +26,11 @@ namespace SpaceGame
     {
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
+    }
+
+    public class WarpFactor
+    {
+        public int Warp;
     }
 
     public class Good
