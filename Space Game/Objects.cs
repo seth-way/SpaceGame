@@ -27,6 +27,7 @@ namespace SpaceGame
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
 
+
     }
 
     public class WarpFactor
