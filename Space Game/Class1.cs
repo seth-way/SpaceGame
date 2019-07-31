@@ -4,18 +4,11 @@ using System.Text;
 
 namespace SpaceGame
 {
-    class Planet
+    class Goods
     {
-        readonly string planetName;
-
+        string productName;
+        object originPlanet;
+        decimal basePrice;
     }
 
-    class Eath : Planet
-    {
-        private string name = "Earth";
-        public Planet()
-        {
-            planetName = name;
-        }
-    }
 }

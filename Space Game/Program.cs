@@ -8,9 +8,9 @@ namespace SpaceGame
     {
         static void Main (string [] args)
         {
-            //Bitmap image1 = new Bitmap ("C:\\Users\\justi\\OneDrive\\Desktop\\Moon Abstract.bmp");
-            //Draw.ConsoleWriteImage (image1);
-            Console.WriteLine (Planet.x);
+            Bitmap image1 = new Bitmap ("C:\\Users\\justi\\OneDrive\\Desktop\\Moon Abstract.bmp");
+            Draw.ConsoleWriteImage (image1);
+            Console.WriteLine (Planet.test);
         }
     }
 }
