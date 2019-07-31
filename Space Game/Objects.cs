@@ -44,37 +44,37 @@ namespace SpaceGame
 
     public class Products
     {
-        public Good MegaTreeSeeds = new Good ()
+        static public Good MegaTreeSeeds = new Good ()
         {
             name = "Mega Tree Seeds",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.C35.name,
             description = "A highly controlled seed that was smuggled out of Planet 35-C. Causes the" +
             "consumer to have temporary super intelligence. Don't ask how they were smuggled out."
         };
 
-        public Good CentaurianFur = new Good ()
+        static public Good CentaurianFur = new Good ()
         {
             name = "Proxima Centaurian Fur",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.ProximaCentauriB.name,
         };
 
-        public Good ServiceRobot = new Good ()
+        static public Good ServiceRobot = new Good ()
         {
             name = "Gazorpian Service Robot",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.Gazorpazorp.name,
             description = ""
         };
 
-        public Good CannedAir = new Good ()
+        static public Good CannedAir = new Good ()
         {
             name = "Canned Earth Air",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.Earth.name,
             description = "A can of air from Earth. While it seems like an ordinary item to you, other" +

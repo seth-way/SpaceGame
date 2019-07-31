@@ -6,7 +6,7 @@ namespace SpaceGame
 {
     public class Actions
     {
-        //public void buyGoods
+        //public void buyGoods(
         //{
 
         //}
@@ -27,6 +27,11 @@ namespace SpaceGame
 
             Game.CurrentPlanet = destination;
 
+        }
+
+        public void calculatePrices()
+        {
+            double price = Products.MegaTreeSeeds.price;
         }
     }
 }
