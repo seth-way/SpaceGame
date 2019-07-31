@@ -6,13 +6,16 @@ namespace SpaceGame
 {
     class Game
     {
-        Universe GameUniverse = new Universe();
+        Products GameProducts = new Products ();
         public Planet TempPlanet = new Planet();
         public void RunGame()
         {
-            Console.WriteLine($"{GameUniverse.Earth.Inhabitants()}");
-
-
+            Console.WriteLine($"{Universe.Earth.Inhabitants()}");
+            Console.WriteLine (GameProducts.CentaurianFur.name);
         }
     }
 }
+
+
+
+// Helper.Collision
