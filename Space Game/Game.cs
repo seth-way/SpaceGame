@@ -8,7 +8,6 @@ namespace SpaceGame
     {
         static Universe GameUniverse = new Universe();
         Planet TempPlanet = new Planet();
-        TempPlanet = GameUniverse.Earth();
         public void RunGame()
         {
             Console.WriteLine($"{TempPlanet.Inhabitants()}");
