@@ -6,9 +6,14 @@ namespace SpaceGame
 {
     class Equations
     {
-        static double DistanceTo(int changeX, int changeY)
+        static public double DistanceTo(Planet destination)
         {
-            double distance = Math.Sqrt(changeX * changeX + changeY * changeY);
+            (var x1, var y1) = Game.CurrentPlanet.Location();
+            (var x2, var y2) = destination.Location();
+            var changeX = x2 - x1;
+            var changeY = y2 - y1;
+
+            double distance = Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY));
             return distance;
         }
     }

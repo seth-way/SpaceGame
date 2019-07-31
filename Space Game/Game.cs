@@ -7,12 +7,15 @@ namespace SpaceGame
     class Game
     {
         Universe GameUniverse = new Universe();
-        public Planet TempPlanet = new Planet();
+        static public Planet CurrentPlanet = new Planet();
+       
         public void RunGame()
         {
+            CurrentPlanet = GameUniverse.Earth;
             Console.WriteLine($"{GameUniverse.Earth.Inhabitants()}");
-
-
+            Console.WriteLine($"{Equations.DistanceTo(GameUniverse.ProximaCentauriB)}");
         }
+
+        
     }
 }
