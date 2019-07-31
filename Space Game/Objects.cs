@@ -46,7 +46,7 @@ namespace SpaceGame
 
     public class Products
     {
-        public Good CannedAir = new Good ()
+       static public Good CannedAir = new Good ()
         {
             name = "Canned Earth Air",
             price = 0.00,
@@ -56,27 +56,27 @@ namespace SpaceGame
             "species that live in atmospheres different to Earth use this as a recreational drug."
         };
 
-        public Good CentaurianFur = new Good ()
+        static public Good CentaurianFur = new Good ()
         {
             name = "Proxima Centaurian Fur",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.ProximaCentauriB.name,
             description = "The Centaurs of Proxima are reknowned for their soft yet strong fur. Although none of" +
             "them actually have any visible fur. You try not to think about it."
         };
 
-        public Good ServiceRobot = new Good ()
+        static public Good ServiceRobot = new Good ()
         {
             name = "Gazorpian Service Robot",
-            price = 0.00,
+            price = 1.00,
             size = 1,
             originPlanet = Universe.Gazorpazorp.name,
             description = "A robot from the planet Gazorpazorp. You don't understand it's purpose," +
             "but other species seem to be really eager to buy it."
         };
 
-        public Good RealFakeDoors = new Good ()
+        static public Good RealFakeDoors = new Good ()
         {
             name = "Real Fake Doors",
             price = 500.00,
@@ -87,7 +87,7 @@ namespace SpaceGame
             "but it wasn't real fake...' The doors are worthless. Maybe someone will use them for firewood."
         };
 
-        public Good MegaTreeSeeds = new Good ()
+        static public Good MegaTreeSeeds = new Good ()
         {
             name = "Mega Tree Seeds",
             price = 0.00,
