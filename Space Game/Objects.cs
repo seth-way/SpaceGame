@@ -46,7 +46,7 @@ namespace SpaceGame
 
     public class Products
     {
-        public Good CannedAir = new Good ()
+       static public Good CannedAir = new Good ()
         {
             name = "Canned Earth Air",
             price = 0.00,
@@ -76,7 +76,7 @@ namespace SpaceGame
             "but other species seem to be really eager to buy it."
         };
 
-        public Good RealFakeDoors = new Good ()
+        static public Good RealFakeDoors = new Good ()
         {
             name = "Real Fake Doors",
             price = 500.00,
@@ -87,7 +87,7 @@ namespace SpaceGame
             "but it wasn't real fake...' The doors are worthless. Maybe someone will use them for firewood."
         };
 
-        public Good MegaTreeSeeds = new Good ()
+        static public Good MegaTreeSeeds = new Good ()
         {
             name = "Mega Tree Seeds",
             price = 0.00,
