@@ -8,13 +8,18 @@ namespace SpaceGame
     {
         static public double DistanceTo(Planet destination)
         {
-            (var x1, var y1) = Game.CurrentPlanet.Location();
-            (var x2, var y2) = destination.Location();
-            var changeX = x2 - x1;
-            var changeY = y2 - y1;
+            var changeX = destination.xLoc - Game.CurrentPlanet.xLoc;
+            var changeY = destination.yLoc - Game.CurrentPlanet.yLoc;
 
             double distance = Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY));
             return distance;
+
+        }
+
+        static public double travelTime(double distance)
+        {
+            double years = distance / (Math.Pow(Game.NewPlayer.warpFactor, 10 /3) + Math.Pow(10 - Game.NewPlayer.warpFactor,-11/3));
+            return years;
         }
     }
 }

@@ -6,16 +6,17 @@ namespace SpaceGame
 {
     class Game
     {
-        Universe GameUniverse = new Universe();
         static public Planet CurrentPlanet = new Planet();
+        static public Player NewPlayer = new Player();
        
         public void RunGame()
         {
-            CurrentPlanet = GameUniverse.Earth;
-            Console.WriteLine($"{GameUniverse.Earth.Inhabitants()}");
-            Console.WriteLine($"{Equations.DistanceTo(GameUniverse.ProximaCentauriB)}");
+            CurrentPlanet = Universe.Earth;
+            Console.WriteLine($"{Universe.Earth.inhabitants}");
+            Console.WriteLine($"{Equations.DistanceTo(Universe.ProximaCentauriB)}");
+            //checks distance equation.
+            Console.WriteLine($"It will take {Equations.travelTime(Equations.DistanceTo(Universe.C35))} years to get to U35");
+            //checks travel time equation.
         }
-
-        
     }
 }
