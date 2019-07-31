@@ -12,8 +12,6 @@ namespace SpaceGame
         //public Planet Planet3 = new Planet();
         //public Planet Planet4 = new Planet();
         //public Planet Planet5 = new Planet();
-
-
     }
 
     class Planet
@@ -40,14 +38,13 @@ namespace SpaceGame
         {
             return this.name;
         }
-
     }
 
     class Good
     {
-        public string type;
+        public string name;
         public double price;
         public int size;
-        
+        string originPlanet;
     }
 }
