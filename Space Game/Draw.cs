@@ -60,5 +60,11 @@ namespace SpaceGame
             }
             Console.ResetColor ();
         }
+
+        public static void DrawImage (string path)
+        {
+            Bitmap image1 = new Bitmap (path);
+            Draw.ConsoleWriteImage (image1);
+        }
     }
 }
