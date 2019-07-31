@@ -19,6 +19,9 @@ namespace SpaceGame
             //checks distance equation.
             //Console.WriteLine($"It will take {Equations.travelTime(Equations.DistanceTo(Universe.C35))} years to get to U35");
             //checks travel time equation.
+
+            Class1.TextOutput (Class1.story);
+
         }
     }
 }
