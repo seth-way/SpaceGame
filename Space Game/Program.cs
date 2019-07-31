@@ -10,9 +10,9 @@ namespace SpaceGame
         static void Main (string [] args)
         {
             Universe GameUniverse = new Universe();
-            //Bitmap image1 = new Bitmap ("C:\\Users\\justi\\OneDrive\\Desktop\\Moon Abstract.bmp");
-            //Draw.ConsoleWriteImage (image1);
-            Console.WriteLine ($"{GameUniverse.Earth.Inhabitants()}");
+            //Bitmap image1 = new Bitmap();
+            //Draw.ConsoleWriteImage(image1);
+            Console.WriteLine($"{GameUniverse.Earth.Inhabitants()}");
         }
     }
 }
