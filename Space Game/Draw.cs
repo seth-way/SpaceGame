@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.IO;
+
 namespace SpaceGame
 {
     class Draw //Code written by Stack Overflow user Antonín Lejsek
@@ -43,14 +45,16 @@ namespace SpaceGame
         }
 
 
-        public static void ConsoleWriteImage (Bitmap source)
+        public static void ConsoleWriteImage (Bitmap source, int imageXPosition, int imageSize)
         {
-            int sMax = 39;
+            int sMax = imageSize; //adjusts the size of the image
             decimal percent = Math.Min (decimal.Divide (sMax, source.Width), decimal.Divide (sMax, source.Height));
             Size dSize = new Size ((int)(source.Width * percent), (int)(source.Height * percent));
             Bitmap bmpMax = new Bitmap (source, dSize.Width * 2, dSize.Height);
             for (int i = 0; i < dSize.Height; i++)
             {
+                Console.CursorLeft = imageXPosition;
+
                 for (int j = 0; j < dSize.Width; j++)
                 {
                     ConsoleWritePixel (bmpMax.GetPixel (j * 2, i));
@@ -61,10 +65,24 @@ namespace SpaceGame
             Console.ResetColor ();
         }
 
-        public static void DrawImage (string path)
+        public static string ImageDirectory()
         {
-            Bitmap image1 = new Bitmap (path);
-            Draw.ConsoleWriteImage (image1);
+            string currentDirectory = Directory.GetCurrentDirectory();
+            int bin = currentDirectory.IndexOf("bin");
+            currentDirectory = currentDirectory.Substring(0, bin) + "assets";
+
+            return currentDirectory;
+        }
+
+        public static void DrawImage (string fileName, int imageXPosition = 160, int imageSize = 39)
+        {
+            string filePath = ImageDirectory() + "\\" + fileName;
+            int currentX = Console.CursorLeft;
+            int currentY = Console.CursorTop;
+            Bitmap image1 = new Bitmap (filePath);
+            Draw.ConsoleWriteImage (image1, imageXPosition, imageSize);
+            Console.SetCursorPosition(currentX, currentY);
+
         }
     }
 }
