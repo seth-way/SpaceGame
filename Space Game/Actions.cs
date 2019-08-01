@@ -6,15 +6,36 @@ namespace SpaceGame
 {
     public class Actions
     {
-        //public void buyGoods(
-        //{
 
-        //}
 
-        //public void sellGoods
-        //{
+        static public void buyGoods(int index, int quantity)
+        {
+            List<double> priceList = UpdateMarketPrices();
+            if (priceList[index] * quantity <= Game.NewPlayer.wallet) //can afford item.
+            {
+                Game.NewPlayer.wallet = Game.NewPlayer.wallet - priceList[index] * quantity;
+                Products.productList[index].onHand = Products.productList[index].onHand + quantity;
+            }
+            else //can not afford item.
+            {
+                Console.Write($"You can't afford that.");
+            }
 
-        //}
+        }
+
+        static public void sellGoods(int index, int quantity)
+        {
+            List<double> priceList = UpdateMarketPrices();
+            if (quantity <= Products.productList[index].onHand) // have enough to sell
+            {
+                Game.NewPlayer.wallet = Game.NewPlayer.wallet + priceList[index] * quantity;
+                Products.productList[index].onHand = Products.productList[index].onHand - quantity;
+            }
+            else //not enough on hand to sell
+            {
+                Console.Write($"Stop trying to sell more than you have on hand.");
+            }
+        }
 
         static public void changePlanets(Planet destination)
         {
@@ -29,16 +50,23 @@ namespace SpaceGame
 
         }
 
-        static public void calculatePrices()
+        
+        public static List<double> UpdateMarketPrices()
         {
-            double priceAir = Products.CannedAir.price * Equations.DistanceTo(Products.CannedAir.originPlanet) * Game.CurrentPlanet.dangerRating;
-            double priceFur = Products.CentaurianFur.price * Equations.DistanceTo(Products.CentaurianFur.originPlanet) * Game.CurrentPlanet.dangerRating;
-            double priceRobot = Products.ServiceRobot.price * Equations.DistanceTo(Products.ServiceRobot.originPlanet) * Game.CurrentPlanet.dangerRating;
-            double priceDoor = Products.RealFakeDoors.price * Equations.DistanceTo(Products.RealFakeDoors.originPlanet) * Game.CurrentPlanet.dangerRating;
-            double priceSeed = Products.MegaTreeSeeds.price * Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet) * Game.CurrentPlanet.dangerRating;
+            List<double> currentPrices = new List<double>();
 
-            //for testing
-            Console.WriteLine($"air | {priceAir} - fur | {priceFur} - robot | {priceRobot} - door | {priceDoor} - seed | {priceSeed}\n");
+            currentPrices[0] = Products.CannedAir.price * (1 + Equations.DistanceTo(Products.CannedAir.originPlanet)) * Game.CurrentPlanet.dangerRating;
+            currentPrices[1] = Products.CentaurianFur.price * (1 + Equations.DistanceTo(Products.CentaurianFur.originPlanet)) * Game.CurrentPlanet.dangerRating;
+            currentPrices[2] = Products.ServiceRobot.price * (1 + Equations.DistanceTo(Products.ServiceRobot.originPlanet)) * Game.CurrentPlanet.dangerRating;
+            currentPrices[3] = Products.RealFakeDoors.price * (1 + Equations.DistanceTo(Products.RealFakeDoors.originPlanet)) * Game.CurrentPlanet.dangerRating;
+            currentPrices[4] = Products.MegaTreeSeeds.price * (1 + Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet)) * Game.CurrentPlanet.dangerRating;
+            
+            return currentPrices;
+        }
+
+        public class Prices
+        {
+            double priceAir, priceFur, priceRobot, priceDoor, priceSeed;
         }
     }
 }

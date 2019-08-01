@@ -37,43 +37,45 @@ namespace SpaceGame
 
     public class Good
     {
-        public string description;
-        public string name;
+        public string description, name;
         public double price;
-        public int size;
+        public int size, onHand;
         public Planet originPlanet;
     }
 
     public class Products
     {
-        public Good CannedAir = new Good ()
+        static public Good CannedAir = new Good()
         {
             name = "Canned Earth Air",
             price = 1.00,
             size = 1,
             originPlanet = Universe.Earth,
             description = "A can of air from Earth. While it seems like an ordinary item to you, other" +
-            "species that live in atmospheres different to Earth use this as a recreational drug."
+            "species that live in atmospheres different to Earth use this as a recreational drug.",
+            onHand = 0,
         };
 
-        static public Good CentaurianFur = new Good ()
+        static public Good CentaurianFur = new Good()
         {
             name = "Proxima Centaurian Fur",
             price = 1.00,
             size = 1,
             originPlanet = Universe.ProximaCentauriB,
             description = "The Centaurs of Proxima are reknowned for their soft yet strong fur. Although none of" +
-            "them actually have any visible fur. You try not to think about it."
+            "them actually have any visible fur. You try not to think about it.",
+            onHand = 0,
         };
 
-        static public Good ServiceRobot = new Good ()
+        static public Good ServiceRobot = new Good()
         {
             name = "Gazorpian Service Robot",
             price = 1.00,
             size = 1,
             originPlanet = Universe.Gazorpazorp,
             description = "A robot from the planet Gazorpazorp. You don't understand it's purpose," +
-            "but other species seem to be really eager to buy it."
+            "but other species seem to be really eager to buy it.",
+            onHand = 0,
         };
 
         static public Good RealFakeDoors = new Good ()
@@ -84,7 +86,8 @@ namespace SpaceGame
             originPlanet = Universe.GromflomPrime,
             description = "When you asked the salesman how he got to Gromflom he just blankly stared at the ground" +
             "muttering something, you were barely able to hear the last bit of his explanation; 'The door was real" +
-            "but it wasn't real fake...' The doors are worthless. Maybe someone will use them for firewood."
+            "but it wasn't real fake...' The doors are worthless. Maybe someone will use them for firewood.",
+            onHand = 0,
         };
 
         static public Good MegaTreeSeeds = new Good ()
@@ -94,8 +97,11 @@ namespace SpaceGame
             size = 1,
             originPlanet = Universe.C35,
             description = "A highly controlled seed that was smuggled out of Planet 35-C. Causes the" +
-            "consumer to have temporary super intelligence. Don't ask how they were smuggled out."
+            "consumer to have temporary super intelligence. Don't ask how they were smuggled out.",
+            onHand = 0,
         };
+
+        static public List<Good> productList = new List<Good>() {CannedAir, CentaurianFur, ServiceRobot, RealFakeDoors, MegaTreeSeeds};
     }
 }
 
