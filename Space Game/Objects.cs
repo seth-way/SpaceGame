@@ -46,7 +46,7 @@ namespace SpaceGame
 
     public class Products
     {
-        static public Good CannedAir = new Good ()
+        public Good CannedAir = new Good ()
         {
             name = "Canned Earth Air",
             price = 1.00,
