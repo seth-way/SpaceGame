@@ -53,7 +53,7 @@ namespace SpaceGame
             Bitmap bmpMax = new Bitmap (source, dSize.Width * 2, dSize.Height);
             for (int i = 0; i < dSize.Height; i++)
             {
-                Console.CursorLeft = imageXPosition;
+                Console.CursorLeft = imageXPosition;// adjusts x position
 
                 for (int j = 0; j < dSize.Width; j++)
                 {

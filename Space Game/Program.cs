@@ -1,18 +1,24 @@
 ﻿using System;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 
 namespace SpaceGame
 {
     class Program
     {
-        static void Main(string[] args)
+        public static readonly int windowWidth = Console.LargestWindowWidth;
+        public static readonly int windowHeight = Console.LargestWindowHeight;
+        static void Main (string [] args)
         {
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
-            //SendKeys.Send("{F11}");
+            Console.SetWindowSize (windowWidth, windowHeight);
+            Console.SetBufferSize (windowWidth, windowHeight);
+            //SendKeys.Send ("{F11}");
 
-            Game MainGame = new Game();
-            MainGame.RunGame();
+            UI.UserMenu ();
+
+            //System.Threading.Thread.Sleep (3000);
+
+            //Game MainGame = new Game();
+            //MainGame.RunGame();
         }
     }
 }
