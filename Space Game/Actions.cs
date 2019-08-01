@@ -6,6 +6,19 @@ namespace SpaceGame
 {
     public class Actions
     {
+        static public void buyFuel(int quantity)
+        {
+            double fuelPrice = UpdateFuelPrice();
+            if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
+            {
+                Game.NewPlayer.wallet = Game.NewPlayer.wallet - fuelPrice * quantity;
+                Game.NewShip.fuel = Game.NewShip.fuel + quantity;
+            }
+            else
+            {
+                Console.Write($"You can't afford that.");
+            }
+        }
 
 
         static public void buyGoods(int index, int quantity)
@@ -26,7 +39,7 @@ namespace SpaceGame
         static public void sellGoods(int index, int quantity)
         {
             List<double> priceList = UpdateMarketPrices();
-            if (quantity <= Products.productList[index].onHand) // have enough to sell
+            if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
                 Game.NewPlayer.wallet = Game.NewPlayer.wallet + priceList[index] * quantity;
                 Products.productList[index].onHand = Products.productList[index].onHand - quantity;
@@ -64,9 +77,10 @@ namespace SpaceGame
             return currentPrices;
         }
 
-        public class Prices
+        public static double UpdateFuelPrice()
         {
-            double priceAir, priceFur, priceRobot, priceDoor, priceSeed;
+            double currentPrice = Game.CurrentPlanet.dangerRating * 1; // modifier may require tweaking
+            return currentPrice;
         }
     }
 }
