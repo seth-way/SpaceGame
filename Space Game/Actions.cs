@@ -29,9 +29,16 @@ namespace SpaceGame
 
         }
 
-        public void calculatePrices()
+        static public void calculatePrices()
         {
-            double price = Products.MegaTreeSeeds.price;
+            double priceAir = Products.CannedAir.price * Equations.DistanceTo(Products.CannedAir.originPlanet) * Game.CurrentPlanet.dangerRating;
+            double priceFur = Products.CentaurianFur.price * Equations.DistanceTo(Products.CentaurianFur.originPlanet) * Game.CurrentPlanet.dangerRating;
+            double priceRobot = Products.ServiceRobot.price * Equations.DistanceTo(Products.ServiceRobot.originPlanet) * Game.CurrentPlanet.dangerRating;
+            double priceDoor = Products.RealFakeDoors.price * Equations.DistanceTo(Products.RealFakeDoors.originPlanet) * Game.CurrentPlanet.dangerRating;
+            double priceSeed = Products.MegaTreeSeeds.price * Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet) * Game.CurrentPlanet.dangerRating;
+
+            //for testing
+            Console.WriteLine($"air | {priceAir} - fur | {priceFur} - robot | {priceRobot} - door | {priceDoor} - seed | {priceSeed}\n");
         }
     }
 }
