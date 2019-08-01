@@ -1,5 +1,4 @@
 ﻿using System;
-//using System.Windows.Forms;
 
 namespace SpaceGame
 {
@@ -11,14 +10,12 @@ namespace SpaceGame
         {
             Console.SetWindowSize (windowWidth, windowHeight);
             Console.SetBufferSize (windowWidth, windowHeight);
-            //SendKeys.Send ("{F11}");
 
-            UI.UserMenu ();
 
-            //System.Threading.Thread.Sleep (3000);
+            System.Threading.Thread.Sleep (3000);
 
-            //Game MainGame = new Game();
-            //MainGame.RunGame();
+            Game MainGame = new Game ();
+            MainGame.RunGame ();
         }
     }
 }

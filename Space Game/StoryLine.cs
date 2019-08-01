@@ -57,6 +57,7 @@ namespace SpaceGame
 
         public static void TextOutput (string input)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             foreach (char a in input)
             {
                 Thread.Sleep (60);
