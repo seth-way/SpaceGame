@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace SpaceGame
 {
-    static class Class1
+    static class StoryLine
     {
-        static public readonly string story = " Captains Log 12202023\n"+
+        static public readonly string introStory_1 = "Captains Log. Star Date 122023.20\n"+
 "1553 Days since event\n"
 +"4 Days since awakening from Cryosleep\n "
 +"\n"
@@ -61,9 +59,11 @@ namespace SpaceGame
         {
             foreach (char a in input)
             {
-                Thread.Sleep (50);
+                Thread.Sleep (60);
                 Console.Write (a);
             }
+            Console.Read();
+            Console.Clear();
         }
     }
 
