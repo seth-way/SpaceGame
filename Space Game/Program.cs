@@ -13,12 +13,12 @@ namespace SpaceGame
             Console.SetBufferSize (windowWidth, windowHeight);
             //SendKeys.Send ("{F11}");
 
-            UI.UserMenu ();
+            //UI.UserMenu ();
 
             //System.Threading.Thread.Sleep (3000);
 
-            //Game MainGame = new Game();
-            //MainGame.RunGame();
+            Game MainGame = new Game();
+            MainGame.RunGame();
         }
     }
 }
