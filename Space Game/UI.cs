@@ -149,7 +149,7 @@ namespace SpaceGame
 
             } while (rKey != ConsoleKey.Enter);
 
-            Console.WriteLine ($"Do you want to travel to {planetTravel[selectionTravel - 1]}?";
+            Console.WriteLine ($"Do you want to travel to {planetTravel[selectionTravel - 1]}?");
             Console.WriteLine ("Press Enter to confirm or Escape to cancel.");
             rKey = Console.ReadKey ().Key;
             if(rKey == ConsoleKey.Enter)
