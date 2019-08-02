@@ -57,13 +57,16 @@ namespace SpaceGame
 
         public static void TextOutput (string input)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            foreach (char a in input)
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Array story = input.Split ('\n');
+            foreach (string a in story)
             {
-                Thread.Sleep (60);
-                Console.Write (a);
+            Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length)/2), (Program.windowHeight - 1));
+                Thread.Sleep (550);
+                Console.Write ($"{a} \n");
+                
             }
-            Console.Read();
+            Console.ReadKey();
             Console.Clear();
         }
     }

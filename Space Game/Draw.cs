@@ -52,9 +52,9 @@ namespace SpaceGame
             Size dSize = new Size ((int)(source.Width * percent), (int)(source.Height * percent));
             Bitmap bmpMax = new Bitmap (source, dSize.Width * 2, dSize.Height);
             if (imageXPosition == null)
-            { imageXPosition = Console.WindowWidth - bmpMax.Width; }
+            { imageXPosition = (Console.WindowWidth - bmpMax.Width)/2; }
             if (imageYPosition == null)
-            { imageYPosition = Console.WindowHeight - bmpMax.Height; }
+            { imageYPosition = (Console.WindowHeight - bmpMax.Height)/2; }
 
             for (int i = 0; i < dSize.Height; i++)
             {

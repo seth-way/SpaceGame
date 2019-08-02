@@ -6,6 +6,8 @@ namespace SpaceGame
 {
     public class Universe
     {
+        public int currentYear = 2023;
+
         public static readonly Planet Earth = new Planet ()
         { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth" };
         public static readonly Planet ProximaCentauriB = new Planet ()
@@ -102,6 +104,7 @@ namespace SpaceGame
         };
 
         static public List<Good> productList = new List<Good>() {CannedAir, CentaurianFur, ServiceRobot, RealFakeDoors, MegaTreeSeeds};
+        
     }
 }
 

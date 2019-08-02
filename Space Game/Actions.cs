@@ -12,7 +12,7 @@ namespace SpaceGame
             if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
             {
                 Game.NewPlayer.wallet = Game.NewPlayer.wallet - fuelPrice * quantity;
-                Game.NewShip.fuel = Game.NewShip.fuel + quantity;
+                Game.NewShip.currentFuel = Game.NewShip.currentFuel + quantity;
             }
             else
             {
@@ -56,7 +56,7 @@ namespace SpaceGame
             double time = Equations.travelTime(distance);
             var fuelCost = Game.NewShip.fuelPerLightYear * distance;
 
-            Game.NewShip.fuel = Game.NewShip.fuel - fuelCost;
+            Game.NewShip.currentFuel = Game.NewShip.currentFuel - fuelCost;
             Game.NewPlayer.age = Game.NewPlayer.age + time;
 
             Game.CurrentPlanet = destination;
