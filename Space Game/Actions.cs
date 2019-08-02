@@ -99,7 +99,8 @@ namespace SpaceGame
             Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
             Game.NewShip.fuel = double.Parse(tr.ReadLine());
             Game.NewShip.fuelPerLightYear = double.Parse(tr.ReadLine());
-            Game.NewShip.storageCapacity = int.Parse(tr.ReadLine());
+            Game.NewShip.currentInventory = int.Parse(tr.ReadLine());
+            Game.NewShip.maxInventory = int.Parse(tr.ReadLine());
             Products.CannedAir.onHand = int.Parse(tr.ReadLine());
             Products.CentaurianFur.onHand = int.Parse(tr.ReadLine());
             Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
@@ -128,7 +129,8 @@ namespace SpaceGame
             tw.WriteLine(Game.NewShip.warpFactor);
             tw.WriteLine(Game.NewShip.fuel);
             tw.WriteLine(Game.NewShip.fuelPerLightYear);
-            tw.WriteLine(Game.NewShip.storageCapacity);
+            tw.WriteLine(Game.NewShip.currentInventory);
+            tw.WriteLine(Game.NewShip.maxInventory);
             tw.WriteLine(Products.CannedAir.onHand);
             tw.WriteLine(Products.CentaurianFur.onHand);
             tw.WriteLine(Products.ServiceRobot.onHand);
