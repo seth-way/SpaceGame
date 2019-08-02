@@ -12,15 +12,15 @@ namespace SpaceGame
         public static readonly Planet Earth = new Planet ()
         { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth", description = StoryLine.earthDescription, imageFile = "Earth.bmp" };
         public static readonly Planet ProximaCentauriB = new Planet ()
-        { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B" };
+        { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B", imageFile = "ProximaB.bmp" };
         public static readonly Planet Gazorpazorp = new Planet ()
-        { xLoc = 14.0, yLoc = -6.0, inhabitants = "Gazorpazorp", dangerRating = 6.0 , name = "Gazorpazorp" };
+        { xLoc = 14.0, yLoc = -6.0, inhabitants = "Gazorpazorp", dangerRating = 6.0 , name = "Gazorpazorp", imageFile = "Gazorpazorp.bmp" };
         public static readonly Planet ScreamingSun = new Planet ()
-        { xLoc = -3.0, yLoc = -5.5, inhabitants = "Tired Earthlings", dangerRating = 1.5, name = "Screaming Sun Earth" };
+        { xLoc = -3.0, yLoc = -5.5, inhabitants = "Tired Earthlings", dangerRating = 1.5, name = "Screaming Sun Earth", imageFile = "ScreamingSun.bmp"};
         public static readonly Planet C35 = new Planet ()
-        { xLoc = -20.0, yLoc = 1.5, inhabitants = "Galactic Federation", dangerRating = 5.0, name = "35-C" };
+        { xLoc = -20.0, yLoc = 1.5, inhabitants = "Galactic Federation", dangerRating = 5.0, name = "35-C", imageFile = "C35.bmp" };
         public static readonly Planet GromflomPrime = new Planet ()
-        { xLoc = 0, yLoc = 0, inhabitants = "Genetically Engineered Gromflomites", dangerRating = 7.0, name = "Gromflom Prime"};
+        { xLoc = 0, yLoc = 0, inhabitants = "Genetically Engineered Gromflomites", dangerRating = 7.0, name = "Gromflom Prime", imageFile = "Glomfrom Prime.bmp"};
 
         public static Planet [] planetTravel = {Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime};
 
@@ -35,6 +35,8 @@ namespace SpaceGame
         public string inhabitants, name;
         public string description = " ";
         public string imageFile;
+        public string screamingProduct = "The people of this planet are too tired to trade. Though they do seem interested in your ship.\n" +
+            "A little too interested. It's probably best if you leave while you still have one.";
     }
 
     public class WarpFactor

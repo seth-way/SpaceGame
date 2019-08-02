@@ -169,10 +169,11 @@ namespace SpaceGame
 
             Console.WriteLine ($"<----    {planetTravel [planetSel].name}    ---->");
 
-            Draw.DrawImage (planetTravel[planetSel].imageFile);
+            Draw.DrawImage (planetTravel [planetSel].imageFile, (Console.WindowWidth / 2), Console.WindowHeight / 5, 45);
 
             Console.SetCursorPosition (Console.CursorLeft, 14);
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine ("Description: " + planetTravel [planetSel].description);
             Console.WriteLine ();
             Console.WriteLine ();
@@ -189,7 +190,14 @@ namespace SpaceGame
             Console.WriteLine ("Danger Rating: " + planetTravel [planetSel].dangerRating);
             Console.WriteLine ();
             Console.WriteLine ();
-            Console.WriteLine ("Product Prices: ");
+            if (planetSel == 3)
+            {
+                Console.WriteLine (planetTravel [4].screamingProduct);
+            }
+            else
+            {
+                Console.WriteLine ("Product Prices: ");
+            }
         }
 
     }
