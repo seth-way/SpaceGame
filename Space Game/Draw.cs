@@ -5,7 +5,7 @@ using System.IO;
 
 namespace SpaceGame
 {
-    class Draw //Code written by Stack Overflow user Antonín Lejsek
+    class Draw //Code written by Stack Overflow user Antonín Lejsek.Dynamic and adjustable xLocation, yLocation, and imageSize added by Justin Hughes
     {
 
         static int [] cColors = { 0x000000, 0x000080, 0x008000, 0x008080, 0x800000, 0x800080, 0x808000, 0xC0C0C0, 0x808080, 0x0000FF, 0x00FF00, 0x00FFFF, 0xFF0000, 0xFF00FF, 0xFFFF00, 0xFFFFFF };
@@ -45,15 +45,21 @@ namespace SpaceGame
         }
 
 
-        public static void ConsoleWriteImage (Bitmap source, int imageXPosition, int imageSize)
+        public static void ConsoleWriteImage (Bitmap source, int? imageXPosition, int? imageYPosition, int imageSize)
         {
             int sMax = imageSize; //adjusts the size of the image
             decimal percent = Math.Min (decimal.Divide (sMax, source.Width), decimal.Divide (sMax, source.Height));
             Size dSize = new Size ((int)(source.Width * percent), (int)(source.Height * percent));
             Bitmap bmpMax = new Bitmap (source, dSize.Width * 2, dSize.Height);
+            if (imageXPosition == null)
+            { imageXPosition = Console.WindowWidth - bmpMax.Width; }
+            if (imageYPosition == null)
+            { imageYPosition = Console.WindowHeight - bmpMax.Height; }
+
             for (int i = 0; i < dSize.Height; i++)
             {
-                Console.CursorLeft = imageXPosition;// adjusts x position
+                Console.CursorLeft = (int)imageXPosition;// adjusts x position
+                Console.CursorTop =  (int)imageYPosition + i;
 
                 for (int j = 0; j < dSize.Width; j++)
                 {
@@ -74,13 +80,20 @@ namespace SpaceGame
             return currentDirectory;
         }
 
-        public static void DrawImage (string fileName, int imageXPosition = 160, int imageSize = 39)
+        public static void DrawImage (string fileName, int? imageXPosition= null, int? imageYPosition= null, int? imageSize = null)
         {
+
+            if (imageSize == null)
+            {
+                imageSize = (Console.WindowHeight + Console.WindowWidth) / 5;
+            }
+
             string filePath = ImageDirectory() + "\\" + fileName;
             int currentX = Console.CursorLeft;
             int currentY = Console.CursorTop;
             Bitmap image1 = new Bitmap (filePath);
-            Draw.ConsoleWriteImage (image1, imageXPosition, imageSize);
+
+            Draw.ConsoleWriteImage (image1, imageXPosition, imageYPosition, (int)imageSize);
             Console.SetCursorPosition(currentX, currentY);
 
         }

@@ -17,6 +17,7 @@ namespace SpaceGame
         public int warpFactor = 1;
         public double fuel = 500;
         public double fuelPerLightYear = 100;
-        public int storageCapacity = 50;
+        public double currentInventory = 0;
+        public double maxInventory = 50;
     }
 }
