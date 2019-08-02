@@ -6,7 +6,7 @@ namespace SpaceGame
 {
     public class Player
     {
-        public string name;
+        public string name = "Player 1";
         public double age = 18;
         public double wallet = 100;
         public int numOfProductsSold = 0;
@@ -39,7 +39,7 @@ namespace SpaceGame
 
     public class Ship
     {
-        public string name = "Tiny Seer";
+        public string name = "The Meeseeks";
         public int warpFactor = 1;
         public double currentFuel = 500;
         public double maxFuel = 500;

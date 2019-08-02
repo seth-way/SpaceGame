@@ -16,11 +16,12 @@ namespace SpaceGame
         public void RunGame()
         {
             CurrentPlanet = Universe.Earth;
-            //Console.WriteLine($"{CurrentPlanet.inhabitants}\nfuel | {NewShip.fuel}\nage | {NewPlayer.age}\n");
+            Console.WriteLine($"{CurrentPlanet.inhabitants}\nfuel | {NewShip.fuel}\nage | {NewPlayer.age}\n");
             //Actions.UpdateMarketPrices();
-            //Actions.changePlanets(Universe.ProximaCentauriB);
-            //Console.WriteLine($"{CurrentPlanet.inhabitants}\nfuel | {NewShip.fuel}\nage | {NewPlayer.age}\n");
+            Actions.changePlanets(Universe.ProximaCentauriB);
+            Console.WriteLine($"{CurrentPlanet.inhabitants}\nfuel | {NewShip.fuel}\nage | {NewPlayer.age}\n");
             //Actions.UpdateMarketPrices();
+            Actions.SaveGame();
             //checks distance equation.
             //Console.WriteLine($"It will take {Equations.travelTime(Equations.DistanceTo(Universe.C35))} years to get to U35");
             //checks travel time equation.
