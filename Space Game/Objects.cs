@@ -10,7 +10,7 @@ namespace SpaceGame
         // things to change if adding a new planet: UI.TravelMenu planet array length and add the planet to the list + create planet display function
 
         public static readonly Planet Earth = new Planet ()
-        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth", description = StoryLine.earthDescription };
+        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth", description = StoryLine.earthDescription, imageFile = "Earth.bmp" };
         public static readonly Planet ProximaCentauriB = new Planet ()
         { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B" };
         public static readonly Planet Gazorpazorp = new Planet ()
@@ -34,6 +34,7 @@ namespace SpaceGame
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
         public string description = " ";
+        public string imageFile;
     }
 
     public class WarpFactor

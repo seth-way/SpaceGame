@@ -21,7 +21,7 @@ namespace SpaceGame
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 for (int r = 0; r < Console.BufferWidth; r++)
                 {
-                    Console.SetCursorPosition (r , 0);
+                    Console.SetCursorPosition (r, 0);
                     Console.Write (line);
 
                 }
@@ -53,7 +53,7 @@ namespace SpaceGame
 
         }
 
-        public static void ShipStatsMenu()
+        public static void ShipStatsMenu ()
         {
             Console.SetCursorPosition (Console.CursorLeft, 6);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -75,7 +75,7 @@ namespace SpaceGame
         {
             Console.SetCursorPosition (Console.CursorLeft, 6);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine ("Your Name: " + NewPlayer.name );
+            Console.WriteLine ("Your Name: " + NewPlayer.name);
             Console.WriteLine ();
             Console.WriteLine ("Your Age: " + NewPlayer.age);
             Console.WriteLine ();
@@ -95,7 +95,7 @@ namespace SpaceGame
             Console.WriteLine ("Total Pirate Attacks Failed: " + NewPlayer.totalFailedPirateAttacks);
         }
 
-        public static void TradeMenu()
+        public static void TradeMenu ()
         {
             Console.SetCursorPosition (Console.CursorLeft, 6);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -107,21 +107,25 @@ namespace SpaceGame
         public static void TravelMenu ()
         {
             ConsoleKey rKey;
-            int selectionTravel = 2;
+            int selectionTravel = 1;
 
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-            string travelQuestion = "Use the left and right arrow keys to select where you want " +
-                "to travel, then press enter.";
-            string selectionTravelString = $"{selectionTravel} / {planetTravel.Length}";
-
-            Console.SetCursorPosition ((Console.WindowWidth - travelQuestion.Length) / 2, 6);
-            Console.WriteLine (travelQuestion);
-            Console.SetCursorPosition ((Console.WindowWidth - selectionTravelString.Length) / 2, 7);
-            Console.WriteLine (selectionTravelString);
             do
             {
-                PlanetTravel (selectionTravel - 1);
+                Console.Clear ();
+                UserMenu ();
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                string travelQuestion = "Use the left and right arrow keys to select where you want " +
+                    "to travel, then press enter.";
+
+                Console.SetCursorPosition ((Console.WindowWidth - travelQuestion.Length) / 2, 6);
+                Console.WriteLine (travelQuestion);
+
+                string selectionTravelString = $"{selectionTravel} / {planetTravel.Length}";
+                Console.SetCursorPosition ((Console.WindowWidth - selectionTravelString.Length) / 2, 7);
+                Console.WriteLine (selectionTravelString);
+
+                PlanetTravelFunction (selectionTravel - 1);
                 rKey = Console.ReadKey ().Key;
                 if (rKey == ConsoleKey.LeftArrow)
                 {
@@ -134,11 +138,11 @@ namespace SpaceGame
                         selectionTravel--;
                     }
                 }
-                if(rKey == ConsoleKey.RightArrow)
+                if (rKey == ConsoleKey.RightArrow)
                 {
-                    if(selectionTravel + 1 > planetTravel.Length)
+                    if (selectionTravel + 1 > planetTravel.Length)
                     {
-                        selectionTravel = 0;
+                        selectionTravel = 1;
                     }
                     else
                     {
@@ -149,30 +153,31 @@ namespace SpaceGame
 
             } while (rKey != ConsoleKey.Enter);
 
-            Console.WriteLine ($"Do you want to travel to {planetTravel[selectionTravel - 1]}?");
+            Console.WriteLine ($"Do you want to travel to {planetTravel [selectionTravel - 1].name}?");
             Console.WriteLine ("Press Enter to confirm or Escape to cancel.");
             rKey = Console.ReadKey ().Key;
-            if(rKey == ConsoleKey.Enter)
+            if (rKey == ConsoleKey.Enter)
             {
-                Actions.changePlanets(planetTravel[selectionTravel - 1]);
+                Actions.changePlanets (planetTravel [selectionTravel - 1]);
             }
         }
 
-        public static void PlanetTravel(int planetSel)
+        public static void PlanetTravelFunction (int planetSel)
         {
 
-            Console.SetCursorPosition ((Console.WindowWidth - Universe.planetTravel[planetSel].name.Length - 18) / 2, 8);
+            Console.SetCursorPosition ((Console.WindowWidth - Universe.planetTravel [planetSel].name.Length - 18) / 2, 8);
 
-            Console.WriteLine ($"<----    {planetTravel[planetSel].name}    ---->");
+            Console.WriteLine ($"<----    {planetTravel [planetSel].name}    ---->");
 
+            Draw.DrawImage (planetTravel[planetSel].imageFile);
 
             Console.SetCursorPosition (Console.CursorLeft, 14);
 
-            Console.WriteLine("Description: " + planetTravel[planetSel].description);
+            Console.WriteLine ("Description: " + planetTravel [planetSel].description);
             Console.WriteLine ();
             Console.WriteLine ();
             Console.WriteLine ();
-            Console.WriteLine ("Inhabitants: " + planetTravel[planetSel].inhabitants);
+            Console.WriteLine ("Inhabitants: " + planetTravel [planetSel].inhabitants);
             Console.WriteLine ();
             Console.WriteLine ();
             Console.WriteLine ("Travel Distance: ");
@@ -181,7 +186,7 @@ namespace SpaceGame
             Console.WriteLine ("Travel Time: ");
             Console.WriteLine ();
             Console.WriteLine ();
-            Console.WriteLine ("Danger Rating: " + planetTravel[planetSel].dangerRating);
+            Console.WriteLine ("Danger Rating: " + planetTravel [planetSel].dangerRating);
             Console.WriteLine ();
             Console.WriteLine ();
             Console.WriteLine ("Product Prices: ");
@@ -199,32 +204,32 @@ namespace SpaceGame
 
 
 
-        //public static void PrintPage (List<string> List)
-        //{
-        //    UserMenu ();
-        //    int displayLength = List.Count;
-        //    if (displayLength + currentSelection >= List.Count)
-        //    {
-        //        displayLength = List.Count - currentSelection;
-        //    }
-        //    List<string> display = List.GetRange (currentSelection, displayLength);
-        //    for (int i = 0; i < displayLength; i++)
-        //    {
-        //        if (i == currentSelection)
-        //        {
-        //            Console.ForegroundColor = ConsoleColor.Black;
-        //            Console.BackgroundColor = ConsoleColor.White;
-        //        }
-        //        else if (List [i + currentSelection].StartsWith ("* /"))
-        //        {
-        //            Console.ForegroundColor = ConsoleColor.DarkGray;
-        //        }
+//public static void PrintPage (List<string> List)
+//{
+//    UserMenu ();
+//    int displayLength = List.Count;
+//    if (displayLength + currentSelection >= List.Count)
+//    {
+//        displayLength = List.Count - currentSelection;
+//    }
+//    List<string> display = List.GetRange (currentSelection, displayLength);
+//    for (int i = 0; i < displayLength; i++)
+//    {
+//        if (i == currentSelection)
+//        {
+//            Console.ForegroundColor = ConsoleColor.Black;
+//            Console.BackgroundColor = ConsoleColor.White;
+//        }
+//        else if (List [i + currentSelection].StartsWith ("* /"))
+//        {
+//            Console.ForegroundColor = ConsoleColor.DarkGray;
+//        }
 
-        //        string elem = display [i];
-        //        Console.WriteLine (elem.ToString ());
+//        string elem = display [i];
+//        Console.WriteLine (elem.ToString ());
 
-        //        Console.ForegroundColor = ConsoleColor.White;
-        //        Console.BackgroundColor = ConsoleColor.Black;
-        //    }
-        //    Console.SetCursorPosition (Console.CursorLeft, 6);
-        //}
+//        Console.ForegroundColor = ConsoleColor.White;
+//        Console.BackgroundColor = ConsoleColor.Black;
+//    }
+//    Console.SetCursorPosition (Console.CursorLeft, 6);
+//}
