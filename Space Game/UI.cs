@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using static SpaceGame.Game;
+using static SpaceGame.Universe;
+
 namespace SpaceGame
 {
     public static class UI
@@ -11,7 +13,7 @@ namespace SpaceGame
             int i = Console.CursorTop;
             string menu = "|    F1 - Your Statistics        F2 - Ship Inventory         F3 - Trade        F4 - Travel        F5 - Save        F12 - Exit Game    |";
             string line = "-";
-            string menu2 = $"Galactic Federation Credits: {NewPlayer.wallet} Fuel: {NewShip.currentFuel}/{NewShip.maxFuel} Age: {NewPlayer.age} Year:  InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory} CurrentPlanet: {CurrentPlanet}";
+            string menu2 = $"Galactic Federation Credits: {NewPlayer.wallet} Fuel: {NewShip.currentFuel}/{NewShip.maxFuel} Age: {NewPlayer.age} Year: {NewPlayer.currentYear} InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory} CurrentPlanet: {CurrentPlanet}";
 
             if (i == 0)
             {
@@ -53,6 +55,7 @@ namespace SpaceGame
 
         public static void ShipStatsMenu()
         {
+            Console.SetCursorPosition (Console.CursorLeft, 6);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.SetCursorPosition (0, 6);
             Console.WriteLine ("Ship Name: " + NewShip.name);
@@ -70,6 +73,8 @@ namespace SpaceGame
 
         public static void PlayerStatsMenu ()
         {
+            Console.SetCursorPosition (Console.CursorLeft, 6);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine ("Your Name: " + NewPlayer.name );
             Console.WriteLine ();
             Console.WriteLine ("Your Age: " + NewPlayer.age);
@@ -92,26 +97,94 @@ namespace SpaceGame
 
         public static void TradeMenu()
         {
+            Console.SetCursorPosition (Console.CursorLeft, 6);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.Write ("What would you like to trade?");
 
             // need to either iterate through a list or assign buttons to it. Preferably iterate but depends on the difficulty of implementaion.
         }
 
-        public static void TravelMenu()
+        public static void TravelMenu ()
         {
+            ConsoleKey rKey;
+            int selectionTravel = 2;
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             string travelQuestion = "Use the left and right arrow keys to select where you want " +
-                "to travel, then press enter" ;
-            int currentX = Console.CursorLeft;
-            int currentY = Console.CursorTop;
+                "to travel, then press enter.";
+            string selectionTravelString = $"{selectionTravel} / {planetTravel.Length}";
 
-            Console.SetCursorPosition ((Console.WindowWidth - travelQuestion.Length)/2, currentY);
+            Console.SetCursorPosition ((Console.WindowWidth - travelQuestion.Length) / 2, 6);
+            Console.WriteLine (travelQuestion);
+            Console.SetCursorPosition ((Console.WindowWidth - selectionTravelString.Length) / 2, 7);
+            Console.WriteLine (selectionTravelString);
+            do
+            {
+                PlanetTravel (selectionTravel - 1);
+                rKey = Console.ReadKey ().Key;
+                if (rKey == ConsoleKey.LeftArrow)
+                {
+                    if (selectionTravel - 1 == 0)
+                    {
+                        selectionTravel = planetTravel.Length;
+                    }
+                    else
+                    {
+                        selectionTravel--;
+                    }
+                }
+                if(rKey == ConsoleKey.RightArrow)
+                {
+                    if(selectionTravel + 1 > planetTravel.Length)
+                    {
+                        selectionTravel = 0;
+                    }
+                    else
+                    {
+                        selectionTravel++;
+                    }
+                }
 
 
-            Console.Write (travelQuestion);
+            } while (rKey != ConsoleKey.Enter);
 
-            Console.SetCursorPosition (currentX, currentY);
+            Console.WriteLine ($"Do you want to travel to {planetTravel[selectionTravel - 1]}?";
+            Console.WriteLine ("Press Enter to confirm or Escape to cancel.");
+            rKey = Console.ReadKey ().Key;
+            if(rKey == ConsoleKey.Enter)
+            {
+                Actions.changePlanets(planetTravel[selectionTravel - 1]);
+            }
+        }
 
+        public static void PlanetTravel(int planetSel)
+        {
+
+            Console.SetCursorPosition ((Console.WindowWidth - Universe.planetTravel[planetSel].name.Length - 18) / 2, 8);
+
+            Console.WriteLine ($"<----    {planetTravel[planetSel].name}    ---->");
+
+
+            Console.SetCursorPosition (Console.CursorLeft, 14);
+
+            Console.WriteLine("Description: " + planetTravel[planetSel].description);
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ("Inhabitants: " + planetTravel[planetSel].inhabitants);
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ("Travel Distance: ");
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ("Travel Time: ");
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ("Danger Rating: " + planetTravel[planetSel].dangerRating);
+            Console.WriteLine ();
+            Console.WriteLine ();
+            Console.WriteLine ("Product Prices: ");
         }
 
     }

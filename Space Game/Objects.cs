@@ -6,10 +6,11 @@ namespace SpaceGame
 {
     public class Universe
     {
-        public int currentYear = 2023;
+
+        // things to change if adding a new planet: UI.TravelMenu planet array length and add the planet to the list + create planet display function
 
         public static readonly Planet Earth = new Planet ()
-        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth" };
+        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth", description = StoryLine.earthDescription };
         public static readonly Planet ProximaCentauriB = new Planet ()
         { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B" };
         public static readonly Planet Gazorpazorp = new Planet ()
@@ -21,6 +22,8 @@ namespace SpaceGame
         public static readonly Planet GromflomPrime = new Planet ()
         { xLoc = 0, yLoc = 0, inhabitants = "Genetically Engineered Gromflomites", dangerRating = 7.0, name = "Gromflom Prime"};
 
+        public static Planet [] planetTravel = {Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime};
+
         //Possible planet name ideas: 
         //Rick and Morty: Gazopazop, On a Cob Planet, Cronenberg World, Gromflom Prime, Alphabetrium, Pluto, Screaming Sun Earth
         //Futurama: Omicron Persei 8:, V-Giny, Nude Beach Planet, Neutral Planet, Amazonia, Decapod 10
@@ -30,6 +33,7 @@ namespace SpaceGame
     {
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
+        public string description = " ";
     }
 
     public class WarpFactor

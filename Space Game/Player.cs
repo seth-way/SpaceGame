@@ -17,6 +17,7 @@ namespace SpaceGame
         public int totalPassedPirateAttacks = 0;
         public int totalFailedPirateAttacks = 0;
 
+        public int currentYear = 2023;
         // We can create a list of object type for inventory. You are able to get the number of a specific type of object in a list.
         // just have to figure out how to remove and add x amount of a specific object.
         //Probable a for loop, 
