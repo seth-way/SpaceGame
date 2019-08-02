@@ -97,7 +97,7 @@ namespace SpaceGame
             Game.NewPlayer.wallet = double.Parse(tr.ReadLine());
             Game.NewShip.name = tr.ReadLine();
             Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.fuel = double.Parse(tr.ReadLine());
+            Game.NewShip.currentFuel = double.Parse(tr.ReadLine());
             Game.NewShip.fuelPerLightYear = double.Parse(tr.ReadLine());
             Game.NewShip.currentInventory = int.Parse(tr.ReadLine());
             Game.NewShip.maxInventory = int.Parse(tr.ReadLine());
@@ -127,7 +127,7 @@ namespace SpaceGame
             tw.WriteLine(Game.NewPlayer.wallet);
             tw.WriteLine(Game.NewShip.name);
             tw.WriteLine(Game.NewShip.warpFactor);
-            tw.WriteLine(Game.NewShip.fuel);
+            tw.WriteLine(Game.NewShip.currentFuel);
             tw.WriteLine(Game.NewShip.fuelPerLightYear);
             tw.WriteLine(Game.NewShip.currentInventory);
             tw.WriteLine(Game.NewShip.maxInventory);
