@@ -1,38 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SpaceGame
 {
     public class MiniGame
     {
-        public Random randNum = new Random ();
-        public bool gameFinish = false;
-        static void Main (string [] args)
+        public Random randNum = new Random();
+        public void Minigame()
         {
-            bool traveling = true;
-        }
-        public void Minigame (bool traveling)
-        {
-            bool pirateAttack = false;
-
-            int x = randNum.Next (1 - 100);
+            int x = randNum.Next(1 - 100);
 
             if (x > 70)
             {
-                Game ();
+                PirateGame();
             }
-
         }
 
-
-        void Game ()
+        public void PirateGame()
         {
+            List<Enemy> enemyList = new List<Enemy>();
+            List<Bullet> bulletList = new List<Bullet>();
 
-            int yRand = randNum.Next (Console.BufferHeight - 1);
+            bool gameFinish = false;
             int lives = 3;
             int enemyCreateCounter = 0;
-            int enemyMoveCounter = 0;
+            int enemyMoveCounter = 1;
             int enemyNumberCounter = 0;
             int shotcounter = 0;
             bool? winGame = null;
@@ -41,22 +33,38 @@ namespace SpaceGame
 
             while (gameFinish == false)
             {
+                DrawMiniGame(playerXCursor, playerYCursor, enemyList, bulletList);
+                int yRand = randNum.Next(Console.BufferHeight - 1);
+                ConsoleKey rKey = Console.ReadKey().Key;
+                if (rKey == ConsoleKey.LeftArrow) { playerXCursor--; }
+                if (rKey == ConsoleKey.RightArrow) { playerXCursor++; }
+                if (rKey == ConsoleKey.UpArrow) { playerYCursor--; }
+                if (rKey == ConsoleKey.DownArrow) { playerYCursor++; }
 
-                //if (IsKeyAvailable.DownArrow) { playerYCursor--; }
-                //etc.
-                for (int i = 0; i == 2; i++)
+                if (enemyMoveCounter == 0)
                 {
+                    foreach (Enemy a in enemyList)
+                    {
+                        a.enemyXCursor--;
 
-                    //enemy#XCursor--;
-                    //i = 0;
+                        if (playerYCursor == a.enemyYCursor && playerXCursor == a.enemyXCursor)
+                        {
+                            winGame = false;
+                            gameFinish = true;
+                            lives--;
+                            playerYCursor = Console.BufferHeight / 2;
+                            playerXCursor = 0;
+                            enemyList.RemoveRange(0, enemyList.Count);
+                            bulletList.RemoveRange(0, bulletList.Count);
+                            enemyCreateCounter = 1;
+                            enemyMoveCounter = 2;
+                            enemyNumberCounter = 1;
+                            shotcounter = 1;
+
+                            DrawMiniGame(playerXCursor, playerYCursor, enemyList, bulletList);
+                        }
+                    }
                 }
-                //if (playerYCursor == enemyYCursor && playerXCursor == enemyXCursor)
-                //   {
-                //    winGame = false;
-                //    gameFinish = true;
-                //    lives--;
-                //}
-
 
                 if (playerYCursor == Console.BufferWidth - 1)
                 {
@@ -64,54 +72,43 @@ namespace SpaceGame
                     gameFinish = true;
                 }
 
-                //if (winGame == true)
-                //{
-                //    NewPlayer.wallet += randomNum (15 - 1000)
-                //        }
-                //else if (winGame == false)
-                //{
-                //    NewPlayer.wallet -= randomNum (15 - 1000);
-                //}
+                if (winGame == true)
+                {
+                    Game.NewPlayer.wallet += randNum.Next(1000);
+                    winGame = null;
+                }
+                else if (winGame == false)
+                {
+                    Game.NewPlayer.wallet -= randNum.Next(1000);
+                    winGame = null;
+                }
 
-                // Help needed starts here
                 if (enemyCreateCounter == 0)
                 {
-                    //enemy{ enemyNumberCounter} (randNum);
+                    string numb = "enemy" + enemyNumberCounter.ToString();
+                    Activator.CreateInstance(typeof(Enemy), numb);
                     enemyNumberCounter++;
                     enemyCreateCounter = 10;
                 }
-                //class enemy0 : enemy(yRand);
-                //class enemy1 : enemy(yRand)
-                //class enemy2 : enemy(yRand)
-                //class enemy3 : enemy(yRand)
-                //class enemy4 : enemy(yRand)
-                //class enemy5 : enemy(yRand)
-                //class enemy6 : enemy(yRand)
-                //class enemy7 : enemy(yRand)
-                //...
-                if (enemyMoveCounter == 0)
-                {
-                    //foreach (object a in Enemy)
-                    //{
-                    //    enemy#.enemyXCursor--;
-                    //    }
-                    enemyMoveCounter = 2;
-                }
 
-                //similar loop for bullets fired^ except
 
-                if (shotcounter == 0)
-                {
-                    //            if (iskeyavailable.spacebar == true)
-                    //            {
-                    //                int bullet#X = currentX = playerXCursor;
-                    // int bullet#Y = int currentY = playerYCursor;
-                    //setcursorposition (bullet#X,bullet#Y)
-                    //cw ("--");
-                    //                setcursorposition (currentX, currentY)
-                    //                shotcounter = 5;
-                    //            }
-                }
+                //foreach (/*Bullet a in bulletList*/)
+                //{
+                //    bullet#XCursor++;
+                //}
+
+                //if (shotcounter == 0)
+                //{
+                //    if (iskeyavailable.spacebar == true)
+                //    {
+                //        int bullet#X = currentX = playerXCursor;
+                //     int bullet#Y = int currentY = playerYCursor;
+                //    setcursorposition(bullet#X,bullet#Y)
+                //    cw("--");
+                //        setcursorposition(currentX, currentY)
+                //                    shotcounter = 5;
+                //    }
+                //}
 
                 if (shotcounter > 0)
                 {
@@ -126,38 +123,38 @@ namespace SpaceGame
                     enemyMoveCounter--;
                 }
 
-                foreach (/*Bullet a in bulletList*/)
-                {
-                    //bullet#XCursor++;
-                }
-
             }
-        } while (gameFinish == false) ;
-        
+        }
+        public void DrawMiniGame(int playerX, int playerY, List<Enemy> enemyList, List<Bullet> bulletList)
+        {
+            Console.Clear();
+
+            foreach (Enemy a in enemyList)
+            {
+                Console.SetCursorPosition(a.enemyXCursor, a.enemyYCursor);
+                Console.Write("@");
+            }
+            foreach (Bullet a in bulletList)
+            {
+                Console.SetCursorPosition(a.bulletXCursor, a.bulletYCursor);
+                Console.Write("-");
+            }
+
+        }
+
+
+        public class Bullet
+        {
+            public int bulletYCursor;
+            public int bulletXCursor;
+
+        }
+
+        public class Enemy
+        {
+            public int enemyXCursor;
+            public int enemyYCursor;
+        }
     }
-
-    class Bullet
-    {
-        int bulletXCursor;
-        int bulletYCursor;
-
-    }
-
-    class Enemy
-    {
-        int enemyXCursor = Console.BufferWidth - 1;
-        public int enemyYCursor = YCursor;
-    }
-    //void Print (int enemyXCursor, int enemyYCursor)
-    //{
-
-    //    int currentX = Console.CursorLeft;
-    //    int currentY = Console.CursorTop;
-
-    //    Console.SetCursorPosition (enemyXCursor, enemyYCursor);
-    //    Console.Write ('@');
-    //    Console.SetCursorPosition (currentX, currentY);
-
-    //}
 }
-}
+
