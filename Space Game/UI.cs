@@ -158,7 +158,7 @@ namespace SpaceGame
             rKey = Console.ReadKey ().Key;
             if (rKey == ConsoleKey.Enter)
             {
-                Actions.changePlanets (planetTravel [selectionTravel - 1]);
+                Actions.ChangePlanets (planetTravel [selectionTravel - 1]);
             }
         }
 
