@@ -9,7 +9,7 @@ namespace SpaceGame
     public static class EnemyBulletInstance
     {
         public static List<Enemy> eList = new List<Enemy>();
- 
+
         public static Enemy enemy1 = new Enemy();
         public static Enemy enemy2 = new Enemy();
         public static Enemy enemy3 = new Enemy();
@@ -110,713 +110,1304 @@ namespace SpaceGame
         public static Enemy enemy98 = new Enemy();
         public static Enemy enemy99 = new Enemy();
         public static Enemy enemy100 = new Enemy();
+        public static Enemy enemy101 = new Enemy();
+        public static Enemy enemy102 = new Enemy();
+        public static Enemy enemy103 = new Enemy();
+        public static Enemy enemy104 = new Enemy();
+        public static Enemy enemy105 = new Enemy();
+        public static Enemy enemy106 = new Enemy();
+        public static Enemy enemy107 = new Enemy();
+        public static Enemy enemy108 = new Enemy();
+        public static Enemy enemy109 = new Enemy();
+        public static Enemy enemy110 = new Enemy();
+        public static Enemy enemy111 = new Enemy();
+        public static Enemy enemy112 = new Enemy();
+        public static Enemy enemy113 = new Enemy();
+        public static Enemy enemy114 = new Enemy();
+        public static Enemy enemy115 = new Enemy();
+        public static Enemy enemy116 = new Enemy();
+        public static Enemy enemy117 = new Enemy();
+        public static Enemy enemy118 = new Enemy();
+        public static Enemy enemy119 = new Enemy();
+        public static Enemy enemy120 = new Enemy();
+        public static Enemy enemy121 = new Enemy();
+        public static Enemy enemy122 = new Enemy();
+        public static Enemy enemy123 = new Enemy();
+        public static Enemy enemy124 = new Enemy();
+        public static Enemy enemy125 = new Enemy();
+        public static Enemy enemy126 = new Enemy();
+        public static Enemy enemy127 = new Enemy();
+        public static Enemy enemy128 = new Enemy();
+        public static Enemy enemy129 = new Enemy();
+        public static Enemy enemy130 = new Enemy();
+        public static Enemy enemy131 = new Enemy();
+        public static Enemy enemy132 = new Enemy();
+        public static Enemy enemy133 = new Enemy();
+        public static Enemy enemy134 = new Enemy();
+        public static Enemy enemy135 = new Enemy();
+        public static Enemy enemy136 = new Enemy();
+        public static Enemy enemy137 = new Enemy();
+        public static Enemy enemy138 = new Enemy();
+        public static Enemy enemy139 = new Enemy();
+        public static Enemy enemy140 = new Enemy();
+        public static Enemy enemy141 = new Enemy();
+        public static Enemy enemy142 = new Enemy();
+        public static Enemy enemy143 = new Enemy();
+        public static Enemy enemy144 = new Enemy();
+        public static Enemy enemy145 = new Enemy();
+        public static Enemy enemy146 = new Enemy();
+        public static Enemy enemy147 = new Enemy();
+        public static Enemy enemy148 = new Enemy();
+        public static Enemy enemy149 = new Enemy();
+        public static Enemy enemy150 = new Enemy();
+        public static Enemy enemy151 = new Enemy();
+        public static Enemy enemy152 = new Enemy();
+        public static Enemy enemy153 = new Enemy();
+        public static Enemy enemy154 = new Enemy();
+        public static Enemy enemy155 = new Enemy();
+        public static Enemy enemy156 = new Enemy();
+        public static Enemy enemy157 = new Enemy();
+        public static Enemy enemy158 = new Enemy();
+        public static Enemy enemy159 = new Enemy();
+        public static Enemy enemy160 = new Enemy();
+        public static Enemy enemy161 = new Enemy();
+        public static Enemy enemy162 = new Enemy();
+        public static Enemy enemy163 = new Enemy();
+        public static Enemy enemy164 = new Enemy();
+        public static Enemy enemy165 = new Enemy();
+        public static Enemy enemy166 = new Enemy();
+        public static Enemy enemy167 = new Enemy();
+        public static Enemy enemy168 = new Enemy();
+        public static Enemy enemy169 = new Enemy();
+        public static Enemy enemy170 = new Enemy();
+        public static Enemy enemy171 = new Enemy();
+        public static Enemy enemy172 = new Enemy();
+        public static Enemy enemy173 = new Enemy();
+        public static Enemy enemy174 = new Enemy();
+        public static Enemy enemy175 = new Enemy();
+        public static Enemy enemy176 = new Enemy();
+        public static Enemy enemy177 = new Enemy();
+        public static Enemy enemy178 = new Enemy();
+        public static Enemy enemy179 = new Enemy();
+        public static Enemy enemy180 = new Enemy();
+        public static Enemy enemy181 = new Enemy();
+        public static Enemy enemy182 = new Enemy();
+        public static Enemy enemy183 = new Enemy();
+        public static Enemy enemy184 = new Enemy();
+        public static Enemy enemy185 = new Enemy();
+        public static Enemy enemy186 = new Enemy();
+        public static Enemy enemy187 = new Enemy();
+        public static Enemy enemy188 = new Enemy();
+        public static Enemy enemy189 = new Enemy();
+        public static Enemy enemy190 = new Enemy();
+        public static Enemy enemy191 = new Enemy();
+        public static Enemy enemy192 = new Enemy();
+        public static Enemy enemy193 = new Enemy();
+        public static Enemy enemy194 = new Enemy();
+        public static Enemy enemy195 = new Enemy();
+        public static Enemy enemy196 = new Enemy();
+        public static Enemy enemy197 = new Enemy();
+        public static Enemy enemy198 = new Enemy();
+        public static Enemy enemy199 = new Enemy();
+        public static Enemy enemy200 = new Enemy();
+        public static Enemy enemy201 = new Enemy();
+        public static Enemy enemy202 = new Enemy();
+        public static Enemy enemy203 = new Enemy();
+        public static Enemy enemy204 = new Enemy();
+        public static Enemy enemy205 = new Enemy();
+        public static Enemy enemy206 = new Enemy();
+        public static Enemy enemy207 = new Enemy();
+        public static Enemy enemy208 = new Enemy();
+        public static Enemy enemy209 = new Enemy();
+        public static Enemy enemy210 = new Enemy();
+        public static Enemy enemy211 = new Enemy();
+        public static Enemy enemy212 = new Enemy();
+        public static Enemy enemy213 = new Enemy();
+        public static Enemy enemy214 = new Enemy();
+        public static Enemy enemy215 = new Enemy();
+        public static Enemy enemy216 = new Enemy();
+        public static Enemy enemy217 = new Enemy();
+        public static Enemy enemy218 = new Enemy();
+        public static Enemy enemy219 = new Enemy();
+        public static Enemy enemy220 = new Enemy();
+        public static Enemy enemy221 = new Enemy();
+        public static Enemy enemy222 = new Enemy();
+        public static Enemy enemy223 = new Enemy();
+        public static Enemy enemy224 = new Enemy();
+        public static Enemy enemy225 = new Enemy();
+        public static Enemy enemy226 = new Enemy();
+        public static Enemy enemy227 = new Enemy();
+        public static Enemy enemy228 = new Enemy();
+        public static Enemy enemy229 = new Enemy();
+        public static Enemy enemy230 = new Enemy();
+        public static Enemy enemy231 = new Enemy();
+        public static Enemy enemy232 = new Enemy();
+        public static Enemy enemy233 = new Enemy();
+        public static Enemy enemy234 = new Enemy();
+        public static Enemy enemy235 = new Enemy();
+        public static Enemy enemy236 = new Enemy();
+        public static Enemy enemy237 = new Enemy();
+        public static Enemy enemy238 = new Enemy();
+        public static Enemy enemy239 = new Enemy();
+        public static Enemy enemy240 = new Enemy();
+        public static Enemy enemy241 = new Enemy();
+        public static Enemy enemy242 = new Enemy();
+        public static Enemy enemy243 = new Enemy();
+        public static Enemy enemy244 = new Enemy();
+        public static Enemy enemy245 = new Enemy();
+        public static Enemy enemy246 = new Enemy();
+        public static Enemy enemy247 = new Enemy();
+        public static Enemy enemy248 = new Enemy();
+        public static Enemy enemy249 = new Enemy();
+        public static Enemy enemy250 = new Enemy();
+        public static Enemy enemy251 = new Enemy();
+        public static Enemy enemy252 = new Enemy();
+        public static Enemy enemy253 = new Enemy();
+        public static Enemy enemy254 = new Enemy();
+        public static Enemy enemy255 = new Enemy();
+        public static Enemy enemy256 = new Enemy();
+        public static Enemy enemy257 = new Enemy();
+        public static Enemy enemy258 = new Enemy();
+        public static Enemy enemy259 = new Enemy();
+        public static Enemy enemy260 = new Enemy();
+        public static Enemy enemy261 = new Enemy();
+        public static Enemy enemy262 = new Enemy();
+        public static Enemy enemy263 = new Enemy();
+        public static Enemy enemy264 = new Enemy();
+        public static Enemy enemy265 = new Enemy();
+        public static Enemy enemy266 = new Enemy();
+        public static Enemy enemy267 = new Enemy();
+        public static Enemy enemy268 = new Enemy();
+        public static Enemy enemy269 = new Enemy();
+        public static Enemy enemy270 = new Enemy();
+        public static Enemy enemy271 = new Enemy();
+        public static Enemy enemy272 = new Enemy();
+        public static Enemy enemy273 = new Enemy();
+        public static Enemy enemy274 = new Enemy();
+        public static Enemy enemy275 = new Enemy();
+        public static Enemy enemy276 = new Enemy();
+        public static Enemy enemy277 = new Enemy();
+        public static Enemy enemy278 = new Enemy();
+        public static Enemy enemy279 = new Enemy();
+        public static Enemy enemy280 = new Enemy();
+        public static Enemy enemy281 = new Enemy();
+        public static Enemy enemy282 = new Enemy();
+        public static Enemy enemy283 = new Enemy();
+        public static Enemy enemy284 = new Enemy();
+        public static Enemy enemy285 = new Enemy();
+        public static Enemy enemy286 = new Enemy();
+        public static Enemy enemy287 = new Enemy();
+        public static Enemy enemy288 = new Enemy();
+        public static Enemy enemy289 = new Enemy();
+        public static Enemy enemy290 = new Enemy();
+        public static Enemy enemy291 = new Enemy();
+        public static Enemy enemy292 = new Enemy();
+        public static Enemy enemy293 = new Enemy();
+        public static Enemy enemy294 = new Enemy();
+        public static Enemy enemy295 = new Enemy();
+        public static Enemy enemy296 = new Enemy();
+        public static Enemy enemy297 = new Enemy();
+        public static Enemy enemy298 = new Enemy();
+        public static Enemy enemy299 = new Enemy();
+        public static Enemy enemy300 = new Enemy();
+        public static Enemy enemy301 = new Enemy();
+        public static Enemy enemy302 = new Enemy();
+        public static Enemy enemy303 = new Enemy();
+        public static Enemy enemy304 = new Enemy();
+        public static Enemy enemy305 = new Enemy();
+        public static Enemy enemy306 = new Enemy();
+        public static Enemy enemy307 = new Enemy();
+        public static Enemy enemy308 = new Enemy();
+        public static Enemy enemy309 = new Enemy();
+        public static Enemy enemy310 = new Enemy();
+        public static Enemy enemy311 = new Enemy();
+        public static Enemy enemy312 = new Enemy();
+        public static Enemy enemy313 = new Enemy();
+        public static Enemy enemy314 = new Enemy();
+        public static Enemy enemy315 = new Enemy();
+        public static Enemy enemy316 = new Enemy();
+        public static Enemy enemy317 = new Enemy();
+        public static Enemy enemy318 = new Enemy();
+        public static Enemy enemy319 = new Enemy();
+        public static Enemy enemy320 = new Enemy();
+        public static Enemy enemy321 = new Enemy();
+        public static Enemy enemy322 = new Enemy();
+        public static Enemy enemy323 = new Enemy();
+        public static Enemy enemy324 = new Enemy();
+        public static Enemy enemy325 = new Enemy();
+        public static Enemy enemy326 = new Enemy();
+        public static Enemy enemy327 = new Enemy();
+        public static Enemy enemy328 = new Enemy();
+        public static Enemy enemy329 = new Enemy();
+        public static Enemy enemy330 = new Enemy();
+        public static Enemy enemy331 = new Enemy();
+        public static Enemy enemy332 = new Enemy();
+        public static Enemy enemy333 = new Enemy();
+        public static Enemy enemy334 = new Enemy();
+        public static Enemy enemy335 = new Enemy();
+        public static Enemy enemy336 = new Enemy();
+        public static Enemy enemy337 = new Enemy();
+        public static Enemy enemy338 = new Enemy();
+        public static Enemy enemy339 = new Enemy();
+        public static Enemy enemy340 = new Enemy();
+        public static Enemy enemy341 = new Enemy();
+        public static Enemy enemy342 = new Enemy();
+        public static Enemy enemy343 = new Enemy();
+        public static Enemy enemy344 = new Enemy();
+        public static Enemy enemy345 = new Enemy();
+        public static Enemy enemy346 = new Enemy();
+        public static Enemy enemy347 = new Enemy();
+        public static Enemy enemy348 = new Enemy();
+        public static Enemy enemy349 = new Enemy();
+        public static Enemy enemy350 = new Enemy();
+        public static Enemy enemy351 = new Enemy();
+        public static Enemy enemy352 = new Enemy();
+        public static Enemy enemy353 = new Enemy();
+        public static Enemy enemy354 = new Enemy();
+        public static Enemy enemy355 = new Enemy();
+        public static Enemy enemy356 = new Enemy();
+        public static Enemy enemy357 = new Enemy();
+        public static Enemy enemy358 = new Enemy();
+        public static Enemy enemy359 = new Enemy();
+        public static Enemy enemy360 = new Enemy();
+        public static Enemy enemy361 = new Enemy();
+        public static Enemy enemy362 = new Enemy();
+        public static Enemy enemy363 = new Enemy();
+        public static Enemy enemy364 = new Enemy();
+        public static Enemy enemy365 = new Enemy();
+        public static Enemy enemy366 = new Enemy();
+        public static Enemy enemy367 = new Enemy();
+        public static Enemy enemy368 = new Enemy();
+        public static Enemy enemy369 = new Enemy();
+        public static Enemy enemy370 = new Enemy();
+        public static Enemy enemy371 = new Enemy();
+        public static Enemy enemy372 = new Enemy();
+        public static Enemy enemy373 = new Enemy();
+        public static Enemy enemy374 = new Enemy();
+        public static Enemy enemy375 = new Enemy();
+        public static Enemy enemy376 = new Enemy();
+        public static Enemy enemy377 = new Enemy();
+        public static Enemy enemy378 = new Enemy();
+        public static Enemy enemy379 = new Enemy();
+        public static Enemy enemy380 = new Enemy();
+        public static Enemy enemy381 = new Enemy();
+        public static Enemy enemy382 = new Enemy();
+        public static Enemy enemy383 = new Enemy();
+        public static Enemy enemy384 = new Enemy();
+        public static Enemy enemy385 = new Enemy();
+        public static Enemy enemy386 = new Enemy();
+        public static Enemy enemy387 = new Enemy();
+        public static Enemy enemy388 = new Enemy();
+        public static Enemy enemy389 = new Enemy();
+        public static Enemy enemy390 = new Enemy();
+        public static Enemy enemy391 = new Enemy();
+        public static Enemy enemy392 = new Enemy();
+        public static Enemy enemy393 = new Enemy();
+        public static Enemy enemy394 = new Enemy();
+        public static Enemy enemy395 = new Enemy();
+        public static Enemy enemy396 = new Enemy();
+        public static Enemy enemy397 = new Enemy();
+        public static Enemy enemy398 = new Enemy();
+        public static Enemy enemy399 = new Enemy();
+        public static Enemy enemy400 = new Enemy();
+        public static Enemy enemy401 = new Enemy();
+        public static Enemy enemy402 = new Enemy();
+        public static Enemy enemy403 = new Enemy();
+        public static Enemy enemy404 = new Enemy();
+        public static Enemy enemy405 = new Enemy();
+        public static Enemy enemy406 = new Enemy();
+        public static Enemy enemy407 = new Enemy();
+        public static Enemy enemy408 = new Enemy();
+        public static Enemy enemy409 = new Enemy();
+        public static Enemy enemy410 = new Enemy();
+        public static Enemy enemy411 = new Enemy();
+        public static Enemy enemy412 = new Enemy();
+        public static Enemy enemy413 = new Enemy();
+        public static Enemy enemy414 = new Enemy();
+        public static Enemy enemy415 = new Enemy();
+        public static Enemy enemy416 = new Enemy();
+        public static Enemy enemy417 = new Enemy();
+        public static Enemy enemy418 = new Enemy();
+        public static Enemy enemy419 = new Enemy();
+        public static Enemy enemy420 = new Enemy();
+        public static Enemy enemy421 = new Enemy();
+        public static Enemy enemy422 = new Enemy();
+        public static Enemy enemy423 = new Enemy();
+        public static Enemy enemy424 = new Enemy();
+        public static Enemy enemy425 = new Enemy();
+        public static Enemy enemy426 = new Enemy();
+        public static Enemy enemy427 = new Enemy();
+        public static Enemy enemy428 = new Enemy();
+        public static Enemy enemy429 = new Enemy();
+        public static Enemy enemy430 = new Enemy();
+        public static Enemy enemy431 = new Enemy();
+        public static Enemy enemy432 = new Enemy();
+        public static Enemy enemy433 = new Enemy();
+        public static Enemy enemy434 = new Enemy();
+        public static Enemy enemy435 = new Enemy();
+        public static Enemy enemy436 = new Enemy();
+        public static Enemy enemy437 = new Enemy();
+        public static Enemy enemy438 = new Enemy();
+        public static Enemy enemy439 = new Enemy();
+        public static Enemy enemy440 = new Enemy();
+        public static Enemy enemy441 = new Enemy();
+        public static Enemy enemy442 = new Enemy();
+        public static Enemy enemy443 = new Enemy();
+        public static Enemy enemy444 = new Enemy();
+        public static Enemy enemy445 = new Enemy();
+        public static Enemy enemy446 = new Enemy();
+        public static Enemy enemy447 = new Enemy();
+        public static Enemy enemy448 = new Enemy();
+        public static Enemy enemy449 = new Enemy();
+        public static Enemy enemy450 = new Enemy();
+        public static Enemy enemy451 = new Enemy();
+        public static Enemy enemy452 = new Enemy();
+        public static Enemy enemy453 = new Enemy();
+        public static Enemy enemy454 = new Enemy();
+        public static Enemy enemy455 = new Enemy();
+        public static Enemy enemy456 = new Enemy();
+        public static Enemy enemy457 = new Enemy();
+        public static Enemy enemy458 = new Enemy();
+        public static Enemy enemy459 = new Enemy();
+        public static Enemy enemy460 = new Enemy();
+        public static Enemy enemy461 = new Enemy();
+        public static Enemy enemy462 = new Enemy();
+        public static Enemy enemy463 = new Enemy();
+        public static Enemy enemy464 = new Enemy();
+        public static Enemy enemy465 = new Enemy();
+        public static Enemy enemy466 = new Enemy();
+        public static Enemy enemy467 = new Enemy();
+        public static Enemy enemy468 = new Enemy();
+        public static Enemy enemy469 = new Enemy();
+        public static Enemy enemy470 = new Enemy();
+        public static Enemy enemy471 = new Enemy();
+        public static Enemy enemy472 = new Enemy();
+        public static Enemy enemy473 = new Enemy();
+        public static Enemy enemy474 = new Enemy();
+        public static Enemy enemy475 = new Enemy();
+        public static Enemy enemy476 = new Enemy();
+        public static Enemy enemy477 = new Enemy();
+        public static Enemy enemy478 = new Enemy();
+        public static Enemy enemy479 = new Enemy();
+        public static Enemy enemy480 = new Enemy();
+        public static Enemy enemy481 = new Enemy();
+        public static Enemy enemy482 = new Enemy();
+        public static Enemy enemy483 = new Enemy();
+        public static Enemy enemy484 = new Enemy();
+        public static Enemy enemy485 = new Enemy();
+        public static Enemy enemy486 = new Enemy();
+        public static Enemy enemy487 = new Enemy();
+        public static Enemy enemy488 = new Enemy();
+        public static Enemy enemy489 = new Enemy();
+        public static Enemy enemy490 = new Enemy();
+        public static Enemy enemy491 = new Enemy();
+        public static Enemy enemy492 = new Enemy();
+        public static Enemy enemy493 = new Enemy();
+        public static Enemy enemy494 = new Enemy();
+        public static Enemy enemy495 = new Enemy();
+        public static Enemy enemy496 = new Enemy();
+        public static Enemy enemy497 = new Enemy();
+        public static Enemy enemy498 = new Enemy();
+        public static Enemy enemy499 = new Enemy();
+        public static Enemy enemy500 = new Enemy();
+        public static Enemy enemy501 = new Enemy();
+        public static Enemy enemy502 = new Enemy();
+        public static Enemy enemy503 = new Enemy();
+        public static Enemy enemy504 = new Enemy();
+        public static Enemy enemy505 = new Enemy();
+        public static Enemy enemy506 = new Enemy();
+        public static Enemy enemy507 = new Enemy();
+        public static Enemy enemy508 = new Enemy();
+        public static Enemy enemy509 = new Enemy();
+        public static Enemy enemy510 = new Enemy();
+        public static Enemy enemy511 = new Enemy();
+        public static Enemy enemy512 = new Enemy();
+        public static Enemy enemy513 = new Enemy();
+        public static Enemy enemy514 = new Enemy();
+        public static Enemy enemy515 = new Enemy();
+        public static Enemy enemy516 = new Enemy();
+        public static Enemy enemy517 = new Enemy();
+        public static Enemy enemy518 = new Enemy();
+        public static Enemy enemy519 = new Enemy();
+        public static Enemy enemy520 = new Enemy();
+        public static Enemy enemy521 = new Enemy();
+        public static Enemy enemy522 = new Enemy();
+        public static Enemy enemy523 = new Enemy();
+        public static Enemy enemy524 = new Enemy();
+        public static Enemy enemy525 = new Enemy();
+        public static Enemy enemy526 = new Enemy();
+        public static Enemy enemy527 = new Enemy();
+        public static Enemy enemy528 = new Enemy();
+        public static Enemy enemy529 = new Enemy();
+        public static Enemy enemy530 = new Enemy();
+        public static Enemy enemy531 = new Enemy();
+        public static Enemy enemy532 = new Enemy();
+        public static Enemy enemy533 = new Enemy();
+        public static Enemy enemy534 = new Enemy();
+        public static Enemy enemy535 = new Enemy();
+        public static Enemy enemy536 = new Enemy();
+        public static Enemy enemy537 = new Enemy();
+        public static Enemy enemy538 = new Enemy();
+        public static Enemy enemy539 = new Enemy();
+        public static Enemy enemy540 = new Enemy();
+        public static Enemy enemy541 = new Enemy();
+        public static Enemy enemy542 = new Enemy();
+        public static Enemy enemy543 = new Enemy();
+        public static Enemy enemy544 = new Enemy();
+        public static Enemy enemy545 = new Enemy();
+        public static Enemy enemy546 = new Enemy();
+        public static Enemy enemy547 = new Enemy();
+        public static Enemy enemy548 = new Enemy();
+        public static Enemy enemy549 = new Enemy();
+        public static Enemy enemy550 = new Enemy();
+        public static Enemy enemy551 = new Enemy();
+        public static Enemy enemy552 = new Enemy();
+        public static Enemy enemy553 = new Enemy();
+        public static Enemy enemy554 = new Enemy();
+        public static Enemy enemy555 = new Enemy();
+        public static Enemy enemy556 = new Enemy();
+        public static Enemy enemy557 = new Enemy();
+        public static Enemy enemy558 = new Enemy();
+        public static Enemy enemy559 = new Enemy();
+        public static Enemy enemy560 = new Enemy();
+        public static Enemy enemy561 = new Enemy();
+        public static Enemy enemy562 = new Enemy();
+        public static Enemy enemy563 = new Enemy();
+        public static Enemy enemy564 = new Enemy();
+        public static Enemy enemy565 = new Enemy();
+        public static Enemy enemy566 = new Enemy();
+        public static Enemy enemy567 = new Enemy();
+        public static Enemy enemy568 = new Enemy();
+        public static Enemy enemy569 = new Enemy();
+        public static Enemy enemy570 = new Enemy();
+        public static Enemy enemy571 = new Enemy();
+        public static Enemy enemy572 = new Enemy();
+        public static Enemy enemy573 = new Enemy();
+        public static Enemy enemy574 = new Enemy();
+        public static Enemy enemy575 = new Enemy();
+        public static Enemy enemy576 = new Enemy();
+        public static Enemy enemy577 = new Enemy();
+        public static Enemy enemy578 = new Enemy();
+        public static Enemy enemy579 = new Enemy();
+        public static Enemy enemy580 = new Enemy();
+        public static Enemy enemy581 = new Enemy();
+        public static Enemy enemy582 = new Enemy();
+        public static Enemy enemy583 = new Enemy();
+        public static Enemy enemy584 = new Enemy();
+        public static Enemy enemy585 = new Enemy();
+        public static Enemy enemy586 = new Enemy();
+        public static Enemy enemy587 = new Enemy();
+        public static Enemy enemy588 = new Enemy();
+        public static Enemy enemy589 = new Enemy();
+        public static Enemy enemy590 = new Enemy();
+        public static Enemy enemy591 = new Enemy();
+        public static Enemy enemy592 = new Enemy();
+        public static Enemy enemy593 = new Enemy();
+        public static Enemy enemy594 = new Enemy();
+        public static Enemy enemy595 = new Enemy();
+        public static Enemy enemy596 = new Enemy();
+        public static Enemy enemy597 = new Enemy();
+        public static Enemy enemy598 = new Enemy();
+        public static Enemy enemy599 = new Enemy();
+        public static Enemy enemy600 = new Enemy();
+        public static Enemy enemy601 = new Enemy();
+        public static Enemy enemy602 = new Enemy();
+        public static Enemy enemy603 = new Enemy();
+        public static Enemy enemy604 = new Enemy();
+        public static Enemy enemy605 = new Enemy();
+        public static Enemy enemy606 = new Enemy();
+        public static Enemy enemy607 = new Enemy();
+        public static Enemy enemy608 = new Enemy();
+        public static Enemy enemy609 = new Enemy();
+        public static Enemy enemy610 = new Enemy();
+        public static Enemy enemy611 = new Enemy();
+        public static Enemy enemy612 = new Enemy();
+        public static Enemy enemy613 = new Enemy();
+        public static Enemy enemy614 = new Enemy();
+        public static Enemy enemy615 = new Enemy();
+        public static Enemy enemy616 = new Enemy();
+        public static Enemy enemy617 = new Enemy();
+        public static Enemy enemy618 = new Enemy();
+        public static Enemy enemy619 = new Enemy();
+        public static Enemy enemy620 = new Enemy();
+        public static Enemy enemy621 = new Enemy();
+        public static Enemy enemy622 = new Enemy();
+        public static Enemy enemy623 = new Enemy();
+        public static Enemy enemy624 = new Enemy();
+        public static Enemy enemy625 = new Enemy();
+        public static Enemy enemy626 = new Enemy();
+        public static Enemy enemy627 = new Enemy();
+        public static Enemy enemy628 = new Enemy();
+        public static Enemy enemy629 = new Enemy();
+        public static Enemy enemy630 = new Enemy();
+        public static Enemy enemy631 = new Enemy();
+        public static Enemy enemy632 = new Enemy();
+        public static Enemy enemy633 = new Enemy();
+        public static Enemy enemy634 = new Enemy();
+        public static Enemy enemy635 = new Enemy();
+        public static Enemy enemy636 = new Enemy();
+        public static Enemy enemy637 = new Enemy();
+        public static Enemy enemy638 = new Enemy();
+        public static Enemy enemy639 = new Enemy();
+        public static Enemy enemy640 = new Enemy();
+        public static Enemy enemy641 = new Enemy();
+        public static Enemy enemy642 = new Enemy();
+        public static Enemy enemy643 = new Enemy();
+        public static Enemy enemy644 = new Enemy();
+        public static Enemy enemy645 = new Enemy();
+        public static Enemy enemy646 = new Enemy();
+        public static Enemy enemy647 = new Enemy();
+        public static Enemy enemy648 = new Enemy();
+        public static Enemy enemy649 = new Enemy();
+        public static Enemy enemy650 = new Enemy();
+        public static Enemy enemy651 = new Enemy();
+        public static Enemy enemy652 = new Enemy();
+        public static Enemy enemy653 = new Enemy();
+        public static Enemy enemy654 = new Enemy();
+        public static Enemy enemy655 = new Enemy();
+        public static Enemy enemy656 = new Enemy();
+        public static Enemy enemy657 = new Enemy();
+        public static Enemy enemy658 = new Enemy();
+        public static Enemy enemy659 = new Enemy();
+        public static Enemy enemy660 = new Enemy();
+        public static Enemy enemy661 = new Enemy();
+        public static Enemy enemy662 = new Enemy();
+        public static Enemy enemy663 = new Enemy();
+        public static Enemy enemy664 = new Enemy();
+        public static Enemy enemy665 = new Enemy();
+        public static Enemy enemy666 = new Enemy();
+        public static Enemy enemy667 = new Enemy();
+        public static Enemy enemy668 = new Enemy();
+        public static Enemy enemy669 = new Enemy();
+        public static Enemy enemy670 = new Enemy();
+        public static Enemy enemy671 = new Enemy();
+        public static Enemy enemy672 = new Enemy();
+        public static Enemy enemy673 = new Enemy();
+        public static Enemy enemy674 = new Enemy();
+        public static Enemy enemy675 = new Enemy();
+        public static Enemy enemy676 = new Enemy();
+        public static Enemy enemy677 = new Enemy();
+        public static Enemy enemy678 = new Enemy();
+        public static Enemy enemy679 = new Enemy();
+        public static Enemy enemy680 = new Enemy();
+        public static Enemy enemy681 = new Enemy();
+        public static Enemy enemy682 = new Enemy();
+        public static Enemy enemy683 = new Enemy();
+        public static Enemy enemy684 = new Enemy();
+        public static Enemy enemy685 = new Enemy();
+        public static Enemy enemy686 = new Enemy();
+        public static Enemy enemy687 = new Enemy();
+        public static Enemy enemy688 = new Enemy();
+        public static Enemy enemy689 = new Enemy();
+        public static Enemy enemy690 = new Enemy();
+        public static Enemy enemy691 = new Enemy();
+        public static Enemy enemy692 = new Enemy();
+        public static Enemy enemy693 = new Enemy();
+        public static Enemy enemy694 = new Enemy();
+        public static Enemy enemy695 = new Enemy();
+        public static Enemy enemy696 = new Enemy();
+        public static Enemy enemy697 = new Enemy();
+
         public static void AddList()
         {
-           eList.Add(enemy1 );
-           eList.Add(enemy2 );
-           eList.Add(enemy3 );
-           eList.Add(enemy4 );
-           eList.Add(enemy5 );
-           eList.Add(enemy6 );
-           eList.Add(enemy7 );
-           eList.Add(enemy8 );
-           eList.Add(enemy9 );
-           eList.Add(enemy10);
-           eList.Add(enemy11);
-           eList.Add(enemy12);
-           eList.Add(enemy13);
-           eList.Add(enemy14);
-           eList.Add(enemy15);
-           eList.Add(enemy16);
-           eList.Add(enemy17);
-           eList.Add(enemy18);
-           eList.Add(enemy19);
-           eList.Add(enemy20);
-           eList.Add(enemy21);
-           eList.Add(enemy22);
-           eList.Add(enemy23);
-           eList.Add(enemy24);
-           eList.Add(enemy25);
-           eList.Add(enemy26);
-           eList.Add(enemy27);
-           eList.Add(enemy28);
-           eList.Add(enemy29);
-           eList.Add(enemy30);
-           eList.Add(enemy31);
-           eList.Add(enemy32);
-           eList.Add(enemy33);
-           eList.Add(enemy34);
-           eList.Add(enemy35);
-           eList.Add(enemy36);
-           eList.Add(enemy37);
-           eList.Add(enemy38);
-           eList.Add(enemy39);
-           eList.Add(enemy40);
-           eList.Add(enemy41);
-           eList.Add(enemy42);
-           eList.Add(enemy43);
-           eList.Add(enemy44);
-           eList.Add(enemy45);
-           eList.Add(enemy46);
-           eList.Add(enemy47);
-           eList.Add(enemy48);
-           eList.Add(enemy49);
-           eList.Add(enemy50);
-           eList.Add(enemy51);
-           eList.Add(enemy52);
-           eList.Add(enemy53);
-           eList.Add(enemy54);
-           eList.Add(enemy55);
-           eList.Add(enemy56);
-           eList.Add(enemy57);
-           eList.Add(enemy58);
-           eList.Add(enemy59);
-           eList.Add(enemy60);
-           eList.Add(enemy61);
-           eList.Add(enemy62);
-           eList.Add(enemy63);
-           eList.Add(enemy64);
-           eList.Add(enemy65);
-           eList.Add(enemy66);
-           eList.Add(enemy67);
-           eList.Add(enemy68);
-           eList.Add(enemy69);
-           eList.Add(enemy70);
-           eList.Add(enemy71);
-           eList.Add(enemy72);
-           eList.Add(enemy73);
-           eList.Add(enemy74);
-           eList.Add(enemy75);
-           eList.Add(enemy76);
-           eList.Add(enemy77);
-           eList.Add(enemy78);
-           eList.Add(enemy79);
-           eList.Add(enemy80);
-           eList.Add(enemy81);
-           eList.Add(enemy82);
-           eList.Add(enemy83);
-           eList.Add(enemy84);
-           eList.Add(enemy85);
-           eList.Add(enemy86);
-           eList.Add(enemy87);
-           eList.Add(enemy88);
-           eList.Add(enemy89);
-           eList.Add(enemy90);
-           eList.Add(enemy91);
-           eList.Add(enemy92);
-           eList.Add(enemy93);
-           eList.Add(enemy94);
-           eList.Add(enemy95);
-           eList.Add(enemy96);
-           eList.Add(enemy97);
-           eList.Add(enemy98);
-           eList.Add(enemy99);
-           eList.Add(enemy100);
+            eList.Add(enemy1);
+            eList.Add(enemy2);
+            eList.Add(enemy3);
+            eList.Add(enemy4);
+            eList.Add(enemy5);
+            eList.Add(enemy6);
+            eList.Add(enemy7);
+            eList.Add(enemy8);
+            eList.Add(enemy9);
+            eList.Add(enemy10);
+            eList.Add(enemy11);
+            eList.Add(enemy12);
+            eList.Add(enemy13);
+            eList.Add(enemy14);
+            eList.Add(enemy15);
+            eList.Add(enemy16);
+            eList.Add(enemy17);
+            eList.Add(enemy18);
+            eList.Add(enemy19);
+            eList.Add(enemy20);
+            eList.Add(enemy21);
+            eList.Add(enemy22);
+            eList.Add(enemy23);
+            eList.Add(enemy24);
+            eList.Add(enemy25);
+            eList.Add(enemy26);
+            eList.Add(enemy27);
+            eList.Add(enemy28);
+            eList.Add(enemy29);
+            eList.Add(enemy30);
+            eList.Add(enemy31);
+            eList.Add(enemy32);
+            eList.Add(enemy33);
+            eList.Add(enemy34);
+            eList.Add(enemy35);
+            eList.Add(enemy36);
+            eList.Add(enemy37);
+            eList.Add(enemy38);
+            eList.Add(enemy39);
+            eList.Add(enemy40);
+            eList.Add(enemy41);
+            eList.Add(enemy42);
+            eList.Add(enemy43);
+            eList.Add(enemy44);
+            eList.Add(enemy45);
+            eList.Add(enemy46);
+            eList.Add(enemy47);
+            eList.Add(enemy48);
+            eList.Add(enemy49);
+            eList.Add(enemy50);
+            eList.Add(enemy51);
+            eList.Add(enemy52);
+            eList.Add(enemy53);
+            eList.Add(enemy54);
+            eList.Add(enemy55);
+            eList.Add(enemy56);
+            eList.Add(enemy57);
+            eList.Add(enemy58);
+            eList.Add(enemy59);
+            eList.Add(enemy60);
+            eList.Add(enemy61);
+            eList.Add(enemy62);
+            eList.Add(enemy63);
+            eList.Add(enemy64);
+            eList.Add(enemy65);
+            eList.Add(enemy66);
+            eList.Add(enemy67);
+            eList.Add(enemy68);
+            eList.Add(enemy69);
+            eList.Add(enemy70);
+            eList.Add(enemy71);
+            eList.Add(enemy72);
+            eList.Add(enemy73);
+            eList.Add(enemy74);
+            eList.Add(enemy75);
+            eList.Add(enemy76);
+            eList.Add(enemy77);
+            eList.Add(enemy78);
+            eList.Add(enemy79);
+            eList.Add(enemy80);
+            eList.Add(enemy81);
+            eList.Add(enemy82);
+            eList.Add(enemy83);
+            eList.Add(enemy84);
+            eList.Add(enemy85);
+            eList.Add(enemy86);
+            eList.Add(enemy87);
+            eList.Add(enemy88);
+            eList.Add(enemy89);
+            eList.Add(enemy90);
+            eList.Add(enemy91);
+            eList.Add(enemy92);
+            eList.Add(enemy93);
+            eList.Add(enemy94);
+            eList.Add(enemy95);
+            eList.Add(enemy96);
+            eList.Add(enemy97);
+            eList.Add(enemy98);
+            eList.Add(enemy99);
+            eList.Add(enemy100);
+           eList.Add(enemy101);
+           eList.Add(enemy102);
+           eList.Add(enemy103);
+           eList.Add(enemy104);
+           eList.Add(enemy105);
+           eList.Add(enemy106);
+           eList.Add(enemy107);
+           eList.Add(enemy108);
+           eList.Add(enemy109);
+           eList.Add(enemy110);
+           eList.Add(enemy111);
+           eList.Add(enemy112);
+           eList.Add(enemy113);
+           eList.Add(enemy114);
+           eList.Add(enemy115);
+           eList.Add(enemy116);
+           eList.Add(enemy117);
+           eList.Add(enemy118);
+           eList.Add(enemy119);
+           eList.Add(enemy120);
+           eList.Add(enemy121);
+           eList.Add(enemy122);
+           eList.Add(enemy123);
+           eList.Add(enemy124);
+           eList.Add(enemy125);
+           eList.Add(enemy126);
+           eList.Add(enemy127);
+           eList.Add(enemy128);
+           eList.Add(enemy129);
+           eList.Add(enemy130);
+           eList.Add(enemy131);
+           eList.Add(enemy132);
+           eList.Add(enemy133);
+           eList.Add(enemy134);
+           eList.Add(enemy135);
+           eList.Add(enemy136);
+           eList.Add(enemy137);
+           eList.Add(enemy138);
+           eList.Add(enemy139);
+           eList.Add(enemy140);
+           eList.Add(enemy141);
+           eList.Add(enemy142);
+           eList.Add(enemy143);
+           eList.Add(enemy144);
+           eList.Add(enemy145);
+           eList.Add(enemy146);
+           eList.Add(enemy147);
+           eList.Add(enemy148);
+           eList.Add(enemy149);
+           eList.Add(enemy150);
+           eList.Add(enemy151);
+           eList.Add(enemy152);
+           eList.Add(enemy153);
+           eList.Add(enemy154);
+           eList.Add(enemy155);
+           eList.Add(enemy156);
+           eList.Add(enemy157);
+           eList.Add(enemy158);
+           eList.Add(enemy159);
+           eList.Add(enemy160);
+           eList.Add(enemy161);
+           eList.Add(enemy162);
+           eList.Add(enemy163);
+           eList.Add(enemy164);
+           eList.Add(enemy165);
+           eList.Add(enemy166);
+           eList.Add(enemy167);
+           eList.Add(enemy168);
+           eList.Add(enemy169);
+           eList.Add(enemy170);
+           eList.Add(enemy171);
+           eList.Add(enemy172);
+           eList.Add(enemy173);
+           eList.Add(enemy174);
+           eList.Add(enemy175);
+           eList.Add(enemy176);
+           eList.Add(enemy177);
+           eList.Add(enemy178);
+           eList.Add(enemy179);
+           eList.Add(enemy180);
+           eList.Add(enemy181);
+           eList.Add(enemy182);
+           eList.Add(enemy183);
+           eList.Add(enemy184);
+           eList.Add(enemy185);
+           eList.Add(enemy186);
+           eList.Add(enemy187);
+           eList.Add(enemy188);
+           eList.Add(enemy189);
+           eList.Add(enemy190);
+           eList.Add(enemy191);
+           eList.Add(enemy192);
+           eList.Add(enemy193);
+           eList.Add(enemy194);
+           eList.Add(enemy195);
+           eList.Add(enemy196);
+           eList.Add(enemy197);
+           eList.Add(enemy198);
+           eList.Add(enemy199);
+           eList.Add(enemy200);
+           eList.Add(enemy201);
+           eList.Add(enemy202);
+           eList.Add(enemy203);
+           eList.Add(enemy204);
+           eList.Add(enemy205);
+           eList.Add(enemy206);
+           eList.Add(enemy207);
+           eList.Add(enemy208);
+           eList.Add(enemy209);
+           eList.Add(enemy210);
+           eList.Add(enemy211);
+           eList.Add(enemy212);
+           eList.Add(enemy213);
+           eList.Add(enemy214);
+           eList.Add(enemy215);
+           eList.Add(enemy216);
+           eList.Add(enemy217);
+           eList.Add(enemy218);
+           eList.Add(enemy219);
+           eList.Add(enemy220);
+           eList.Add(enemy221);
+           eList.Add(enemy222);
+           eList.Add(enemy223);
+           eList.Add(enemy224);
+           eList.Add(enemy225);
+           eList.Add(enemy226);
+           eList.Add(enemy227);
+           eList.Add(enemy228);
+           eList.Add(enemy229);
+           eList.Add(enemy230);
+           eList.Add(enemy231);
+           eList.Add(enemy232);
+           eList.Add(enemy233);
+           eList.Add(enemy234);
+           eList.Add(enemy235);
+           eList.Add(enemy236);
+           eList.Add(enemy237);
+           eList.Add(enemy238);
+           eList.Add(enemy239);
+           eList.Add(enemy240);
+           eList.Add(enemy241);
+           eList.Add(enemy242);
+           eList.Add(enemy243);
+           eList.Add(enemy244);
+           eList.Add(enemy245);
+           eList.Add(enemy246);
+           eList.Add(enemy247);
+           eList.Add(enemy248);
+           eList.Add(enemy249);
+           eList.Add(enemy250);
+           eList.Add(enemy251);
+           eList.Add(enemy252);
+           eList.Add(enemy253);
+           eList.Add(enemy254);
+           eList.Add(enemy255);
+           eList.Add(enemy256);
+           eList.Add(enemy257);
+           eList.Add(enemy258);
+           eList.Add(enemy259);
+           eList.Add(enemy260);
+           eList.Add(enemy261);
+           eList.Add(enemy262);
+           eList.Add(enemy263);
+           eList.Add(enemy264);
+           eList.Add(enemy265);
+           eList.Add(enemy266);
+           eList.Add(enemy267);
+           eList.Add(enemy268);
+           eList.Add(enemy269);
+           eList.Add(enemy270);
+           eList.Add(enemy271);
+           eList.Add(enemy272);
+           eList.Add(enemy273);
+           eList.Add(enemy274);
+           eList.Add(enemy275);
+           eList.Add(enemy276);
+           eList.Add(enemy277);
+           eList.Add(enemy278);
+           eList.Add(enemy279);
+           eList.Add(enemy280);
+           eList.Add(enemy281);
+           eList.Add(enemy282);
+           eList.Add(enemy283);
+           eList.Add(enemy284);
+           eList.Add(enemy285);
+           eList.Add(enemy286);
+           eList.Add(enemy287);
+           eList.Add(enemy288);
+           eList.Add(enemy289);
+           eList.Add(enemy290);
+           eList.Add(enemy291);
+           eList.Add(enemy292);
+           eList.Add(enemy293);
+           eList.Add(enemy294);
+           eList.Add(enemy295);
+           eList.Add(enemy296);
+           eList.Add(enemy297);
+           eList.Add(enemy298);
+           eList.Add(enemy299);
+           eList.Add(enemy300);
+           eList.Add(enemy301);
+           eList.Add(enemy302);
+           eList.Add(enemy303);
+           eList.Add(enemy304);
+           eList.Add(enemy305);
+           eList.Add(enemy306);
+           eList.Add(enemy307);
+           eList.Add(enemy308);
+           eList.Add(enemy309);
+           eList.Add(enemy310);
+           eList.Add(enemy311);
+           eList.Add(enemy312);
+           eList.Add(enemy313);
+           eList.Add(enemy314);
+           eList.Add(enemy315);
+           eList.Add(enemy316);
+           eList.Add(enemy317);
+           eList.Add(enemy318);
+           eList.Add(enemy319);
+           eList.Add(enemy320);
+           eList.Add(enemy321);
+           eList.Add(enemy322);
+           eList.Add(enemy323);
+           eList.Add(enemy324);
+           eList.Add(enemy325);
+           eList.Add(enemy326);
+           eList.Add(enemy327);
+           eList.Add(enemy328);
+           eList.Add(enemy329);
+           eList.Add(enemy330);
+           eList.Add(enemy331);
+           eList.Add(enemy332);
+           eList.Add(enemy333);
+           eList.Add(enemy334);
+           eList.Add(enemy335);
+           eList.Add(enemy336);
+           eList.Add(enemy337);
+           eList.Add(enemy338);
+           eList.Add(enemy339);
+           eList.Add(enemy340);
+           eList.Add(enemy341);
+           eList.Add(enemy342);
+           eList.Add(enemy343);
+           eList.Add(enemy344);
+           eList.Add(enemy345);
+           eList.Add(enemy346);
+           eList.Add(enemy347);
+           eList.Add(enemy348);
+           eList.Add(enemy349);
+           eList.Add(enemy350);
+           eList.Add(enemy351);
+           eList.Add(enemy352);
+           eList.Add(enemy353);
+           eList.Add(enemy354);
+           eList.Add(enemy355);
+           eList.Add(enemy356);
+           eList.Add(enemy357);
+           eList.Add(enemy358);
+           eList.Add(enemy359);
+           eList.Add(enemy360);
+           eList.Add(enemy361);
+           eList.Add(enemy362);
+           eList.Add(enemy363);
+           eList.Add(enemy364);
+           eList.Add(enemy365);
+           eList.Add(enemy366);
+           eList.Add(enemy367);
+           eList.Add(enemy368);
+           eList.Add(enemy369);
+           eList.Add(enemy370);
+           eList.Add(enemy371);
+           eList.Add(enemy372);
+           eList.Add(enemy373);
+           eList.Add(enemy374);
+           eList.Add(enemy375);
+           eList.Add(enemy376);
+           eList.Add(enemy377);
+           eList.Add(enemy378);
+           eList.Add(enemy379);
+           eList.Add(enemy380);
+           eList.Add(enemy381);
+           eList.Add(enemy382);
+           eList.Add(enemy383);
+           eList.Add(enemy384);
+           eList.Add(enemy385);
+           eList.Add(enemy386);
+           eList.Add(enemy387);
+           eList.Add(enemy388);
+           eList.Add(enemy389);
+           eList.Add(enemy390);
+           eList.Add(enemy391);
+           eList.Add(enemy392);
+           eList.Add(enemy393);
+           eList.Add(enemy394);
+           eList.Add(enemy395);
+           eList.Add(enemy396);
+           eList.Add(enemy397);
+           eList.Add(enemy398);
+           eList.Add(enemy399);
+           eList.Add(enemy400);
+           eList.Add(enemy401);
+           eList.Add(enemy402);
+           eList.Add(enemy403);
+           eList.Add(enemy404);
+           eList.Add(enemy405);
+           eList.Add(enemy406);
+           eList.Add(enemy407);
+           eList.Add(enemy408);
+           eList.Add(enemy409);
+           eList.Add(enemy410);
+           eList.Add(enemy411);
+           eList.Add(enemy412);
+           eList.Add(enemy413);
+           eList.Add(enemy414);
+           eList.Add(enemy415);
+           eList.Add(enemy416);
+           eList.Add(enemy417);
+           eList.Add(enemy418);
+           eList.Add(enemy419);
+           eList.Add(enemy420);
+           eList.Add(enemy421);
+           eList.Add(enemy422);
+           eList.Add(enemy423);
+           eList.Add(enemy424);
+           eList.Add(enemy425);
+           eList.Add(enemy426);
+           eList.Add(enemy427);
+           eList.Add(enemy428);
+           eList.Add(enemy429);
+           eList.Add(enemy430);
+           eList.Add(enemy431);
+           eList.Add(enemy432);
+           eList.Add(enemy433);
+           eList.Add(enemy434);
+           eList.Add(enemy435);
+           eList.Add(enemy436);
+           eList.Add(enemy437);
+           eList.Add(enemy438);
+           eList.Add(enemy439);
+           eList.Add(enemy440);
+           eList.Add(enemy441);
+           eList.Add(enemy442);
+           eList.Add(enemy443);
+           eList.Add(enemy444);
+           eList.Add(enemy445);
+           eList.Add(enemy446);
+           eList.Add(enemy447);
+           eList.Add(enemy448);
+           eList.Add(enemy449);
+           eList.Add(enemy450);
+           eList.Add(enemy451);
+           eList.Add(enemy452);
+           eList.Add(enemy453);
+           eList.Add(enemy454);
+           eList.Add(enemy455);
+           eList.Add(enemy456);
+           eList.Add(enemy457);
+           eList.Add(enemy458);
+           eList.Add(enemy459);
+           eList.Add(enemy460);
+           eList.Add(enemy461);
+           eList.Add(enemy462);
+           eList.Add(enemy463);
+           eList.Add(enemy464);
+           eList.Add(enemy465);
+           eList.Add(enemy466);
+           eList.Add(enemy467);
+           eList.Add(enemy468);
+           eList.Add(enemy469);
+           eList.Add(enemy470);
+           eList.Add(enemy471);
+           eList.Add(enemy472);
+           eList.Add(enemy473);
+           eList.Add(enemy474);
+           eList.Add(enemy475);
+           eList.Add(enemy476);
+           eList.Add(enemy477);
+           eList.Add(enemy478);
+           eList.Add(enemy479);
+           eList.Add(enemy480);
+           eList.Add(enemy481);
+           eList.Add(enemy482);
+           eList.Add(enemy483);
+           eList.Add(enemy484);
+           eList.Add(enemy485);
+           eList.Add(enemy486);
+           eList.Add(enemy487);
+           eList.Add(enemy488);
+           eList.Add(enemy489);
+           eList.Add(enemy490);
+           eList.Add(enemy491);
+           eList.Add(enemy492);
+           eList.Add(enemy493);
+           eList.Add(enemy494);
+           eList.Add(enemy495);
+           eList.Add(enemy496);
+           eList.Add(enemy497);
+           eList.Add(enemy498);
+           eList.Add(enemy499);
+           eList.Add(enemy500);
+           eList.Add(enemy501);
+           eList.Add(enemy502);
+           eList.Add(enemy503);
+           eList.Add(enemy504);
+           eList.Add(enemy505);
+           eList.Add(enemy506);
+           eList.Add(enemy507);
+           eList.Add(enemy508);
+           eList.Add(enemy509);
+           eList.Add(enemy510);
+           eList.Add(enemy511);
+           eList.Add(enemy512);
+           eList.Add(enemy513);
+           eList.Add(enemy514);
+           eList.Add(enemy515);
+           eList.Add(enemy516);
+           eList.Add(enemy517);
+           eList.Add(enemy518);
+           eList.Add(enemy519);
+           eList.Add(enemy520);
+           eList.Add(enemy521);
+           eList.Add(enemy522);
+           eList.Add(enemy523);
+           eList.Add(enemy524);
+           eList.Add(enemy525);
+           eList.Add(enemy526);
+           eList.Add(enemy527);
+           eList.Add(enemy528);
+           eList.Add(enemy529);
+           eList.Add(enemy530);
+           eList.Add(enemy531);
+           eList.Add(enemy532);
+           eList.Add(enemy533);
+           eList.Add(enemy534);
+           eList.Add(enemy535);
+           eList.Add(enemy536);
+           eList.Add(enemy537);
+           eList.Add(enemy538);
+           eList.Add(enemy539);
+           eList.Add(enemy540);
+           eList.Add(enemy541);
+           eList.Add(enemy542);
+           eList.Add(enemy543);
+           eList.Add(enemy544);
+           eList.Add(enemy545);
+           eList.Add(enemy546);
+           eList.Add(enemy547);
+           eList.Add(enemy548);
+           eList.Add(enemy549);
+           eList.Add(enemy550);
+           eList.Add(enemy551);
+           eList.Add(enemy552);
+           eList.Add(enemy553);
+           eList.Add(enemy554);
+           eList.Add(enemy555);
+           eList.Add(enemy556);
+           eList.Add(enemy557);
+           eList.Add(enemy558);
+           eList.Add(enemy559);
+           eList.Add(enemy560);
+           eList.Add(enemy561);
+           eList.Add(enemy562);
+           eList.Add(enemy563);
+           eList.Add(enemy564);
+           eList.Add(enemy565);
+           eList.Add(enemy566);
+           eList.Add(enemy567);
+           eList.Add(enemy568);
+           eList.Add(enemy569);
+           eList.Add(enemy570);
+           eList.Add(enemy571);
+           eList.Add(enemy572);
+           eList.Add(enemy573);
+           eList.Add(enemy574);
+           eList.Add(enemy575);
+           eList.Add(enemy576);
+           eList.Add(enemy577);
+           eList.Add(enemy578);
+           eList.Add(enemy579);
+           eList.Add(enemy580);
+           eList.Add(enemy581);
+           eList.Add(enemy582);
+           eList.Add(enemy583);
+           eList.Add(enemy584);
+           eList.Add(enemy585);
+           eList.Add(enemy586);
+           eList.Add(enemy587);
+           eList.Add(enemy588);
+           eList.Add(enemy589);
+           eList.Add(enemy590);
+           eList.Add(enemy591);
+           eList.Add(enemy592);
+           eList.Add(enemy593);
+           eList.Add(enemy594);
+           eList.Add(enemy595);
+           eList.Add(enemy596);
+           eList.Add(enemy597);
+           eList.Add(enemy598);
+           eList.Add(enemy599);
+           eList.Add(enemy600);
+           eList.Add(enemy601);
+           eList.Add(enemy602);
+           eList.Add(enemy603);
+           eList.Add(enemy604);
+           eList.Add(enemy605);
+           eList.Add(enemy606);
+           eList.Add(enemy607);
+           eList.Add(enemy608);
+           eList.Add(enemy609);
+           eList.Add(enemy610);
+           eList.Add(enemy611);
+           eList.Add(enemy612);
+           eList.Add(enemy613);
+           eList.Add(enemy614);
+           eList.Add(enemy615);
+           eList.Add(enemy616);
+           eList.Add(enemy617);
+           eList.Add(enemy618);
+           eList.Add(enemy619);
+           eList.Add(enemy620);
+           eList.Add(enemy621);
+           eList.Add(enemy622);
+           eList.Add(enemy623);
+           eList.Add(enemy624);
+           eList.Add(enemy625);
+           eList.Add(enemy626);
+           eList.Add(enemy627);
+           eList.Add(enemy628);
+           eList.Add(enemy629);
+           eList.Add(enemy630);
+           eList.Add(enemy631);
+           eList.Add(enemy632);
+           eList.Add(enemy633);
+           eList.Add(enemy634);
+           eList.Add(enemy635);
+           eList.Add(enemy636);
+           eList.Add(enemy637);
+           eList.Add(enemy638);
+           eList.Add(enemy639);
+           eList.Add(enemy640);
+           eList.Add(enemy641);
+           eList.Add(enemy642);
+           eList.Add(enemy643);
+           eList.Add(enemy644);
+           eList.Add(enemy645);
+           eList.Add(enemy646);
+           eList.Add(enemy647);
+           eList.Add(enemy648);
+           eList.Add(enemy649);
+           eList.Add(enemy650);
+           eList.Add(enemy651);
+           eList.Add(enemy652);
+           eList.Add(enemy653);
+           eList.Add(enemy654);
+           eList.Add(enemy655);
+           eList.Add(enemy656);
+           eList.Add(enemy657);
+           eList.Add(enemy658);
+           eList.Add(enemy659);
+           eList.Add(enemy660);
+           eList.Add(enemy661);
+           eList.Add(enemy662);
+           eList.Add(enemy663);
+           eList.Add(enemy664);
+           eList.Add(enemy665);
+           eList.Add(enemy666);
+           eList.Add(enemy667);
+           eList.Add(enemy668);
+           eList.Add(enemy669);
+           eList.Add(enemy670);
+           eList.Add(enemy671);
+           eList.Add(enemy672);
+           eList.Add(enemy673);
+           eList.Add(enemy674);
+           eList.Add(enemy675);
+           eList.Add(enemy676);
+           eList.Add(enemy677);
+           eList.Add(enemy678);
+           eList.Add(enemy679);
+           eList.Add(enemy680);
+           eList.Add(enemy681);
+           eList.Add(enemy682);
+           eList.Add(enemy683);
+           eList.Add(enemy684);
+           eList.Add(enemy685);
+           eList.Add(enemy686);
+           eList.Add(enemy687);
+           eList.Add(enemy688);
+           eList.Add(enemy689);
+           eList.Add(enemy690);
+           eList.Add(enemy691);
+           eList.Add(enemy692);
+           eList.Add(enemy693);
+           eList.Add(enemy694);
+           eList.Add(enemy695);
+           eList.Add(enemy696);
+           eList.Add(enemy697);
         }
 
     }
 }
-
-
-
-
-enemy98
-enemy99
-enemy100
-enemy101
-enemy102
-enemy103
-enemy104
-enemy105
-enemy106
-enemy107
-enemy108
-enemy109
-enemy110
-enemy111
-enemy112
-enemy113
-enemy114
-enemy115
-enemy116
-enemy117
-enemy118
-enemy119
-enemy120
-enemy121
-enemy122
-enemy123
-enemy124
-enemy125
-enemy126
-enemy127
-enemy128
-enemy129
-enemy130
-enemy131
-enemy132
-enemy133
-enemy134
-enemy135
-enemy136
-enemy137
-enemy138
-enemy139
-enemy140
-enemy141
-enemy142
-enemy143
-enemy144
-enemy145
-enemy146
-enemy147
-enemy148
-enemy149
-enemy150
-enemy151
-enemy152
-enemy153
-enemy154
-enemy155
-enemy156
-enemy157
-enemy158
-enemy159
-enemy160
-enemy161
-enemy162
-enemy163
-enemy164
-enemy165
-enemy166
-enemy167
-enemy168
-enemy169
-enemy170
-enemy171
-enemy172
-enemy173
-enemy174
-enemy175
-enemy176
-enemy177
-enemy178
-enemy179
-enemy180
-enemy181
-enemy182
-enemy183
-enemy184
-enemy185
-enemy186
-enemy187
-enemy188
-enemy189
-enemy190
-enemy191
-enemy192
-enemy193
-enemy194
-enemy195
-enemy196
-enemy197
-enemy198
-enemy199
-enemy200
-enemy201
-enemy202
-enemy203
-enemy204
-enemy205
-enemy206
-enemy207
-enemy208
-enemy209
-enemy210
-enemy211
-enemy212
-enemy213
-enemy214
-enemy215
-enemy216
-enemy217
-enemy218
-enemy219
-enemy220
-enemy221
-enemy222
-enemy223
-enemy224
-enemy225
-enemy226
-enemy227
-enemy228
-enemy229
-enemy230
-enemy231
-enemy232
-enemy233
-enemy234
-enemy235
-enemy236
-enemy237
-enemy238
-enemy239
-enemy240
-enemy241
-enemy242
-enemy243
-enemy244
-enemy245
-enemy246
-enemy247
-enemy248
-enemy249
-enemy250
-enemy251
-enemy252
-enemy253
-enemy254
-enemy255
-enemy256
-enemy257
-enemy258
-enemy259
-enemy260
-enemy261
-enemy262
-enemy263
-enemy264
-enemy265
-enemy266
-enemy267
-enemy268
-enemy269
-enemy270
-enemy271
-enemy272
-enemy273
-enemy274
-enemy275
-enemy276
-enemy277
-enemy278
-enemy279
-enemy280
-enemy281
-enemy282
-enemy283
-enemy284
-enemy285
-enemy286
-enemy287
-enemy288
-enemy289
-enemy290
-enemy291
-enemy292
-enemy293
-enemy294
-enemy295
-enemy296
-enemy297
-enemy298
-enemy299
-enemy300
-enemy301
-enemy302
-enemy303
-enemy304
-enemy305
-enemy306
-enemy307
-enemy308
-enemy309
-enemy310
-enemy311
-enemy312
-enemy313
-enemy314
-enemy315
-enemy316
-enemy317
-enemy318
-enemy319
-enemy320
-enemy321
-enemy322
-enemy323
-enemy324
-enemy325
-enemy326
-enemy327
-enemy328
-enemy329
-enemy330
-enemy331
-enemy332
-enemy333
-enemy334
-enemy335
-enemy336
-enemy337
-enemy338
-enemy339
-enemy340
-enemy341
-enemy342
-enemy343
-enemy344
-enemy345
-enemy346
-enemy347
-enemy348
-enemy349
-enemy350
-enemy351
-enemy352
-enemy353
-enemy354
-enemy355
-enemy356
-enemy357
-enemy358
-enemy359
-enemy360
-enemy361
-enemy362
-enemy363
-enemy364
-enemy365
-enemy366
-enemy367
-enemy368
-enemy369
-enemy370
-enemy371
-enemy372
-enemy373
-enemy374
-enemy375
-enemy376
-enemy377
-enemy378
-enemy379
-enemy380
-enemy381
-enemy382
-enemy383
-enemy384
-enemy385
-enemy386
-enemy387
-enemy388
-enemy389
-enemy390
-enemy391
-enemy392
-enemy393
-enemy394
-enemy395
-enemy396
-enemy397
-enemy398
-enemy399
-enemy400
-enemy401
-enemy402
-enemy403
-enemy404
-enemy405
-enemy406
-enemy407
-enemy408
-enemy409
-enemy410
-enemy411
-enemy412
-enemy413
-enemy414
-enemy415
-enemy416
-enemy417
-enemy418
-enemy419
-enemy420
-enemy421
-enemy422
-enemy423
-enemy424
-enemy425
-enemy426
-enemy427
-enemy428
-enemy429
-enemy430
-enemy431
-enemy432
-enemy433
-enemy434
-enemy435
-enemy436
-enemy437
-enemy438
-enemy439
-enemy440
-enemy441
-enemy442
-enemy443
-enemy444
-enemy445
-enemy446
-enemy447
-enemy448
-enemy449
-enemy450
-enemy451
-enemy452
-enemy453
-enemy454
-enemy455
-enemy456
-enemy457
-enemy458
-enemy459
-enemy460
-enemy461
-enemy462
-enemy463
-enemy464
-enemy465
-enemy466
-enemy467
-enemy468
-enemy469
-enemy470
-enemy471
-enemy472
-enemy473
-enemy474
-enemy475
-enemy476
-enemy477
-enemy478
-enemy479
-enemy480
-enemy481
-enemy482
-enemy483
-enemy484
-enemy485
-enemy486
-enemy487
-enemy488
-enemy489
-enemy490
-enemy491
-enemy492
-enemy493
-enemy494
-enemy495
-enemy496
-enemy497
-enemy498
-enemy499
-enemy500
-enemy501
-enemy502
-enemy503
-enemy504
-enemy505
-enemy506
-enemy507
-enemy508
-enemy509
-enemy510
-enemy511
-enemy512
-enemy513
-enemy514
-enemy515
-enemy516
-enemy517
-enemy518
-enemy519
-enemy520
-enemy521
-enemy522
-enemy523
-enemy524
-enemy525
-enemy526
-enemy527
-enemy528
-enemy529
-enemy530
-enemy531
-enemy532
-enemy533
-enemy534
-enemy535
-enemy536
-enemy537
-enemy538
-enemy539
-enemy540
-enemy541
-enemy542
-enemy543
-enemy544
-enemy545
-enemy546
-enemy547
-enemy548
-enemy549
-enemy550
-enemy551
-enemy552
-enemy553
-enemy554
-enemy555
-enemy556
-enemy557
-enemy558
-enemy559
-enemy560
-enemy561
-enemy562
-enemy563
-enemy564
-enemy565
-enemy566
-enemy567
-enemy568
-enemy569
-enemy570
-enemy571
-enemy572
-enemy573
-enemy574
-enemy575
-enemy576
-enemy577
-enemy578
-enemy579
-enemy580
-enemy581
-enemy582
-enemy583
-enemy584
-enemy585
-enemy586
-enemy587
-enemy588
-enemy589
-enemy590
-enemy591
-enemy592
-enemy593
-enemy594
-enemy595
-enemy596
-enemy597
-enemy598
-enemy599
-enemy600
-enemy601
-enemy602
-enemy603
-enemy604
-enemy605
-enemy606
-enemy607
-enemy608
-enemy609
-enemy610
-enemy611
-enemy612
-enemy613
-enemy614
-enemy615
-enemy616
-enemy617
-enemy618
-enemy619
-enemy620
-enemy621
-enemy622
-enemy623
-enemy624
-enemy625
-enemy626
-enemy627
-enemy628
-enemy629
-enemy630
-enemy631
-enemy632
-enemy633
-enemy634
-enemy635
-enemy636
-enemy637
-enemy638
-enemy639
-enemy640
-enemy641
-enemy642
-enemy643
-enemy644
-enemy645
-enemy646
-enemy647
-enemy648
-enemy649
-enemy650
-enemy651
-enemy652
-enemy653
-enemy654
-enemy655
-enemy656
-enemy657
-enemy658
-enemy659
-enemy660
-enemy661
-enemy662
-enemy663
-enemy664
-enemy665
-enemy666
-enemy667
-enemy668
-enemy669
-enemy670
-enemy671
-enemy672
-enemy673
-enemy674
-enemy675
-enemy676
-enemy677
-enemy678
-enemy679
-enemy680
-enemy681
-enemy682
-enemy683
-enemy684
-enemy685
-enemy686
-enemy687
-enemy688
-enemy689
-enemy690
-enemy691
-enemy692
-enemy693
-enemy694
-enemy695
-enemy696
-enemy697

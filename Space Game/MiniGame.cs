@@ -67,6 +67,7 @@ namespace SpaceGame
 
                             DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
                         }
+                        enemyMoveCounter = 1;
                     }
                 }
 
