@@ -99,7 +99,9 @@ namespace SpaceGame
 
             bool gameWin = MiniGame.Minigame();
             if (gameWin == true)
-            { Game.CurrentPlanet = destination; }
+            { Game.CurrentPlanet = destination;
+                UpdateMarketPrices ();
+            }
 
 
         }
@@ -142,6 +144,7 @@ namespace SpaceGame
                     seeds = 0.00
                 };
             }
+            UpdateFuelPrice ();
         }
 
         public static double UpdateFuelPrice()
