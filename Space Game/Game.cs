@@ -15,10 +15,12 @@ namespace SpaceGame
 
         public void RunGame()
         {
-            //CurrentPlanet = Universe.Earth;
+            CurrentPlanet = Universe.Earth;
             ////////Console.WriteLine($"It will take {Equations.travelTime(Equations.DistanceTo(Universe.C35))} years to get to U35");
             ////////checks travel time equation.
             ////////DrawImage(file name from assets folder(must be a .bmp file type), int x image position, int y image position, int image size); 
+            NewPlayer.wallet = 1000;
+            MiniGame.PirateGame ();
         }
     }
 }

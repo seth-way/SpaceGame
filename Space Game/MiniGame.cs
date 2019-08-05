@@ -6,24 +6,22 @@ namespace SpaceGame
 {
     public class MiniGame
     {
-        public static Random randNum = new Random();
-        public static bool Minigame()
+        public static Random randNum = new Random ();
+        public static bool Minigame ()
         {
-            int x = randNum.Next(100);
+            int x = randNum.Next (100);
             bool gameWin = true;
             if (x > 70)
             {
-                gameWin = PirateGame();
+                gameWin = PirateGame ();
             }
             return gameWin;
         }
 
-        public static bool PirateGame()
+        public static bool PirateGame ()
         {
-            EnemyBulletInstance.AddList();
-
-            List<Enemy> enemyActiveList = new List<Enemy>();
-            List<Bullet> bulletList = new List<Bullet>();
+            List<Enemy> enemyActiveList = new List<Enemy> ();
+            List<Bullet> bulletList = new List<Bullet> ();
             bool gameWin = true;
             bool gameFinish = false;
             int lives = 3;
@@ -42,61 +40,83 @@ namespace SpaceGame
 
             while (gameFinish == false)
             {
-
-
-
-                DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
-                ConsoleKey rKey = Console.ReadKey().Key;
-                foreach (Enemy a in enemyActiveList)
+                Thread.Sleep (5);
+                DrawMiniGame (playerXCursor, playerYCursor, enemyActiveList, bulletList, lives);
+                ConsoleKey rKey = Console.ReadKey ().Key;
+                if (rKey == ConsoleKey.LeftArrow)
                 {
-
-                    if (rKey == ConsoleKey.LeftArrow)
+                    if (playerXCursor != 0)
                     {
-                        if (playerXCursor != 0)
-                        {
-                            playerXCursor--;
-                        };
-                    }
-                    if (rKey == ConsoleKey.RightArrow) { playerXCursor++; };
-                    if (rKey == ConsoleKey.UpArrow)
-                    {
-                        if (playerYCursor != 0) { playerYCursor--; };
-                    }
-                    if (rKey == ConsoleKey.DownArrow)
-                    {
-                        if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; };
-                    }
+                        playerXCursor--;
+                    };
+                }
+                if (rKey == ConsoleKey.RightArrow) { playerXCursor++; };
+                if (rKey == ConsoleKey.UpArrow)
+                {
+                    if (playerYCursor != 0) { playerYCursor--; };
+                }
+                if (rKey == ConsoleKey.DownArrow)
+                {
+                    if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; };
+                }
+                if (rKey == ConsoleKey.Spacebar && shotcounter == 0)
+                {
+                    bulletList.Add (new Bullet () { bulletXCursor = playerXCursor + 1, bulletYCursor = playerYCursor });
+                    shotcounter = 4;
+                }
 
+                if (shotcounter == 0 && rKey == ConsoleKey.Spacebar)
+                {
+                    shotcounter = 20;
+                }
 
-                    if (playerYCursor == a.enemyYCursor && playerXCursor == a.enemyXCursor)
+                for (int y = 0; y < enemyActiveList.Count; y++)
+                {
+                    if (playerYCursor == enemyActiveList [y].enemyYCursor && playerXCursor == enemyActiveList [y].enemyXCursor)
                     {
                         winGame = false;
-                        gameFinish = true;
                         lives--;
                         playerYCursor = Console.BufferHeight / 2;
                         playerXCursor = 0;
-                        enemyActiveList.RemoveRange(0, enemyActiveList.Count);
-                        bulletList.RemoveRange(0, bulletList.Count);
+                        enemyActiveList.RemoveRange (0, enemyActiveList.Count);
+                        bulletList.RemoveRange (0, bulletList.Count);
                         enemyCreateCounter = 0;
                         enemyMoveCounter = 2;
                         enemyNumberCounter = 0;
                         shotcounter = 1;
 
-                        DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
+                        DrawMiniGame (playerXCursor, playerYCursor, enemyActiveList, bulletList, lives);
+                        break;
                     }
-                }
-                if (enemyMoveCounter == 0)
-                {
-                    foreach (Enemy a in enemyActiveList)
+                    for (int x = 0; x < bulletList.Count; x++)
                     {
-                        a.enemyXCursor--;
-
-
-                        enemyMoveCounter = 1;
+                        if (bulletList [x].bulletXCursor == enemyActiveList [y].enemyXCursor && bulletList [x].bulletYCursor == enemyActiveList [y].enemyYCursor)
+                        {
+                            bulletList.RemoveAt (x);
+                            enemyActiveList.RemoveAt (y);
+                        }
+                    }
+                    if (enemyActiveList [y].enemyXCursor <= playerXCursor - 1 || enemyActiveList[y].enemyXCursor == 2)
+                    {
+                        enemyActiveList.RemoveAt (y);
+                    }
+                    if (enemyMoveCounter == 0)
+                    {
+                        enemyActiveList [y].enemyXCursor--;
                     }
                 }
 
-                if (playerXCursor == Console.LargestWindowWidth - 1)
+
+                for (int y = 0; y < bulletList.Count; y++)
+                {
+                    bulletList [y].bulletXCursor++;
+                    if (bulletList [y].bulletXCursor == Console.LargestWindowWidth - 1)
+                    {
+                        bulletList.RemoveAt (y);
+                    }
+                }
+
+                if (playerXCursor == Console.LargestWindowWidth - 5)
                 {
                     winGame = true;
                     gameFinish = true;
@@ -104,30 +124,38 @@ namespace SpaceGame
 
                 if (winGame == true)
                 {
-                    Game.NewPlayer.wallet += randNum.Next(((int)Game.NewPlayer.wallet / 100));
+                    int gain = randNum.Next ((int)Game.NewPlayer.wallet / 10);
+                    Game.NewPlayer.totalMoneyEarned += gain;
+                    Game.NewPlayer.wallet += gain;
                     winGame = null;
                 }
                 else if (winGame == false)
                 {
                     if (Game.NewPlayer.wallet != 0)
                     {
-                        Game.NewPlayer.wallet -= randNum.Next((int)Game.NewPlayer.wallet / 1000);
+                        int loss = randNum.Next ((int)Game.NewPlayer.wallet / 10);
+                        Game.NewPlayer.totalMoneyStolen += loss;
+                        Game.NewPlayer.wallet -= loss;
                     }
                     winGame = null;
                 }
 
                 if (enemyCreateCounter == 0)
                 {
-                    //Activator.CreateInstance(typeof(Enemy)); // HOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW asdfgsafasefasFD AWFAWEFASFWR
-                    enemyActiveList.Add(EnemyBulletInstance.eList[enemyNumberCounter]);
-                    enemyNumberCounter++;
-                    enemyCreateCounter = 2;
-                }
+                    for (int y = 0; y < 3; y++)
+                    {
+                        if (playerXCursor + 50 >= Console.LargestWindowWidth)
+                        {
+                            enemyActiveList.Add (new Enemy () { enemyXCursor = Console.LargestWindowWidth - 1 });
+                        }
+                        else
+                        {
+                            { enemyActiveList.Add (new Enemy () { enemyXCursor = playerXCursor + 50 }); }
+                        }
+                        enemyNumberCounter++;
 
-                if (shotcounter == 0 && rKey == ConsoleKey.Spacebar)
-                {
-
-                    shotcounter = 5;
+                        enemyCreateCounter = 5;
+                    }
                 }
 
                 if (lives == 0)
@@ -135,8 +163,6 @@ namespace SpaceGame
                     gameFinish = true;
                     gameWin = false;
                 }
-
-
 
                 if (shotcounter > 0)
                 {
@@ -150,48 +176,38 @@ namespace SpaceGame
                 {
                     enemyMoveCounter--;
                 }
+                else
+                {
+                    enemyMoveCounter = 2;
+                }
 
             }
             return gameWin;
         }
-        public static void DrawMiniGame(int playerX, int playerY, List<Enemy> enemyList, List<Bullet> bulletList)
+        public static void DrawMiniGame (int playerX, int playerY, List<Enemy> enemyList, List<Bullet> bulletList, int lives)
         {
-            Console.Clear();
+            Console.Clear ();
 
             foreach (Enemy a in enemyList)
             {
-                Console.SetCursorPosition(a.enemyXCursor, a.enemyYCursor);
-                Console.Write("@");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition (a.enemyXCursor, a.enemyYCursor);
+                Console.Write ("@");
             }
             foreach (Bullet a in bulletList)
             {
-                Console.SetCursorPosition(a.bulletXCursor, a.bulletYCursor);
-                Console.Write("-");
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.SetCursorPosition (a.bulletXCursor, a.bulletYCursor);
+                Console.Write ("-");
             }
-            Console.SetCursorPosition(playerX, playerY);
-            Console.Write(">");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition (0, 0);
+            Console.Write ("Lives Remaining:" + lives);
+            Console.Write ("    Galactic Credits: " + Game.NewPlayer.wallet.ToString());
+            Console.SetCursorPosition (playerX, playerY);
+            Console.Write (">");
 
         }
-
-        //public void Move(ConsoleKey rKey, int playerXCursor, int playerYCursor)
-        //{
-        //    if (rKey == ConsoleKey.LeftArrow) ;
-        //    {
-        //        if (playerXCursor != 0)
-        //        {
-        //            playerXCursor--;
-        //        };
-        //        if (rKey == ConsoleKey.RightArrow) { playerXCursor++; };
-        //        if (rKey == ConsoleKey.UpArrow)
-        //        {
-        //            if (playerYCursor != 0) { playerYCursor--; };
-        //            if (rKey == ConsoleKey.DownArrow)
-        //            {
-        //                if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; };
-        //            }
-        //        }
-        //    }
-        //}
 
         public class Bullet
         {
@@ -202,8 +218,8 @@ namespace SpaceGame
 
         public class Enemy
         {
-            public int enemyXCursor = Console.BufferWidth - 1;
-            public int enemyYCursor = randNum.Next(Console.BufferHeight - 1);
+            public int enemyXCursor;
+            public int enemyYCursor = randNum.Next (Console.BufferHeight - 1);
         }
     }
 }
