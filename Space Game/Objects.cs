@@ -157,6 +157,8 @@ namespace SpaceGame
             onHand = 0,
         };
 
+        //If we add more Goods, be sure to update the productList and the UI tradeMenu.
+
         static public List<Good> productList = new List<Good>() {CannedAir, CentaurianFur, ServiceRobot, RealFakeDoors, MegaTreeSeeds};
 
         static public Market earthPrices = new Market()

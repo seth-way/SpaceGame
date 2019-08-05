@@ -12,10 +12,11 @@ namespace SpaceGame
         static public Planet CurrentPlanet = new Planet();
         static public Player NewPlayer = new Player();
         static public Ship NewShip = new Ship();
+        static public Market CurrentMarket = new Market();
        
         public void RunGame()
         {
-            //CurrentPlanet = Universe.Earth;
+            CurrentPlanet = Universe.C35;
             //Console.WriteLine($"{CurrentPlanet.inhabitants}\nfuel | {NewShip.currentFuel}\nage | {NewPlayer.age}\n");
             ////Actions.UpdateMarketPrices();
             //Actions.changePlanets(Universe.ProximaCentauriB);
@@ -30,7 +31,8 @@ namespace SpaceGame
             //TextOutput (introStory_1);
             //UserMenu ();
             //TravelMenu ();
-            MiniGame.PirateGame();
+            //MiniGame.PirateGame();
+            TradeMenu();
         }
     }
 }

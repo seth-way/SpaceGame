@@ -7,6 +7,41 @@ namespace SpaceGame
 {
     public class Actions
     {
+        static double getIndexPrice(int index)
+        {
+            double price;
+            if (index == 0)
+            {
+                price = Game.CurrentMarket.air;
+                return price;
+            }
+            else if (index == 1)
+            {
+                price = Game.CurrentMarket.fur;
+                return price;
+            }
+            else if (index == 2)
+            {
+                price = Game.CurrentMarket.robot;
+                return price;
+            }
+            else if (index == 3)
+            {
+                price = Game.CurrentMarket.doors;
+                return price;
+            }
+            else if (index == 4)
+            {
+                price = Game.CurrentMarket.seeds;
+                return price;
+            }
+            else
+            {
+                price = 10;
+                return price;
+            }
+        }
+
         static public void BuyFuel(int quantity)
         {
             double fuelPrice = UpdateFuelPrice();
@@ -24,10 +59,11 @@ namespace SpaceGame
 
         static public void BuyGoods(int index, int quantity)
         {
-            List<double> priceList = UpdateMarketPrices();
-            if (priceList[index] * quantity <= Game.NewPlayer.wallet) //can afford item.
+            UpdateMarketPrices();
+            double price = getIndexPrice(index);
+            if (price * quantity <= Game.NewPlayer.wallet) //can afford item.
             {
-                Game.NewPlayer.wallet -= priceList[index] * quantity;
+                Game.NewPlayer.wallet -= price * quantity;
                 Products.productList[index].onHand = Products.productList[index].onHand + quantity;
             }
             else //can not afford item.
@@ -39,10 +75,11 @@ namespace SpaceGame
 
         static public void SellGoods(int index, int quantity)
         {
-            List<double> priceList = UpdateMarketPrices();
+            UpdateMarketPrices();
+            double price = getIndexPrice(index);
             if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
-                Game.NewPlayer.wallet += priceList[index] * quantity;
+                Game.NewPlayer.wallet += price * quantity;
                 Products.productList[index].onHand = Products.productList[index].onHand - quantity;
             }
             else //not enough on hand to sell
@@ -68,18 +105,43 @@ namespace SpaceGame
         }
 
         
-        public static List<double> UpdateMarketPrices()
+        public static void UpdateMarketPrices()
         {
-            List<double> currentPrices = new List<double>
+           if (Game.CurrentPlanet == Universe.Earth)
             {
-                [0] = Products.CannedAir.price * (1 + Equations.DistanceTo(Products.CannedAir.originPlanet)) * Game.CurrentPlanet.dangerRating,
-                [1] = Products.CentaurianFur.price * (1 + Equations.DistanceTo(Products.CentaurianFur.originPlanet)) * Game.CurrentPlanet.dangerRating,
-                [2] = Products.ServiceRobot.price * (1 + Equations.DistanceTo(Products.ServiceRobot.originPlanet)) * Game.CurrentPlanet.dangerRating,
-                [3] = Products.RealFakeDoors.price * (1 + Equations.DistanceTo(Products.RealFakeDoors.originPlanet)) * Game.CurrentPlanet.dangerRating,
-                [4] = Products.MegaTreeSeeds.price * (1 + Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet)) * Game.CurrentPlanet.dangerRating
-            };
-
-            return currentPrices;
+                Game.CurrentMarket = Products.earthPrices;
+            }
+           else if (Game.CurrentPlanet == Universe.ProximaCentauriB)
+            {
+                Game.CurrentMarket = Products.proximaPrices;
+            }
+           else if (Game.CurrentPlanet == Universe.Gazorpazorp)
+            {
+                Game.CurrentMarket = Products.gazorpazorpPrices;
+            }
+           else if (Game.CurrentPlanet == Universe.C35)
+            {
+                Game.CurrentMarket = Products.c35Prices;
+            }
+           else if (Game.CurrentPlanet == Universe.GromflomPrime)
+            {
+                Game.CurrentMarket = Products.gromflomPrices;
+            }
+           else if (Game.CurrentPlanet == Universe.ScreamingSun)
+            {
+                Game.CurrentMarket = Products.screamingPrices;
+            }
+            else
+            {
+                Game.CurrentMarket = new Market()
+                {
+                    air = 0.00,
+                    fur = 0.00,
+                    robot = 0.00,
+                    doors = 0.00,
+                    seeds = 0.00
+                };
+            }
         }
 
         public static double UpdateFuelPrice()
