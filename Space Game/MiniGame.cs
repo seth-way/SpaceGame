@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SpaceGame
 {
@@ -33,40 +34,64 @@ namespace SpaceGame
             bool? winGame = null;
             int playerXCursor = 0;
             int playerYCursor = Console.BufferHeight / 2;
+            //ConsoleKey rKey = Console.ReadKey().Key
+            //Thread thread = new Thread(Move(rKey,playerXCursor,playerYCursor));
+            //thread.IsBackground = true;
+            //thread.Start();
 
-            
 
             while (gameFinish == false)
             {
+
+
+
                 DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
                 ConsoleKey rKey = Console.ReadKey().Key;
-                if (rKey == ConsoleKey.LeftArrow) { if (playerXCursor != 0) { playerXCursor--; } }
-                if (rKey == ConsoleKey.RightArrow) { playerXCursor++; }
-                if (rKey == ConsoleKey.UpArrow) { if (playerYCursor != 0) { playerYCursor--; } }
-                if (rKey == ConsoleKey.DownArrow) { if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; } }
+                foreach (Enemy a in enemyActiveList)
+                {
 
+                    if (rKey == ConsoleKey.LeftArrow)
+                    {
+                        if (playerXCursor != 0)
+                        {
+                            playerXCursor--;
+                        };
+                    }
+                    if (rKey == ConsoleKey.RightArrow) { playerXCursor++; };
+                    if (rKey == ConsoleKey.UpArrow)
+                    {
+                        if (playerYCursor != 0) { playerYCursor--; };
+                    }
+                    if (rKey == ConsoleKey.DownArrow)
+                    {
+                        if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; };
+                    }
+
+
+                    if (playerYCursor == a.enemyYCursor && playerXCursor == a.enemyXCursor)
+                    {
+                        winGame = false;
+                        gameFinish = true;
+                        lives--;
+                        playerYCursor = Console.BufferHeight / 2;
+                        playerXCursor = 0;
+                        enemyActiveList.RemoveRange(0, enemyActiveList.Count);
+                        bulletList.RemoveRange(0, bulletList.Count);
+                        enemyCreateCounter = 0;
+                        enemyMoveCounter = 2;
+                        enemyNumberCounter = 0;
+                        shotcounter = 1;
+
+                        DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
+                    }
+                }
                 if (enemyMoveCounter == 0)
                 {
                     foreach (Enemy a in enemyActiveList)
                     {
                         a.enemyXCursor--;
 
-                        if (playerYCursor == a.enemyYCursor && playerXCursor == a.enemyXCursor)
-                        {
-                            winGame = false;
-                            gameFinish = true;
-                            lives--;
-                            playerYCursor = Console.BufferHeight / 2;
-                            playerXCursor = 0;
-                            enemyActiveList.RemoveRange(0, enemyActiveList.Count);
-                            bulletList.RemoveRange(0, bulletList.Count);
-                            enemyCreateCounter = 1;
-                            enemyMoveCounter = 2;
-                            enemyNumberCounter = 0;
-                            shotcounter = 1;
 
-                            DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList);
-                        }
                         enemyMoveCounter = 1;
                     }
                 }
@@ -148,6 +173,25 @@ namespace SpaceGame
 
         }
 
+        //public void Move(ConsoleKey rKey, int playerXCursor, int playerYCursor)
+        //{
+        //    if (rKey == ConsoleKey.LeftArrow) ;
+        //    {
+        //        if (playerXCursor != 0)
+        //        {
+        //            playerXCursor--;
+        //        };
+        //        if (rKey == ConsoleKey.RightArrow) { playerXCursor++; };
+        //        if (rKey == ConsoleKey.UpArrow)
+        //        {
+        //            if (playerYCursor != 0) { playerYCursor--; };
+        //            if (rKey == ConsoleKey.DownArrow)
+        //            {
+        //                if (playerYCursor != Console.WindowHeight - 1) { playerYCursor++; };
+        //            }
+        //        }
+        //    }
+        //}
 
         public class Bullet
         {
@@ -163,4 +207,3 @@ namespace SpaceGame
         }
     }
 }
-
