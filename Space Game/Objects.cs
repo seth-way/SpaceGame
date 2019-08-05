@@ -9,25 +9,67 @@ namespace SpaceGame
 
         // things to change if adding a new planet: UI.TravelMenu planet array length and add the planet to the list + create planet display function
 
-        public static readonly Planet Earth = new Planet ()
-        { xLoc = 0.0, yLoc = 0.0, inhabitants = "Earthlings", dangerRating = 5.0, name = "Earth", description = StoryLine.earthDescription, imageFile = "Earth.bmp" };
-        public static readonly Planet ProximaCentauriB = new Planet ()
-        { xLoc = 2.0, yLoc = 3.75, inhabitants = "Proxima Centaurians", dangerRating = 2.0, name = "Proxima Centauri B", imageFile = "ProximaB.bmp" };
-        public static readonly Planet Gazorpazorp = new Planet ()
-        { xLoc = 14.0, yLoc = -6.0, inhabitants = "Gazorpazorp", dangerRating = 6.0 , name = "Gazorpazorp", imageFile = "Gazorpazorp.bmp" };
-        public static readonly Planet ScreamingSun = new Planet ()
-        { xLoc = -3.0, yLoc = -5.5, inhabitants = "Tired Earthlings", dangerRating = 1.5, name = "Screaming Sun Earth", imageFile = "ScreamingSun.bmp"};
-        public static readonly Planet C35 = new Planet ()
-        { xLoc = -20.0, yLoc = 1.5, inhabitants = "Galactic Federation", dangerRating = 5.0, name = "35-C", imageFile = "C35.bmp" };
-        public static readonly Planet GromflomPrime = new Planet ()
-        { xLoc = 0, yLoc = 0, inhabitants = "Genetically Engineered Gromflomites", dangerRating = 7.0, name = "Gromflom Prime", imageFile = "Glomfrom Prime.bmp"};
+        public static readonly Planet Earth = new Planet()
+        {
+            xLoc = 0.0,
+            yLoc = 0.0,
+            inhabitants = "Earthlings",
+            dangerRating = 5.0,
+            name = "Earth",
+            description = StoryLine.earthDescription
+        };
 
-        public static Planet [] planetTravel = {Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime};
+        public static readonly Planet ProximaCentauriB = new Planet()
+        {
+            xLoc = 2.0,
+            yLoc = 3.75,
+            inhabitants = "Proxima Centaurians",
+            dangerRating = 2.0,
+            name = "Proxima Centauri B"
+        };
+
+        public static readonly Planet Gazorpazorp = new Planet()
+        {
+            xLoc = 14.0,
+            yLoc = -6.0,
+            inhabitants = "Gazorpazorp",
+            dangerRating = 6.0,
+            name = "Gazorpazorp"
+        };
+
+        public static readonly Planet ScreamingSun = new Planet()
+        {
+            xLoc = -3.0,
+            yLoc = -5.5,
+            inhabitants = "Tired Earthlings",
+            dangerRating = 1.5,
+            name = "Screaming Sun Earth"
+        };
+
+        public static readonly Planet C35 = new Planet()
+        { xLoc = -20.0,
+            yLoc = 1.5,
+            inhabitants = "Galactic Federation",
+            dangerRating = 5.0,
+            name = "35-C"
+        };
+
+        public static readonly Planet GromflomPrime = new Planet()
+        {
+            xLoc = 0,
+            yLoc = 0,
+            inhabitants = "Genetically Engineered Gromflomites",
+            dangerRating = 7.0,
+            name = "Gromflom Prime"
+        };
+
+        public static Planet[] planetTravel = { Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime };
 
         //Possible planet name ideas: 
         //Rick and Morty: Gazopazop, On a Cob Planet, Cronenberg World, Gromflom Prime, Alphabetrium, Pluto, Screaming Sun Earth
         //Futurama: Omicron Persei 8:, V-Giny, Nude Beach Planet, Neutral Planet, Amazonia, Decapod 10
-    }
+
+        }
 
     public class Planet
     {
@@ -50,6 +92,11 @@ namespace SpaceGame
         public double price;
         public int size, onHand;
         public Planet originPlanet;
+    }
+
+    public class Market
+    {
+        public double air, fur, robot, doors, seeds;
     }
 
     public class Products
@@ -111,7 +158,61 @@ namespace SpaceGame
         };
 
         static public List<Good> productList = new List<Good>() {CannedAir, CentaurianFur, ServiceRobot, RealFakeDoors, MegaTreeSeeds};
-        
+
+        static public Market earthPrices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.Earth, CannedAir.originPlanet)) * Universe.Earth.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Earth, CentaurianFur.originPlanet)) * Universe.Earth.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Earth, ServiceRobot.originPlanet)) * Universe.Earth.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Earth, RealFakeDoors.originPlanet)) * Universe.Earth.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Earth, MegaTreeSeeds.originPlanet)) * Universe.Earth.dangerRating
+        };
+
+        static public Market proximaPrices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CannedAir.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CentaurianFur.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, ServiceRobot.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, RealFakeDoors.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, MegaTreeSeeds.originPlanet)) * Universe.ProximaCentauriB.dangerRating
+        };
+
+        static public Market gazorpazorpPrices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CannedAir.originPlanet)) * Universe.Gazorpazorp.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CentaurianFur.originPlanet)) * Universe.Gazorpazorp.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, ServiceRobot.originPlanet)) * Universe.Gazorpazorp.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, RealFakeDoors.originPlanet)) * Universe.Gazorpazorp.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, MegaTreeSeeds.originPlanet)) * Universe.Gazorpazorp.dangerRating
+        };
+
+        static public Market screamingPrices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CannedAir.originPlanet)) * Universe.ScreamingSun.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CentaurianFur.originPlanet)) * Universe.ScreamingSun.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, ServiceRobot.originPlanet)) * Universe.ScreamingSun.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, RealFakeDoors.originPlanet)) * Universe.ScreamingSun.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, MegaTreeSeeds.originPlanet)) * Universe.ScreamingSun.dangerRating
+        };
+
+        static public Market c35Prices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.C35, CannedAir.originPlanet)) * Universe.C35.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.C35, CentaurianFur.originPlanet)) * Universe.C35.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.C35, ServiceRobot.originPlanet)) * Universe.C35.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.C35, RealFakeDoors.originPlanet)) * Universe.C35.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.C35, MegaTreeSeeds.originPlanet)) * Universe.C35.dangerRating
+        };
+
+        static public Market gromflomPrices = new Market()
+        {
+            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CannedAir.originPlanet)) * Universe.GromflomPrime.dangerRating,
+            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CentaurianFur.originPlanet)) * Universe.GromflomPrime.dangerRating,
+            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, ServiceRobot.originPlanet)) * Universe.GromflomPrime.dangerRating,
+            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, RealFakeDoors.originPlanet)) * Universe.GromflomPrime.dangerRating,
+            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, MegaTreeSeeds.originPlanet)) * Universe.GromflomPrime.dangerRating
+        };
+
     }
 }
 
