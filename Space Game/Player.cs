@@ -18,6 +18,24 @@ namespace SpaceGame
         public int totalFailedPirateAttacks = 0;
 
         public int currentYear = 2023;
+        // We can create a list of object type for inventory. You are able to get the number of a specific type of object in a list.
+        // just have to figure out how to remove and add x amount of a specific object.
+        //Probable a for loop, 
+        // public static void SellItem(object type, numbertosell)
+        //{
+        //      for ( x=numbertosell, x > 0, x--)
+        //      {
+        //              list.remove(object type);
+        //      }
+        //  numbertosell = 0;
+        //}
+        //
+        //
+
+
+
+
+
     }
 
     public class Ship

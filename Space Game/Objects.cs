@@ -9,25 +9,23 @@ namespace SpaceGame
 
         // things to change if adding a new planet: UI.TravelMenu planet array length and add the planet to the list + create planet display function
 
-        public static readonly Planet Earth = new Planet ()
+        public static readonly Planet Earth = new Planet()
         {
             xLoc = 0.0,
             yLoc = 0.0,
             inhabitants = "Earthlings",
             dangerRating = 5.0,
             name = "Earth",
-            description = StoryLine.earthDescription,
-            imageFile = "Earth.bmp"
+            description = StoryLine.earthDescription
         };
 
-        public static readonly Planet ProximaCentauriB = new Planet ()
+        public static readonly Planet ProximaCentauriB = new Planet()
         {
             xLoc = 2.0,
             yLoc = 3.75,
             inhabitants = "Proxima Centaurians",
             dangerRating = 2.0,
-            name = "Proxima Centauri B",
-            imageFile = "ProximaB.bmp"
+            name = "Proxima Centauri B"
         };
 
         public static readonly Planet Gazorpazorp = new Planet()
@@ -36,8 +34,7 @@ namespace SpaceGame
             yLoc = -6.0,
             inhabitants = "Gazorpazorp",
             dangerRating = 6.0,
-            name = "Gazorpazorp",
-            imageFile = "Gazorpazorp.bmp"
+            name = "Gazorpazorp"
         };
 
         public static readonly Planet ScreamingSun = new Planet()
@@ -46,8 +43,7 @@ namespace SpaceGame
             yLoc = -5.5,
             inhabitants = "Tired Earthlings",
             dangerRating = 1.5,
-            name = "Screaming Sun Earth",
-            imageFile = "ScreamingSun.bmp"
+            name = "Screaming Sun Earth"
         };
 
         public static readonly Planet C35 = new Planet()
@@ -55,8 +51,7 @@ namespace SpaceGame
             yLoc = 1.5,
             inhabitants = "Galactic Federation",
             dangerRating = 5.0,
-            name = "35-C",
-            imageFile = "C35.bmp"
+            name = "35-C"
         };
 
         public static readonly Planet GromflomPrime = new Planet()
@@ -65,8 +60,7 @@ namespace SpaceGame
             yLoc = 0,
             inhabitants = "Genetically Engineered Gromflomites",
             dangerRating = 7.0,
-            name = "Gromflom Prime",
-            imageFile = "GromflomPrime.bmp"
+            name = "Gromflom Prime"
         };
 
         public static Planet[] planetTravel = { Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime };
