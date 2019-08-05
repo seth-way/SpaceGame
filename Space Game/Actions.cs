@@ -106,7 +106,7 @@ namespace SpaceGame
             Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
             Products.RealFakeDoors.onHand = int.Parse(tr.ReadLine());
             Products.MegaTreeSeeds.onHand = int.Parse(tr.ReadLine());
-            string thisPlanet = tr.ReadLine();
+            Game.CurrentPlanet = Universe.planetTravel[int.Parse(tr.ReadLine())];
 
             tr.Close();
 
@@ -136,7 +136,7 @@ namespace SpaceGame
             tw.WriteLine(Products.ServiceRobot.onHand);
             tw.WriteLine(Products.RealFakeDoors.onHand);
             tw.WriteLine(Products.MegaTreeSeeds.onHand);
-            tw.Write(Game.CurrentPlanet.name);
+            tw.Write(Array.IndexOf(Universe.planetTravel,Game.CurrentPlanet));
 
             tw.Close();
         }

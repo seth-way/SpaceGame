@@ -28,8 +28,9 @@ namespace SpaceGame
             ////////DrawImage(file name from assets folder(must be a .bmp file type), int x image position, int y image position, int image size); 
             //DrawImage ("SDA_pg41.bmp", imageYPosition: (Console.WindowHeight / 2));
             //TextOutput (introStory_1);
-            UserMenu ();
-            TravelMenu ();
+            //UserMenu ();
+            //TravelMenu ();
+            
         }
     }
 }
