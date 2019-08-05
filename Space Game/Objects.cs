@@ -76,6 +76,9 @@ namespace SpaceGame
         public double xLoc, yLoc, dangerRating;
         public string inhabitants, name;
         public string description = " ";
+        public string imageFile;
+        public string screamingProduct = "The people of this planet are too tired to trade. Though they do seem interested in your ship.\n" +
+            "A little too interested. It's probably best if you leave while you still have one.";
     }
 
     public class WarpFactor

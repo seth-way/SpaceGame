@@ -7,13 +7,13 @@ namespace SpaceGame
 {
     public class Actions
     {
-        static public void buyFuel(int quantity)
+        static public void BuyFuel(int quantity)
         {
             double fuelPrice = UpdateFuelPrice();
             if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
             {
-                Game.NewPlayer.wallet = Game.NewPlayer.wallet - fuelPrice * quantity;
-                Game.NewShip.currentFuel = Game.NewShip.currentFuel + quantity;
+                Game.NewPlayer.wallet -= fuelPrice * quantity;
+                Game.NewShip.currentFuel += quantity;
             }
             else
             {
@@ -22,12 +22,12 @@ namespace SpaceGame
         }
 
 
-        static public void buyGoods(int index, int quantity)
+        static public void BuyGoods(int index, int quantity)
         {
             List<double> priceList = UpdateMarketPrices();
             if (priceList[index] * quantity <= Game.NewPlayer.wallet) //can afford item.
             {
-                Game.NewPlayer.wallet = Game.NewPlayer.wallet - priceList[index] * quantity;
+                Game.NewPlayer.wallet -= priceList[index] * quantity;
                 Products.productList[index].onHand = Products.productList[index].onHand + quantity;
             }
             else //can not afford item.
@@ -37,12 +37,12 @@ namespace SpaceGame
 
         }
 
-        static public void sellGoods(int index, int quantity)
+        static public void SellGoods(int index, int quantity)
         {
             List<double> priceList = UpdateMarketPrices();
             if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
-                Game.NewPlayer.wallet = Game.NewPlayer.wallet + priceList[index] * quantity;
+                Game.NewPlayer.wallet += priceList[index] * quantity;
                 Products.productList[index].onHand = Products.productList[index].onHand - quantity;
             }
             else //not enough on hand to sell
@@ -51,30 +51,34 @@ namespace SpaceGame
             }
         }
 
-        static public void changePlanets(Planet destination)
+        static public void ChangePlanets(Planet destination)
         {
             double distance = Equations.DistanceTo(destination);
             double time = Equations.travelTime(distance);
             var fuelCost = Game.NewShip.fuelPerLightYear * distance;
 
-            Game.NewShip.currentFuel = Game.NewShip.currentFuel - fuelCost;
-            Game.NewPlayer.age = Game.NewPlayer.age + time;
+            Game.NewShip.currentFuel -= fuelCost;
+            Game.NewPlayer.age += time;
 
-            Game.CurrentPlanet = destination;
+            bool gameWin = MiniGame.Minigame();
+            if (gameWin == true)
+            { Game.CurrentPlanet = destination; }
+
 
         }
 
         
         public static List<double> UpdateMarketPrices()
         {
-            List<double> currentPrices = new List<double>();
+            List<double> currentPrices = new List<double>
+            {
+                [0] = Products.CannedAir.price * (1 + Equations.DistanceTo(Products.CannedAir.originPlanet)) * Game.CurrentPlanet.dangerRating,
+                [1] = Products.CentaurianFur.price * (1 + Equations.DistanceTo(Products.CentaurianFur.originPlanet)) * Game.CurrentPlanet.dangerRating,
+                [2] = Products.ServiceRobot.price * (1 + Equations.DistanceTo(Products.ServiceRobot.originPlanet)) * Game.CurrentPlanet.dangerRating,
+                [3] = Products.RealFakeDoors.price * (1 + Equations.DistanceTo(Products.RealFakeDoors.originPlanet)) * Game.CurrentPlanet.dangerRating,
+                [4] = Products.MegaTreeSeeds.price * (1 + Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet)) * Game.CurrentPlanet.dangerRating
+            };
 
-            currentPrices[0] = Products.CannedAir.price * (1 + Equations.DistanceTo(Products.CannedAir.originPlanet)) * Game.CurrentPlanet.dangerRating;
-            currentPrices[1] = Products.CentaurianFur.price * (1 + Equations.DistanceTo(Products.CentaurianFur.originPlanet)) * Game.CurrentPlanet.dangerRating;
-            currentPrices[2] = Products.ServiceRobot.price * (1 + Equations.DistanceTo(Products.ServiceRobot.originPlanet)) * Game.CurrentPlanet.dangerRating;
-            currentPrices[3] = Products.RealFakeDoors.price * (1 + Equations.DistanceTo(Products.RealFakeDoors.originPlanet)) * Game.CurrentPlanet.dangerRating;
-            currentPrices[4] = Products.MegaTreeSeeds.price * (1 + Equations.DistanceTo(Products.MegaTreeSeeds.originPlanet)) * Game.CurrentPlanet.dangerRating;
-            
             return currentPrices;
         }
 

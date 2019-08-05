@@ -30,7 +30,7 @@ namespace SpaceGame
             //TextOutput (introStory_1);
             //UserMenu ();
             //TravelMenu ();
-            
+            MiniGame.PirateGame();
         }
     }
 }
