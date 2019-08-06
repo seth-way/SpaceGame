@@ -94,7 +94,7 @@ namespace SpaceGame
 
     public class Good
     {
-        public string description, name;
+        public string description, name, unit;
         public double price;
         public int size, onHand;
         public Planet originPlanet;
@@ -116,6 +116,7 @@ namespace SpaceGame
             description = "A can of air from Earth. While it seems like an ordinary item to you, other" +
             "species that live in atmospheres different to Earth use this as a recreational drug.",
             onHand = 0,
+            unit = "keg(s) of Canned Earth Air"
         };
 
         static public Good CentaurianFur = new Good()
@@ -127,6 +128,7 @@ namespace SpaceGame
             description = "The Centaurs of Proxima are reknowned for their soft yet strong fur. Although none of" +
             "them actually have any visible fur. You try not to think about it.",
             onHand = 0,
+            unit = "Centaurian Fur pelt(s)"
         };
 
         static public Good ServiceRobot = new Good()
@@ -138,6 +140,8 @@ namespace SpaceGame
             description = "A robot from the planet Gazorpazorp. You don't understand it's purpose," +
             "but other species seem to be really eager to buy it.",
             onHand = 0,
+            unit = "Gazorpian Service Robot(s)"
+
         };
 
         static public Good RealFakeDoors = new Good ()
@@ -150,6 +154,7 @@ namespace SpaceGame
             "muttering something, you were barely able to hear the last bit of his explanation; 'The door was real" +
             "but it wasn't real fake...' The doors are worthless. Maybe someone will use them for firewood.",
             onHand = 0,
+            unit = "Real Fake Door(s)"
         };
 
         static public Good MegaTreeSeeds = new Good ()
@@ -161,6 +166,7 @@ namespace SpaceGame
             description = "A highly controlled seed that was smuggled out of Planet 35-C. Causes the" +
             "consumer to have temporary super intelligence. Don't ask how they were smuggled out.",
             onHand = 0,
+            unit = "Mega Tree Seed(s)"
         };
 
         //If we add more Goods, be sure to update the productList and the UI tradeMenu.
