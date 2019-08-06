@@ -16,7 +16,7 @@ namespace SpaceGame
 
         }
 
-        static public double travelTime(double distance)
+        static public double TravelTime(double distance)
         {
             double years = Math.Round(distance / (Math.Pow(Game.NewShip.warpFactor, 10 /3) + Math.Pow(10 - Game.NewShip.warpFactor,-11/3)), 3);
             return years;
