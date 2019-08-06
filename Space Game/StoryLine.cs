@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Threading;
+using static SpaceGame.Game;
 
 namespace SpaceGame
 {
     static class StoryLine
     {
-        public static readonly string introStory_1 = "Captains Log. Star Date 122023.20\n" +
+        public static readonly string story_1 = "Captains Log\n" +
+            "Star Date 122023.20 \n" +
            "1553 Days since event\n" +
-           "4 Days since awakening from Cryosleep\n " +
+           "4 Days since awakening from initial Cryosleep\n " +
            "\n" +
            "    Nobody took it seriously. The publicity that had surrounded the event was entirely soaked with mocking humor, blatant sarcasm, and incredibility.\n" +
            "For months people all over the states laughed at the ridiculousness of the proposed event, they created memes, shared news articles, and joked about\n" +
@@ -21,7 +23,7 @@ namespace SpaceGame
            "We were right.\n" +
            "\n" +
            "    In the hours that followed the beginning of the march, chaos ensued. The military, police, and other government agencies that had taken the event\n" +
-           "to be nothing more than a joke, had escalated from riot control techniques like barricading to subjugation by any means necessary in what seemed like\n" +
+           "to be nothing more than a joke, had escalated from riot control techniques like barricading, to subjugation by any means necessary in what seemed like\n" +
            "an instant. One minute everyone had been marching steadily towards the facility, the next people were dropping left and right while running like madmen\n" +
            "towards the target. Whether by some stroke of luck, or some great misfortune, I somehow managed to make it past, well, everything, everything from\n" +
            "the desert, to the police, to the military blockade, to the very doors that allowed entry into the base. I had slipped by without a single soul\n" +
@@ -65,20 +67,59 @@ namespace SpaceGame
             "new life.\n\n" +
             "Perhaps you never will";
 
+        public static string story_2 = ("Captains Log.\n" +
+            "I've quickly come to realize that keeping track of the time\n" +
+            "had started driving me insane. So I will no longer attempt to do so\n" +
+            "\n" +
+            "\n" +
+            "");
 
         public static void TextOutput (string input)
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Array story = input.Split ('\n');
-            foreach (string a in story)
+            Console.SetCursorPosition(0,0);
+            //Array story = input.Split ('\n');
+
+            foreach(char a in story_1)
             {
-                Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
-                Thread.Sleep (550);
-                Console.Write ($"{a} \n");
+                //Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
+                Thread.Sleep (60);
+                Console.Write(a);
 
             }
             Console.ReadKey ();
             Console.Clear ();
+        }
+        public static void StoryCheck(int pSold)
+        {
+            if (pSold >= 0 && NewPlayer.storyTracker == 0)
+            {
+                TextOutput(story_1);
+                NewPlayer.storyTracker++;
+            }
+
+            else if (pSold >= 50 && NewPlayer.storyTracker == 1)
+            {
+                TextOutput(story_2);
+                NewPlayer.storyTracker++;
+            }
+            else if(NewPlayer.wallet < Actions.UpdateFuelPrice() && NewShip.currentInventory == 0)
+            {
+                bool travelAvailable = false;
+                foreach(Planet a in Universe.planetTravel)
+                {
+                    if(NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo(a)) >= 0)
+                    {
+                        travelAvailable = true;
+                    }
+                }
+                if(travelAvailable == false)
+                {
+                    Console.WriteLine("Game Over");
+                    Console.ReadLine();
+                }
+            }
         }
     }
 

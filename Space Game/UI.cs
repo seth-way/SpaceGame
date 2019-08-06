@@ -9,13 +9,12 @@ namespace SpaceGame
     public static class UI
     {
         public static int currentSelection = 0;
-        public static void UserMenu ()
+        public static void UserMenu()
         {
-            bool gameRunning = true;
             int i = Console.CursorTop;
             string menu = "|    F1 - Your Statistics        F2 - Ship Inventory         F3 - Trade        F4 - Travel        F5 - Save        F12 - Exit Game    |";
             string line = "-";
-            string menu2 = $"Galactic Federation Credits: {NewPlayer.wallet} Fuel: {NewShip.currentFuel}/{NewShip.maxFuel} Age: {NewPlayer.age} Year: {NewPlayer.currentYear} InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory} CurrentPlanet: {CurrentPlanet}";
+            string menu2 = $"Galactic Federation Credits: {NewPlayer.wallet} Fuel: {NewShip.currentFuel}/{NewShip.maxFuel} Age: {NewPlayer.age} Year: {NewPlayer.currentYear} InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory} CurrentPlanet: {CurrentPlanet.name}";
 
             if (i == 0)
             {
@@ -23,114 +22,124 @@ namespace SpaceGame
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 for (int r = 0; r < Console.BufferWidth; r++)
                 {
-                    Console.SetCursorPosition (r, 0);
-                    Console.Write (line);
+                    Console.SetCursorPosition(r, 0);
+                    Console.Write(line);
 
                 }
-                Console.SetCursorPosition ((((Console.BufferWidth) - menu.Length) / 2), 1);
-                Console.Write (menu);
+                Console.SetCursorPosition((((Console.BufferWidth) - menu.Length) / 2), 1);
+                Console.Write(menu);
             }
 
             for (int r = 0; r < Console.BufferWidth; r++)
             {
-                Console.SetCursorPosition (r, 2);
-                Console.Write (line);
+                Console.SetCursorPosition(r, 2);
+                Console.Write(line);
             }
 
             for (int r = 0; r < Console.BufferWidth; r++)
             {
-                Console.SetCursorPosition (r, (Console.BufferHeight - 3));
-                Console.Write (line);
+                Console.SetCursorPosition(r, (Console.BufferHeight - 3));
+                Console.Write(line);
 
             }
-            Console.SetCursorPosition ((Console.BufferWidth - menu2.Length) / 2, Console.BufferHeight - 2);
-            Console.Write (menu2);
+            Console.SetCursorPosition((Console.BufferWidth - menu2.Length) / 2, Console.BufferHeight - 2);
+            Console.Write(menu2);
             for (int r = 0; r < Console.BufferWidth; r++)
             {
-                Console.SetCursorPosition (r, (Console.BufferHeight - 1));
-                Console.Write (line);
+                Console.SetCursorPosition(r, (Console.BufferHeight - 1));
+                Console.Write(line);
 
             }
-            Console.SetCursorPosition (Console.CursorLeft, 6);   //is this necessary? YES. YES IT IS.
+            Console.SetCursorPosition(Console.CursorLeft, 6);   //is this necessary? YES. YES IT IS.
 
-                MenuSelection ();
         }
 
-        public static void MenuSelection ()
+        public static void MenuSelection()
         {
-            ConsoleKey rKey = Console.ReadKey ().Key;
-            switch (rKey)
+            bool gameFinish = false;
+            do
             {
-                case ConsoleKey.F1:
-                    PlayerStatsMenu ();
-                    break;
+                StoryLine.StoryCheck(NewPlayer.numOfProductsSold);
+                Console.Clear();
+                UserMenu();
+                ConsoleKey rKey = Console.ReadKey().Key;
+                switch (rKey)
+                {
+                    case ConsoleKey.F1:
+                        PlayerStatsMenu();
+                        break;
 
-                case ConsoleKey.F2:
-                    ShipStatsMenu ();
-                    break;
+                    case ConsoleKey.F2:
+                        ShipStatsMenu();
+                        break;
 
-                case ConsoleKey.F3:
-                    break;
+                    case ConsoleKey.F3:
+                        //TradeMenu();
+                        break;
 
-                case ConsoleKey.F4:
-                    TravelMenu ();
-                    break;
+                    case ConsoleKey.F4:
+                        TravelMenu();
+                        break;
 
-                case ConsoleKey.F5:
-                    Actions.SaveGame ();
-                    break;
+                    case ConsoleKey.F5:
+                        Actions.SaveGame();
+                        break;
 
-                case ConsoleKey.F6:
-                    break;
-                case ConsoleKey.F12:
-                    Actions.SaveGame ();
-                    Console.WriteLine ("GoodBye");
-                    Console.Beep();
-                    //exit console
-                    break;
-            }
+                    case ConsoleKey.F6://Load game?
+                        break;
+
+                    case ConsoleKey.F12:
+                        Actions.SaveGame();
+                        Console.WriteLine("GoodBye");
+                        Console.Beep();
+                        gameFinish = true;
+                        break;
+                }
+            } while (gameFinish == false);
         }
 
-        public static void ShipStatsMenu ()
+        public static void ShipStatsMenu()
         {
-            Console.SetCursorPosition (Console.CursorLeft, 6);
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.SetCursorPosition (0, 6);
-            Console.WriteLine ("Ship Name: " + NewShip.name);
-            Console.WriteLine ();
-            Console.WriteLine ("Warp Factor: " + NewShip.warpFactor);
-            Console.WriteLine ();
-            Console.WriteLine ($"Fuel: {NewShip.currentFuel}/{NewShip.maxFuel}");
-            Console.WriteLine ();
-            Console.WriteLine ($"Fuel Per Lightyear: {NewShip.fuelPerLightYear}");
-            Console.WriteLine ();
-            Console.WriteLine ($"Inventory: {NewShip.currentInventory}/{NewShip.maxInventory}");
-
             // ship image here
+            Console.SetCursorPosition(Console.CursorLeft, 6);
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.SetCursorPosition(0, 6);
+            Console.WriteLine("Ship Name: " + NewShip.name);
+            Console.WriteLine();
+            Console.WriteLine("Warp Factor: " + NewShip.warpFactor);
+            Console.WriteLine();
+            Console.WriteLine($"Fuel: {NewShip.currentFuel}/{NewShip.maxFuel}");
+            Console.WriteLine();
+            Console.WriteLine($"Fuel Per Lightyear: {NewShip.fuelPerLightYear}");
+            Console.WriteLine();
+            Console.WriteLine($"Inventory: {NewShip.currentInventory}/{NewShip.maxInventory}");
+            Console.ReadKey();
         }
 
-        public static void PlayerStatsMenu ()
+        public static void PlayerStatsMenu()
         {
-            Console.SetCursorPosition (Console.CursorLeft, 6);
+            Console.SetCursorPosition(Console.CursorLeft, 6);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine ("Your Name: " + NewPlayer.name);
-            Console.WriteLine ();
-            Console.WriteLine ("Your Age: " + NewPlayer.age);
-            Console.WriteLine ();
-            Console.WriteLine ("Galactic Federation Credits: " + NewPlayer.wallet);
-            Console.WriteLine ();
-            Console.WriteLine ("Total Products Sold: " + NewPlayer.numOfProductsSold);
-            Console.WriteLine ();
-            Console.WriteLine ("Total Distance Traveled: " + NewPlayer.totalDistanceTraveled);
-            Console.WriteLine ();
-            Console.WriteLine ("Total Galactic Credits Earned: " + NewPlayer.totalMoneyEarned);
-            Console.WriteLine ("Total Galactic Credits Stolen By Pirates: " + NewPlayer.totalMoneyStolen);
-            Console.WriteLine ();
-            Console.WriteLine ("Number Of Pirates Killed: " + NewPlayer.totalPiratesThwarted);
-            Console.WriteLine ();
-            Console.WriteLine ("Total Pirate Attacks Stopped: " + NewPlayer.totalPassedPirateAttacks);
-            Console.WriteLine ();
-            Console.WriteLine ("Total Pirate Attacks Failed: " + NewPlayer.totalFailedPirateAttacks);
+            Console.WriteLine("Your Name: " + NewPlayer.name);
+            Console.WriteLine();
+            Console.WriteLine("Your Age: " + NewPlayer.age);
+            Console.WriteLine();
+            Console.WriteLine("Galactic Federation Credits: " + NewPlayer.wallet);
+            Console.WriteLine();
+            Console.WriteLine("Total Products Sold: " + NewPlayer.numOfProductsSold);
+            Console.WriteLine();
+            Console.WriteLine("Total Distance Traveled: " + NewPlayer.totalDistanceTraveled);
+            Console.WriteLine();
+            Console.WriteLine("Total Galactic Credits Earned: " + NewPlayer.totalMoneyEarned);
+            Console.WriteLine();
+            Console.WriteLine("Total Galactic Credits Stolen By Pirates: " + NewPlayer.totalMoneyStolen);
+            Console.WriteLine();
+            Console.WriteLine("Number Of Pirates Killed: " + NewPlayer.totalPiratesThwarted);
+            Console.WriteLine();
+            Console.WriteLine("Total Pirate Attacks Stopped: " + NewPlayer.totalPassedPirateAttacks);
+            Console.WriteLine();
+            Console.WriteLine("Total Pirate Attacks Failed: " + NewPlayer.totalFailedPirateAttacks);
+            Console.ReadKey();
         }
 
         /*
@@ -416,29 +425,29 @@ namespace SpaceGame
 }
 */
 
-        public static void TravelMenu ()
+        public static void TravelMenu()
         {
             ConsoleKey rKey;
             int selectionTravel = 1;
 
             do
             {
-                Console.Clear ();
-                UserMenu ();
+                Console.Clear();
+                UserMenu();
 
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 string travelQuestion = "Use the left and right arrow keys to select where you want " +
                     "to travel, then press enter.";
 
-                Console.SetCursorPosition ((Console.WindowWidth - travelQuestion.Length) / 2, 6);
-                Console.WriteLine (travelQuestion);
+                Console.SetCursorPosition((Console.WindowWidth - travelQuestion.Length) / 2, 6);
+                Console.WriteLine(travelQuestion);
 
                 string selectionTravelString = $"{selectionTravel} / {planetTravel.Length}";
-                Console.SetCursorPosition ((Console.WindowWidth - selectionTravelString.Length) / 2, 7);
-                Console.WriteLine (selectionTravelString);
+                Console.SetCursorPosition((Console.WindowWidth - selectionTravelString.Length) / 2, 7);
+                Console.WriteLine(selectionTravelString);
 
-                PlanetTravelFunction (selectionTravel - 1);
-                rKey = Console.ReadKey ().Key;
+                PlanetTravelFunction(selectionTravel - 1);
+                rKey = Console.ReadKey().Key;
                 if (rKey == ConsoleKey.LeftArrow)
                 {
                     if (selectionTravel - 1 == 0)
@@ -463,56 +472,56 @@ namespace SpaceGame
                 }
                 if (rKey == ConsoleKey.Enter)
                 {
-                    Console.WriteLine ($"Do you want to travel to {planetTravel [selectionTravel - 1].name}?");
-                    Console.WriteLine ("Press Enter to confirm or Escape to cancel.");
-                    rKey = Console.ReadKey ().Key;
+                    Console.WriteLine($"Do you want to travel to {planetTravel[selectionTravel - 1].name}?");
+                    Console.WriteLine("Press Enter to confirm or Escape to cancel.\n");
+                    rKey = Console.ReadKey().Key;
                     if (rKey == ConsoleKey.Enter)
                     {
-                        Actions.ChangePlanets (planetTravel [selectionTravel - 1]);
+                        Actions.ChangePlanets(planetTravel[selectionTravel - 1]);
                         break;
                     }
                 }
 
-            } while (rKey != ConsoleKey.Enter);
-
+            } while (rKey != ConsoleKey.Escape);
         }
 
-        public static void PlanetTravelFunction (int planetSel)
+        public static void PlanetTravelFunction(int planetSel)
         {
 
-            Console.SetCursorPosition ((Console.WindowWidth - Universe.planetTravel [planetSel].name.Length - 18) / 2, 8);
+            Console.SetCursorPosition((Console.WindowWidth - Universe.planetTravel[planetSel].name.Length - 18) / 2, 8);
 
-            Console.WriteLine ($"<----    {planetTravel [planetSel].name}    ---->");
+            Console.WriteLine($"<----    {planetTravel[planetSel].name}    ---->");
 
-            Draw.DrawImage (planetTravel [planetSel].imageFile, (Console.WindowWidth / 2), Console.WindowHeight / 5, 45);
+            Draw.DrawImage(planetTravel[planetSel].imageFile, (Console.WindowWidth / 2), Console.WindowHeight / 5, 45);
 
-            Console.SetCursorPosition (Console.CursorLeft, 14);
+            Console.SetCursorPosition(Console.CursorLeft, 14);
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine ("Description: " + planetTravel [planetSel].description);
-            Console.WriteLine ();
-            Console.WriteLine ();
-            Console.WriteLine ();
-            Console.WriteLine ("Inhabitants: " + planetTravel [planetSel].inhabitants);
-            Console.WriteLine ();
-            Console.WriteLine ();
-            Console.WriteLine ("Travel Distance: ");
-            Console.WriteLine ();
-            Console.WriteLine ();
-            Console.WriteLine ("Travel Time: ");
-            Console.WriteLine ();
-            Console.WriteLine ();
-            Console.WriteLine ("Danger Rating: " + planetTravel [planetSel].dangerRating);
-            Console.WriteLine ();
-            Console.WriteLine ();
+            Console.WriteLine("Description: " + planetTravel[planetSel].description);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Inhabitants: " + planetTravel[planetSel].inhabitants);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Travel Distance: " + Equations.DistanceTo(planetTravel[planetSel]));
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Travel Time: " + Equations.TravelTime(Equations.DistanceTo(planetTravel[planetSel])));
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Danger Rating: " + planetTravel[planetSel].dangerRating);
+            Console.WriteLine();
+            Console.WriteLine();
             if (planetSel == 3)
             {
-                Console.WriteLine (planetTravel [4].screamingProduct);
+                Console.WriteLine(planetTravel[4].screamingProduct);
             }
             else
             {
-                Console.WriteLine ("Product Prices: ");
+                Console.WriteLine("Product Prices: ");
             }
+            Console.WriteLine();
         }
 
     }

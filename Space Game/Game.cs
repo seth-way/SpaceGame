@@ -18,8 +18,7 @@ namespace SpaceGame
         {
             CurrentPlanet = Universe.Earth;
             UserMenu ();
-            TravelMenu ();
-            Console.WriteLine (CurrentPlanet.name);
+            MenuSelection();
             
         }
     }

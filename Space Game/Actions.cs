@@ -52,7 +52,8 @@ namespace SpaceGame
             }
             else
             {
-                Console.Write($"You can't afford that.");
+                Console.Write($"Great, you can't afford fuel.\n" +
+                    $"Good thing money isn't our entire goal out here./s");
             }
         }
 
@@ -68,7 +69,10 @@ namespace SpaceGame
             }
             else //can not afford item.
             {
-                Console.Write($"You can't afford that.");
+                Console.Write($"You can't afford that.\n" +
+                    $"Maybe you should use one of those\n" +
+                    $"Mega Tree Seeds, seems you could\n" +
+                    $"use the boost."); 
             }
 
         }
@@ -84,52 +88,77 @@ namespace SpaceGame
             }
             else //not enough on hand to sell
             {
-                Console.Write($"Stop trying to sell more than you have on hand.");
+                //Console.Write($"Stop trying to sell more than you have on hand.");
+                Console.WriteLine("You don't have that many.\n" +
+                    $"If things keep going this way\n" +
+                    $"we'll have to sell you in\n" +
+                    $"place of the Gazorpazorp robots.");
             }
         }
 
         static public void ChangePlanets(Planet destination)
         {
+            if(destination == Game.CurrentPlanet)
+            {
+                Console.WriteLine("You are already there. . . . .\n" +
+                    " . . . . . . . . . . . . . . . \n" +
+                    " . . . . . . . . . . . . . . . \n" +
+                    " . . . . . . . . . . . . . . . \n" +
+                    "What did I do to deserve to be\n" +
+                    "stuck with you . . . . . . . . ");
+                Console.ReadKey();
+            }
             double distance = Equations.DistanceTo(destination);
-            double time = Equations.travelTime(distance);
+            double time = Equations.TravelTime(distance);
             var fuelCost = Game.NewShip.fuelPerLightYear * distance;
 
-            Game.NewShip.currentFuel -= fuelCost;
-            Game.NewPlayer.age += time;
-
-            bool gameWin = MiniGame.Minigame();
-            if (gameWin == true)
-            { Game.CurrentPlanet = destination;
-                UpdateMarketPrices ();
+            if ((Game.NewShip.currentFuel - fuelCost) <= 0)
+            {
+                Console.WriteLine("Just like your crush left you on read,\n" +
+                    "you've left the tank on empty.\n" +
+                    "Fill it up and try again.\n\n" +
+                    "Loser.");
+                Console.ReadKey();
             }
+            else
+            {
+                Game.NewShip.currentFuel -= fuelCost;
+                Game.NewPlayer.age += time;
 
+                bool gameWin = MiniGame.Minigame();
+                if (gameWin == true)
+                {
+                    Game.CurrentPlanet = destination;
+                    UpdateMarketPrices();
+                }
+            }
 
         }
 
-        
+
         public static void UpdateMarketPrices()
         {
-           if (Game.CurrentPlanet == Universe.Earth)
+            if (Game.CurrentPlanet == Universe.Earth)
             {
                 Game.CurrentMarket = Products.earthPrices;
             }
-           else if (Game.CurrentPlanet == Universe.ProximaCentauriB)
+            else if (Game.CurrentPlanet == Universe.ProximaCentauriB)
             {
                 Game.CurrentMarket = Products.proximaPrices;
             }
-           else if (Game.CurrentPlanet == Universe.Gazorpazorp)
+            else if (Game.CurrentPlanet == Universe.Gazorpazorp)
             {
                 Game.CurrentMarket = Products.gazorpazorpPrices;
             }
-           else if (Game.CurrentPlanet == Universe.C35)
+            else if (Game.CurrentPlanet == Universe.C35)
             {
                 Game.CurrentMarket = Products.c35Prices;
             }
-           else if (Game.CurrentPlanet == Universe.GromflomPrime)
+            else if (Game.CurrentPlanet == Universe.GromflomPrime)
             {
                 Game.CurrentMarket = Products.gromflomPrices;
             }
-           else if (Game.CurrentPlanet == Universe.ScreamingSun)
+            else if (Game.CurrentPlanet == Universe.ScreamingSun)
             {
                 Game.CurrentMarket = Products.screamingPrices;
             }
@@ -144,7 +173,7 @@ namespace SpaceGame
                     seeds = 0.00
                 };
             }
-            UpdateFuelPrice ();
+            UpdateFuelPrice();
         }
 
         public static double UpdateFuelPrice()
@@ -189,7 +218,7 @@ namespace SpaceGame
             currentDirectory = currentDirectory.Substring(0, bin) + "assets/savedgame.txt";
 
             File.Create(currentDirectory).Close(); //clears text file
-            
+
             TextWriter tw = new StreamWriter(currentDirectory);
             tw.WriteLine(Game.NewPlayer.name);
             tw.WriteLine(Game.NewPlayer.age);
@@ -205,7 +234,7 @@ namespace SpaceGame
             tw.WriteLine(Products.ServiceRobot.onHand);
             tw.WriteLine(Products.RealFakeDoors.onHand);
             tw.WriteLine(Products.MegaTreeSeeds.onHand);
-            tw.Write(Array.IndexOf(Universe.planetTravel,Game.CurrentPlanet));
+            tw.Write(Array.IndexOf(Universe.planetTravel, Game.CurrentPlanet));
 
             tw.Close();
         }
