@@ -56,6 +56,112 @@ namespace SpaceGame
 
 
 
+
+        public static string story_2 = "Captains Log\n" +
+            "I've quickly come to realize that keeping track of the time\n" +
+            "had started driving me insane. So I will no longer attempt to do so\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "   I wish I would have known. Perhaps I would have been able to live a normal life. I could have had a decent job, married a nice girl, and died\n" +
+            "a peaceful death. It seems as if that is but a far off dream now, there is no going back. In escaping with Phillip, the extraterrestrial being\n" +
+            "who is most certainly not a normal human male, I have been branded as a supporter of his. Now, normally I would have no problem with this.\n" +
+            "Normally. This. Is. Not. A. Normal. Situation. Apparently, Reginald Phillip Zwarkzefald III, is a conspirator who attempted to overthrow the\n" +
+            "ENTIRE GALCTIC FEDERATION. In his defense, they do seem to be just as, if not more, corrupt as the government agencies on Earth. However,\n" +
+            "they also have what they call The Enforcement Agency. Which is basically a super high tech military that's about 5,000,000,000 soldiers strong.\n" +
+            "So yes, I wish I would have known EXACTLY what I was getting into when I decided to join in on the Area 51 raid and freed Phillip. I should" +
+            "have listened to my mother and just stayed home.\n" +
+            "\n" +
+            "\n" +
+            "   It's not all bad though, it's not as if we're flying from planet to planet smuggling illegal goods to make enough money so that we can upgrade\n" +
+            "our ship to get to the planet where Phillips militia is currently awaiting his return. . . . . .\n" +
+            ". . . \n" +
+            ". . .\n" +
+            "Ok. . .  It is all bad.\n" +
+            "Someone help me. Please.\n";
+
+        public static string story_3 = "Captains Log\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "   I can't remember when my birthday is. I can barely remember my age. The only attachment I still have to who I am as a person is\n" +
+            "my name and even that seems foreign to me these days. There are times when I wonder if I really ever lived on Earth. Am I really a\n" +
+            "human? What was my life like? Was I happy? What does happy even feel like? What does it look like? I guarantee it isn't being shot\n" +
+            "at by Space Pirates as you attempt to warp to another planet so you can try and survive there long enough to sell some goD DAMN DOORS.\n" +
+            "I've given serious thought to just killing Phillip and turning his body in to the Federation so they'll stop pursuing me and I can go\n" +
+            "home. Unfortunately, as I am reminded every time we do trade on Earth, I am Earth's most wanted 'Terrorist'. The real powers in charge\n" +
+            "of Area 51 fabricated some horrific events that resulted in the near destruction of the USA and pinned it all on me. So I can never truly\n" +
+            "go back. Ever. I can only resign myself to the cruel fate that has been placed upon me. Where there only some way to put everything back\n" +
+            "to how it was, I would do it in a heartbeat.\n";
+
+        public static string story_4 = "captainslog\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n" +
+            "AAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n" +
+            "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n" +
+            "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
+
+        public static string story_5 = "Captains Log\n" +
+            "   Are we getting closer to our goal? Is any of this 'progress' that Phillip talks about even real? Is there really an end to this madness\n" +
+            "I remain doubtful of every word he says.Too often I have found myself gaining hope again only to have reality come crashing back down\n" +
+            "and breaking me even further.I have given up on the idea of normality and allowed myself to embrace the madness that has surrounded me,\n" +
+            "I no longer have any desires to return to a home I can't even remember. I no longer wonder about who my friends and family where, I can't\n" +
+            "even remember their names or faces so there's really no point in even trying. I must move forward, I must face my fears, I must allow them\n" +
+            "to pass over me and through me, I must persevere so that in the end, only I remain.\n";
+
+
+
+
+
+        public static string story_GameOver = "Captains Log\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    So here we are, stranded above some crappy planet, out of money, out of fuel, out of goods. We have hit rock bottom.\n" +
+            "There is no way for this to get any worse. Phillip keeps talking to himself and checking some screens on the ship. For some\n" +
+            "reason he seems more freaked out than I am, or maybe he's just finally gone insane. I have no idea why but he's been loading\n" +
+            "all our weapons as if preparing for a major fight. It makes me want to laugh, the thought of someone coming up here just to\n" +
+            "take out an old space fre.... hold on, Phillip is yelling about something.\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    I WAS WRONG.It seems that is EXACTLY what is happening. There is a ship launching what I at first thought were rockets\n" +
+            "but after closer-than-I-would-like-to-have-been inspection it appears that they are giant harpoon like projectiles. There\n" +
+            "is nothing more we can do to combat this, Phillip has already exhausted our ammunition in an attempt to fight them off.\n" +
+            "We can no longer escape down to the planet as our hull has been compromised. OUR HULL HAS BEEN COMPROMISED. I need to find\n" +
+            "the emergency seal or we're going to die. The harpoons are slowly becoming more accurate, or maybe they were never inaccurate\n" +
+            "to begin with. What I thought were near misses had actually been disabling all of our utilities that might have provided a\n" +
+            "means of escape.\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    Phillip is dead, I watched as he was pulled out of the ship and thrown to the planet, burning up in the atmosphere. I myself\n" +
+            "have been pierced by a harpoon and have no hope of surviving.My thoughts drift towards the last faint memory I have of my childhood,\n" +
+            "where I had been watching the leaves fall off the tree in our yard and float away, yearning for the same ability to fly and escape\n" +
+            "my mundane life. If only I knew where that wish would take me. I can still hear the words I said as I jumped off the roof of our house\n" +
+            "\n" +
+            "\"I am a leaf on the wind, watch how I ";
+
         public static string earthDescription = "" +
            "Your home planet. Phillip has a contact here that\n" +
             "will trade goods with you without asking too many\n" +
@@ -66,60 +172,78 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
-
-        public static string story_2 = ("Captains Log.\n" +
-            "I've quickly come to realize that keeping track of the time\n" +
-            "had started driving me insane. So I will no longer attempt to do so\n" +
-            "\n" +
-            "\n" +
-            "");
-
-        public static void TextOutput (string input)
+        public static void TextOutput (string input, int x, bool speedUp = false)
         {
-            Console.Clear();
+            Console.Clear ();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.SetCursorPosition(0,0);
+            Console.SetCursorPosition (0, 0);
             //Array story = input.Split ('\n');
 
-            foreach(char a in story_1)
+            foreach (char a in input)
             {
                 //Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
-                Thread.Sleep (60);
-                Console.Write(a);
+                Thread.Sleep (x);
+                Console.Write (a);
+                if(speedUp == true)
+                { if (x > 10) { x-=2; } }
 
             }
             Console.ReadKey ();
             Console.Clear ();
         }
-        public static void StoryCheck(int pSold)
+        public static void StoryCheck (int wFactor)
         {
-            if (pSold >= 0 && NewPlayer.storyTracker == 0)
+            CurrentPlanet = Universe.Earth;
+            bool travelAvailable = true;
+            NewPlayer.storyTracker = 4;
+            if (NewPlayer.wallet < Actions.UpdateFuelPrice() && NewShip.currentInventory == 0)
             {
-                TextOutput(story_1);
-                NewPlayer.storyTracker++;
-            }
-
-            else if (pSold >= 50 && NewPlayer.storyTracker == 1)
-            {
-                TextOutput(story_2);
-                NewPlayer.storyTracker++;
-            }
-            else if(NewPlayer.wallet < Actions.UpdateFuelPrice() && NewShip.currentInventory == 0)
-            {
-                bool travelAvailable = false;
-                foreach(Planet a in Universe.planetTravel)
+                travelAvailable = false;
+                foreach (Planet a in Universe.planetTravel)
                 {
-                    if(NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo(a)) >= 0)
+                    if ((NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo (a))) > 0)
                     {
                         travelAvailable = true;
                     }
                 }
-                if(travelAvailable == false)
+                if (travelAvailable == false)
                 {
-                    Console.WriteLine("Game Over");
-                    Console.ReadLine();
+                    TextOutput (story_GameOver, 80);
                 }
             }
+            if (travelAvailable == true)
+            {
+                if (wFactor == 1 && NewPlayer.storyTracker == 1)
+                {
+                    TextOutput (story_1, 65);
+                    NewPlayer.storyTracker++;
+                }
+
+                else if (wFactor == 2 && NewPlayer.storyTracker == 2)
+                {
+                    TextOutput (story_2,65);
+                    NewPlayer.storyTracker++;
+                }
+
+                else if (wFactor == 3 && NewPlayer.storyTracker == 3)
+                {
+                    TextOutput (story_3, 65);
+                    NewPlayer.storyTracker++;
+                }
+
+                else if (wFactor == 4 && NewPlayer.storyTracker == 4)
+                {
+                    TextOutput (story_4, 400, true);
+                    NewPlayer.storyTracker++;
+                }
+
+                else if (wFactor == 5 && NewPlayer.storyTracker == 5)
+                {
+                    TextOutput (story_5, 65);
+                    NewPlayer.storyTracker++;
+                }
+            }
+
         }
     }
 

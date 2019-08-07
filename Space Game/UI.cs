@@ -15,7 +15,7 @@ namespace SpaceGame
             int i = Console.CursorTop;
             string menu = "|    F1 - Your Statistics        F2 - Ship Inventory         F3 - Trade/Upgrades        F4 - Travel        F5 - Save        F12 - Exit Game    |";
             string line = "-";
-            string menu2 = $"Galactic Federation Credits: {NewPlayer.wallet} Fuel: {NewShip.currentFuel}/{NewShip.maxFuel} Age: {NewPlayer.age} Year: {NewPlayer.currentYear} InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory} CurrentPlanet: {CurrentPlanet.name}";
+            string menu2 = $"|  Galactic Federation Credits: {NewPlayer.wallet}  |  Fuel: {NewShip.currentFuel}/{NewShip.maxFuel}  |  Age: {NewPlayer.age}  |  Year: {NewPlayer.currentYear}  |  InvSpace: {NewShip.currentInventory}/{NewShip.maxInventory}  |  CurrentPlanet: {CurrentPlanet.name}  |";
 
             if (i == 0)
             {
@@ -60,7 +60,7 @@ namespace SpaceGame
             bool gameFinish = false;
             do
             {
-                //StoryLine.StoryCheck(NewPlayer.numOfProductsSold);
+                StoryLine.StoryCheck (NewShip.warpFactor);
                 Console.Clear();
                 UserMenu();
                 ConsoleKey rKey = Console.ReadKey().Key;
