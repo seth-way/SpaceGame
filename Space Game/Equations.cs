@@ -6,10 +6,10 @@ namespace SpaceGame
 {
     class Equations
     {
-        static public double DistanceTo(Planet destination)
+        static public double DistanceTo(Planet destination, Planet CurrentPlanet)
         {
-            var changeX = destination.xLoc - Game.CurrentPlanet.xLoc;
-            var changeY = destination.yLoc - Game.CurrentPlanet.yLoc;
+            var changeX = destination.xLoc - CurrentPlanet.xLoc;
+            var changeY = destination.yLoc - CurrentPlanet.yLoc;
 
             double distance = Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY));
             return distance;

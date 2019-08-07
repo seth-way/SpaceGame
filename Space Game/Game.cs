@@ -9,14 +9,12 @@ namespace SpaceGame
 {
     class Game
     {
-        static public Planet CurrentPlanet = new Planet();
         static public Player NewPlayer = new Player();
         static public Ship NewShip = new Ship();
         static public Market CurrentMarket = new Market();
        
         public void RunGame()
         {
-            CurrentPlanet = Universe.Earth;
             MenuSelection();
             
         }

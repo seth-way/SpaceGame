@@ -42,9 +42,9 @@ namespace SpaceGame
             }
         }
 
-        static public void BuyFuel(int quantity)
+        static public void BuyFuel(int quantity, Planet CurrentPlanet)
         {
-            double fuelPrice = UpdateFuelPrice();
+            double fuelPrice = UpdateFuelPrice(CurrentPlanet);
             if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
             {
                 Game.NewPlayer.wallet -= fuelPrice * quantity;
@@ -58,9 +58,9 @@ namespace SpaceGame
         }
 
 
-        static public void BuyGoods(int index, int quantity)
+        static public void BuyGoods(int index, int quantity, Planet CurrentPlanet)
         {
-            UpdateMarketPrices();
+            UpdateMarketPrices(CurrentPlanet);
             double price = getIndexPrice(index);
             if (price * quantity <= Game.NewPlayer.wallet) //can afford item.
             {
@@ -77,9 +77,9 @@ namespace SpaceGame
 
         }
 
-        static public void SellGoods(int index, int quantity)
+        static public void SellGoods(int index, int quantity, Planet CurrentPlanet)
         {
-            UpdateMarketPrices();
+            UpdateMarketPrices(CurrentPlanet);
             double price = getIndexPrice(index);
             if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
@@ -96,9 +96,10 @@ namespace SpaceGame
             }
         }
 
-        static public void ChangePlanets(Planet destination)
+        static public bool ChangePlanets(Planet destination, Planet CurrentPlanet)
         {
-            if(destination == Game.CurrentPlanet)
+            bool travelAble = true;
+            if(destination == CurrentPlanet)
             {
                 Console.WriteLine("You are already there. . . . .\n" +
                     " . . . . . . . . . . . . . . . \n" +
@@ -108,17 +109,29 @@ namespace SpaceGame
                     "stuck with you . . . . . . . . ");
                 Console.ReadKey();
             }
-            double distance = Equations.DistanceTo(destination);
+            double distance = Equations.DistanceTo(destination, CurrentPlanet);
             double time = Equations.TravelTime(distance);
             var fuelCost = Game.NewShip.fuelPerLightYear * distance;
 
             if ((Game.NewShip.currentFuel - fuelCost) <= 0)
             {
-                Console.WriteLine("Just like your crush left you on read,\n" +
-                    "you've left the tank on empty.\n" +
-                    "Fill it up and try again.\n\n" +
-                    "Loser.");
-                Console.ReadKey();
+                if (Game.NewShip.currentFuel == Game.NewShip.maxFuel)
+                {
+                    Console.WriteLine ("Do you not understand the concept of fuel?\n" +
+                        "Or is it the idea of fuel capacity that seems to elude you?\n" +
+                        "It's not like there's a universe of tiny people powering our ship.\n" +
+                        "Upgrade and try again.");
+                    Console.ReadKey ();
+                }
+                else
+                {
+                    Console.WriteLine ("Just like your crush left you on read,\n" +
+                        "you've left the tank on empty.\n" +
+                        "Fill it up and try again.\n\n" +
+                        "Loser.");
+                    Console.ReadKey ();
+                }
+                travelAble = false;
             }
             else
             {
@@ -128,39 +141,39 @@ namespace SpaceGame
                 bool gameWin = MiniGame.Minigame();
                 if (gameWin == true)
                 {
-                    Game.CurrentPlanet = destination;
-                    UpdateMarketPrices();
+                    UpdateMarketPrices(CurrentPlanet);
+                }
+                else
+                {
+                    travelAble = false;
                 }
             }
+                return travelAble;
 
         }
 
 
-        public static void UpdateMarketPrices()
+        public static void UpdateMarketPrices(Planet CurrentPlanet)
         {
-            if (Game.CurrentPlanet == Universe.Earth)
+            if (CurrentPlanet == Universe.Earth)
             {
                 Game.CurrentMarket = Products.earthPrices;
             }
-            else if (Game.CurrentPlanet == Universe.ProximaCentauriB)
+            else if (CurrentPlanet == Universe.ProximaCentauriB)
             {
                 Game.CurrentMarket = Products.proximaPrices;
             }
-            else if (Game.CurrentPlanet == Universe.Gazorpazorp)
+            else if (CurrentPlanet == Universe.Gazorpazorp)
             {
                 Game.CurrentMarket = Products.gazorpazorpPrices;
             }
-            else if (Game.CurrentPlanet == Universe.C35)
+            else if (CurrentPlanet == Universe.C35)
             {
                 Game.CurrentMarket = Products.c35Prices;
             }
-            else if (Game.CurrentPlanet == Universe.GromflomPrime)
+            else if (CurrentPlanet == Universe.GromflomPrime)
             {
                 Game.CurrentMarket = Products.gromflomPrices;
-            }
-            else if (Game.CurrentPlanet == Universe.ScreamingSun)
-            {
-                Game.CurrentMarket = Products.screamingPrices;
             }
             else
             {
@@ -173,16 +186,16 @@ namespace SpaceGame
                     seeds = 0.00
                 };
             }
-            UpdateFuelPrice();
+            UpdateFuelPrice(CurrentPlanet);
         }
 
-        public static double UpdateFuelPrice()
+        public static double UpdateFuelPrice(Planet CurrentPlanet)
         {
-            double currentPrice = Game.CurrentPlanet.dangerRating * 1; // modifier may require tweaking
+            double currentPrice = CurrentPlanet.dangerRating * 1; // modifier may require tweaking
             return currentPrice;
         }
 
-        public static void LoadGame()
+        public static void LoadGame(Planet CurrentPlanet)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             int bin = currentDirectory.IndexOf("bin");
@@ -204,14 +217,14 @@ namespace SpaceGame
             Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
             Products.RealFakeDoors.onHand = int.Parse(tr.ReadLine());
             Products.MegaTreeSeeds.onHand = int.Parse(tr.ReadLine());
-            Game.CurrentPlanet = Universe.planetTravel[int.Parse(tr.ReadLine())];
+            CurrentPlanet = Universe.planetTravel[int.Parse(tr.ReadLine())];
 
             tr.Close();
 
             //Game.CurrentPlanet = Universe.thisPlanet;    not possible... but need to set current planet somehow?
         }
 
-        public static void SaveGame()
+        public static void SaveGame(Planet CurrentPlanet)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             int bin = currentDirectory.IndexOf("bin");
@@ -234,7 +247,7 @@ namespace SpaceGame
             tw.WriteLine(Products.ServiceRobot.onHand);
             tw.WriteLine(Products.RealFakeDoors.onHand);
             tw.WriteLine(Products.MegaTreeSeeds.onHand);
-            tw.Write(Array.IndexOf(Universe.planetTravel, Game.CurrentPlanet));
+            tw.Write(Array.IndexOf(Universe.planetTravel, CurrentPlanet));
 
             tw.Close();
         }
