@@ -172,7 +172,7 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
-        public static void TextOutput (string input, int x, bool speedUp = false)
+        public static void TextOutput (string input, int x, bool speedUp = false, bool gameEnd = false)
         {
             Console.Clear ();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -184,32 +184,45 @@ namespace SpaceGame
                 //Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
                 Thread.Sleep (x);
                 Console.Write (a);
-                if(speedUp == true)
-                { if (x > 10) { x-=2; } }
+                if (speedUp == true)
+                { if (x > 10) { x -= 2; } }
 
+            }
+            if (gameEnd == true)
+            {
+                for (int y = 200; y < 1200; y += 150)
+                {
+                    Thread.Sleep (y);
+                    Console.Beep (1000, 200);
+                }
+                Thread.Sleep (1200);
+                Console.Beep (1000, 3000);
             }
             Console.ReadKey ();
             Console.Clear ();
         }
-        public static void StoryCheck (int wFactor)
+        public static void StoryCheck (int wFactor, Planet CurrentPlanet)
         {
             CurrentPlanet = Universe.Earth;
             bool travelAvailable = true;
-            NewPlayer.storyTracker = 4;
-            if (NewPlayer.wallet < Actions.UpdateFuelPrice() && NewShip.currentInventory == 0)
+            if (NewPlayer.wallet < Actions.UpdateFuelPrice (CurrentPlanet) && NewShip.currentInventory == 0)
             {
                 travelAvailable = false;
                 foreach (Planet a in Universe.planetTravel)
                 {
-                    if ((NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo (a))) > 0)
+                    if ((NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo (a, CurrentPlanet))) > 0)
                     {
                         travelAvailable = true;
                     }
                 }
-                if (travelAvailable == false)
-                {
-                    TextOutput (story_GameOver, 80);
-                }
+            }
+            else if (NewPlayer.age >= 60)
+            { travelAvailable = false; }
+
+            if (travelAvailable == false)
+            {
+                TextOutput (story_GameOver, 0, gameEnd: true);
+
             }
             if (travelAvailable == true)
             {
@@ -221,7 +234,7 @@ namespace SpaceGame
 
                 else if (wFactor == 2 && NewPlayer.storyTracker == 2)
                 {
-                    TextOutput (story_2,65);
+                    TextOutput (story_2, 65);
                     NewPlayer.storyTracker++;
                 }
 

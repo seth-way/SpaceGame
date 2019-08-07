@@ -71,10 +71,6 @@ namespace SpaceGame
 
         public static Planet[] planetTravel = { Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime };
 
-        //Possible planet name ideas: 
-        //Rick and Morty: Gazopazop, On a Cob Planet, Cronenberg World, Gromflom Prime, Alphabetrium, Pluto, Screaming Sun Earth
-        //Futurama: Omicron Persei 8:, V-Giny, Nude Beach Planet, Neutral Planet, Amazonia, Decapod 10
-
         }
 
     public class Planet
@@ -83,7 +79,7 @@ namespace SpaceGame
         public string inhabitants, name;
         public string description = " ";
         public string imageFile;
-        public string screamingProduct = "The people of this planet are too tired to trade. Though they do seem interested in your ship.\n" +
+        public string screamingProduct = "The people of this planet seem too tired to trade. Though they do seem interested in your ship.\n" +
             "A little too interested. It's probably best if you leave while you still have one.";
     }
 

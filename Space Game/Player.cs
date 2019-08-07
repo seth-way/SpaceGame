@@ -8,7 +8,7 @@ namespace SpaceGame
     {
         public string name = "Player 1";
         public double age = 22;
-        public double wallet = 100;
+        public double wallet = 1000;
         public int numOfProductsSold = 0;
         public double totalDistanceTraveled = 4.25;
         public double totalMoneyEarned = 0;

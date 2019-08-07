@@ -42,9 +42,9 @@ namespace SpaceGame
             }
         }
 
-        static public void BuyFuel(int quantity)
+        static public void BuyFuel(int quantity, Planet CurrentPlanet)
         {
-            double fuelPrice = UpdateFuelPrice();
+            double fuelPrice = UpdateFuelPrice(CurrentPlanet);
             if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
             {
                 Game.NewPlayer.wallet -= fuelPrice * quantity;
@@ -58,9 +58,9 @@ namespace SpaceGame
         }
 
 
-        static public void BuyGoods(int index, int quantity)
+        static public void BuyGoods(int index, int quantity, Planet CurrentPlanet)
         {
-            UpdateMarketPrices();
+            UpdateMarketPrices(CurrentPlanet);
             double price = getIndexPrice(index);
             if (price * quantity <= Game.NewPlayer.wallet) //can afford item.
             {
@@ -77,9 +77,9 @@ namespace SpaceGame
 
         }
 
-        static public void SellGoods(int index, int quantity)
+        static public void SellGoods(int index, int quantity, Planet CurrentPlanet)
         {
-            UpdateMarketPrices();
+            UpdateMarketPrices(CurrentPlanet);
             double price = getIndexPrice(index);
             if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
@@ -96,9 +96,10 @@ namespace SpaceGame
             }
         }
 
-        static public void ChangePlanets(Planet destination)
+        static public bool ChangePlanets(Planet destination, Planet CurrentPlanet)
         {
-            if (destination == Game.CurrentPlanet)
+            bool travelAble = true;
+            if(destination == CurrentPlanet)
             {
                 Console.WriteLine("You are already there. . . . .\n" +
                     " . . . . . . . . . . . . . . . \n" +
@@ -108,17 +109,29 @@ namespace SpaceGame
                     "stuck with you . . . . . . . . ");
                 Console.ReadKey();
             }
-            double distance = Equations.DistanceTo(destination);
+            double distance = Equations.DistanceTo(destination, CurrentPlanet);
             double time = Equations.TravelTime(distance);
             var fuelCost = Game.NewShip.fuelPerLightYear * distance;
 
             if ((Game.NewShip.currentFuel - fuelCost) <= 0)
             {
-                Console.WriteLine("Just like your crush left you on read,\n" +
-                    "you've left the tank on empty.\n" +
-                    "Fill it up and try again.\n\n" +
-                    "Loser.");
-                Console.ReadKey();
+                if (Game.NewShip.currentFuel == Game.NewShip.maxFuel)
+                {
+                    Console.WriteLine ("Do you not understand the concept of fuel?\n" +
+                        "Or is it the idea of fuel capacity that seems to elude you?\n" +
+                        "It's not like there's a universe of tiny people powering our ship.\n" +
+                        "Upgrade and try again.");
+                    Console.ReadKey ();
+                }
+                else
+                {
+                    Console.WriteLine ("Just like your crush left you on read,\n" +
+                        "you've left the tank on empty.\n" +
+                        "Fill it up and try again.\n\n" +
+                        "Loser.");
+                    Console.ReadKey ();
+                }
+                travelAble = false;
             }
             else
             {
@@ -128,37 +141,41 @@ namespace SpaceGame
                 bool gameWin = MiniGame.Minigame();
                 if (gameWin == true)
                 {
-                    Game.CurrentPlanet = destination;
-                    UpdateMarketPrices();
+                    UpdateMarketPrices(CurrentPlanet);
+                }
+                else
+                {
+                    travelAble = false;
                 }
             }
+                return travelAble;
 
         }
 
 
-        public static void UpdateMarketPrices()
+        public static void UpdateMarketPrices(Planet CurrentPlanet)
         {
-            if (Game.CurrentPlanet == Universe.Earth)
+            if (CurrentPlanet == Universe.Earth)
             {
                 Game.CurrentMarket = Products.earthPrices;
             }
-            else if (Game.CurrentPlanet == Universe.ProximaCentauriB)
+            else if (CurrentPlanet == Universe.ProximaCentauriB)
             {
                 Game.CurrentMarket = Products.proximaPrices;
             }
-            else if (Game.CurrentPlanet == Universe.Gazorpazorp)
+            else if (CurrentPlanet == Universe.Gazorpazorp)
             {
                 Game.CurrentMarket = Products.gazorpazorpPrices;
             }
-            else if (Game.CurrentPlanet == Universe.C35)
+            else if (CurrentPlanet == Universe.C35)
             {
                 Game.CurrentMarket = Products.c35Prices;
             }
-            else if (Game.CurrentPlanet == Universe.GromflomPrime)
+            else if (CurrentPlanet == Universe.GromflomPrime)
             {
                 Game.CurrentMarket = Products.gromflomPrices;
             }
-            else if (Game.CurrentPlanet == Universe.ScreamingSun)
+            else if (CurrentPlanet == Universe.ScreamingSun)
             {
                 Game.CurrentMarket = Products.screamingPrices;
             }
@@ -173,12 +190,12 @@ namespace SpaceGame
                     seeds = 0.00
                 };
             }
-            UpdateFuelPrice();
+            UpdateFuelPrice(CurrentPlanet);
         }
 
-        public static double UpdateFuelPrice()
+        public static double UpdateFuelPrice(Planet CurrentPlanet)
         {
-            double currentPrice = Game.CurrentPlanet.dangerRating * 1; // modifier may require tweaking
+            double currentPrice = CurrentPlanet.dangerRating * 1; // modifier may require tweaking
             return currentPrice;
         }
 
@@ -187,50 +204,53 @@ namespace SpaceGame
             int inventory = Products.CannedAir.onHand + Products.CentaurianFur.onHand + Products.MegaTreeSeeds.onHand + Products.ServiceRobot.onHand + Products.RealFakeDoors.onHand;
             Game.NewShip.currentInventory = inventory;
         }
-
-        public static void LoadGame()
+        class LoadGame
         {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            int bin = currentDirectory.IndexOf("bin");
-            currentDirectory = currentDirectory.Substring(0, bin) + "assets/savedgame.txt";
+            public Planet LoadG ()
+            {
+                string currentDirectory = Directory.GetCurrentDirectory ();
+                int bin = currentDirectory.IndexOf ("bin");
+                currentDirectory = currentDirectory.Substring (0, bin) + "assets/savedgame.txt";
 
-            TextReader tr = new StreamReader(currentDirectory);
+                TextReader tr = new StreamReader (currentDirectory);
+                
+                Game.NewPlayer.name = tr.ReadLine ();
+                Game.NewPlayer.age = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.wallet = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.numOfProductsSold = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalDistanceTraveled = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalMoneyEarned = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalMoneyStolen = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalPiratesThwarted = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalPassedPirateAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalFailedPirateAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.currentYear = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.storyTracker = int.Parse (tr.ReadLine ());
+                Game.NewShip.name = tr.ReadLine ();
+                Game.NewShip.warpFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.currentFuel = double.Parse (tr.ReadLine ());
+                Game.NewShip.maxFuel = int.Parse (tr.ReadLine ());
+                Game.NewShip.fuelFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.fuelPerLightYear = double.Parse (tr.ReadLine ());
+                Game.NewShip.fuelEfficiencyFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.currentInventory = int.Parse (tr.ReadLine ());
+                Game.NewShip.maxInventory = int.Parse (tr.ReadLine ());
+                Game.NewShip.storageFactor = int.Parse (tr.ReadLine ());
+                Products.CannedAir.onHand = int.Parse (tr.ReadLine ());
+                Products.CentaurianFur.onHand = int.Parse (tr.ReadLine ());
+                Products.ServiceRobot.onHand = int.Parse (tr.ReadLine ());
+                Products.RealFakeDoors.onHand = int.Parse (tr.ReadLine ());
+                Products.MegaTreeSeeds.onHand = int.Parse (tr.ReadLine ());
+                Planet CurrentPlanet = Universe.planetTravel [int.Parse (tr.ReadLine ())];
 
-            Game.NewPlayer.name = tr.ReadLine();
-            Game.NewPlayer.age = double.Parse(tr.ReadLine());
-            Game.NewPlayer.wallet = double.Parse(tr.ReadLine());
-            Game.NewPlayer.numOfProductsSold = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalDistanceTraveled = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalMoneyEarned = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalMoneyStolen = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalPiratesThwarted = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalPassedPirateAttacks = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalFailedPirateAttacks = int.Parse(tr.ReadLine());
-            Game.NewPlayer.currentYear = int.Parse(tr.ReadLine());
-            Game.NewPlayer.storyTracker = int.Parse(tr.ReadLine());
-            Game.NewShip.name = tr.ReadLine();
-            Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.currentFuel = double.Parse(tr.ReadLine());
-            Game.NewShip.maxFuel = int.Parse(tr.ReadLine());
-            Game.NewShip.fuelFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.fuelPerLightYear = double.Parse(tr.ReadLine());
-            Game.NewShip.fuelEfficiencyFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.currentInventory = int.Parse(tr.ReadLine());
-            Game.NewShip.maxInventory = int.Parse(tr.ReadLine());
-            Game.NewShip.storageFactor = int.Parse(tr.ReadLine());
-            Products.CannedAir.onHand = int.Parse(tr.ReadLine());
-            Products.CentaurianFur.onHand = int.Parse(tr.ReadLine());
-            Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
-            Products.RealFakeDoors.onHand = int.Parse(tr.ReadLine());
-            Products.MegaTreeSeeds.onHand = int.Parse(tr.ReadLine());
-            Game.CurrentPlanet = Universe.planetTravel[int.Parse(tr.ReadLine())];
+                tr.Close ();
 
-            tr.Close();
+                return CurrentPlanet;
 
-            //Game.CurrentPlanet = Universe.thisPlanet;    not possible... but need to set current planet somehow?
+                //Game.CurrentPlanet = Universe.thisPlanet;    not possible... but need to set current planet somehow?
+            }
         }
-
-        public static void SaveGame()
+        public static void SaveGame(Planet CurrentPlanet)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             int bin = currentDirectory.IndexOf("bin");
@@ -266,187 +286,87 @@ namespace SpaceGame
             tw.WriteLine(Products.ServiceRobot.onHand);
             tw.WriteLine(Products.RealFakeDoors.onHand);
             tw.WriteLine(Products.MegaTreeSeeds.onHand);
-            tw.Write(Array.IndexOf(Universe.planetTravel, Game.CurrentPlanet));
+            tw.Write(Array.IndexOf(Universe.planetTravel, CurrentPlanet));
 
             tw.Close();
         }
 
-        public static void newOrLoadGame()
+        public static Planet newOrLoadGame ()
         {
-            List<string> newOrLoad = new List<string>() { "New Game", "Load Game" };
-            List<string> confirmNewGame = new List<string> { "Yes, Start New Game", "No, Load Current Saved Game" };
-            UI.UserMenu();
+            Planet loadPlanet = Universe.Earth;
+
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             string upgradeQuestion1 = "Use the UP and DOWN arrow keys to select an option" +
                 ", then press enter.";
 
-            Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
-            Console.WriteLine(upgradeQuestion1);
+            Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
+            Console.WriteLine (upgradeQuestion1);
 
-            int selected = scrollList(newOrLoad, 8);
+            Console.SetCursorPosition (Console.CursorLeft, 8);
 
-            if (selected == 0)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-                string loadQuestion = "Starting a new game will erase your current Save data. Are you Sure?";
-
-                Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
-                Console.WriteLine(loadQuestion);
-
-                selected = scrollList(confirmNewGame, 14);
-
-                if (selected == 1)
-                {
-                    LoadGame();
-                }
-            }
-            UI.MenuSelection();
-        }
-        public static (bool, int) scrollList(List<string> list, int cursorStart, bool finished)
-        {
-            finished = false;
-            Console.SetCursorPosition(0, cursorStart);
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine($" {list[i]}");
-                Console.WriteLine();
-            }
-
-            int index = 0;
-
-            Console.SetCursorPosition(0, cursorStart);
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.Write($" {list[index]}");
-            Console.ResetColor();
-            Console.SetCursorPosition(0, 6);
+
+            Console.WriteLine ($" New Game");
+            Console.WriteLine ();
+
+            Console.ResetColor ();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            Console.Write ($" Load Game");
+
+            Console.SetCursorPosition (0, 6);
 
             ConsoleKeyInfo cki;
             Console.TreatControlCAsInput = true;
+
+            int cursorCurrent = 8;
+            int selected = 0;
+
             do
             {
-                cki = Console.ReadKey(true);
+                cki = Console.ReadKey (true);
                 switch (cki.Key)
                 {
                     case ConsoleKey.DownArrow:
-                        if (index < list.Count - 1)
+                        if (cursorCurrent < 10)
                         {
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
+                            Console.Write ($" New Game");
 
-                            index++;
+                            cursorCurrent += 2;
+                            selected += 1;
 
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
+                            Console.Write ($" Load Game");
+                            Console.ResetColor ();
+                            Console.SetCursorPosition (0, 6);
                             break;
                         }
                         else
                         {
                             break;
                         }
-
                     case ConsoleKey.UpArrow:
-
-                        if (index > 0)
+                        if (cursorCurrent > 8)
                         {
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
+                            Console.Write ($" Load Game");
 
-                            index--;
+                            cursorCurrent -= 2;
+                            selected -= 1;
 
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    case ConsoleKey.Escape:
-                        finished = true;
-                        break;
-                }
-            } while (cki.Key != ConsoleKey.Enter && finished != true);
-            return (finished, index);
-        }
-
-        public static int scrollList(List<string> list, int cursorStart)
-        {
-            Console.SetCursorPosition(0, cursorStart);
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                Console.WriteLine($" {list[i]}");
-                Console.WriteLine();
-            }
-
-            int index = 0;
-
-            Console.SetCursorPosition(0, cursorStart);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.Write($" {list[index]}");
-            Console.ResetColor();
-            Console.SetCursorPosition(0, 6);
-
-            ConsoleKeyInfo cki;
-            Console.TreatControlCAsInput = true;
-            do
-            {
-                cki = Console.ReadKey(true);
-                switch (cki.Key)
-                {
-                    case ConsoleKey.DownArrow:
-                        if (index < list.Count - 1)
-                        {
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-
-                            index++;
-
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-
-                    case ConsoleKey.UpArrow:
-
-                        if (index > 0)
-                        {
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-
-                            index--;
-
-                            Console.SetCursorPosition(0, cursorStart + (2 * index));
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" {list[index]}");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
+                            Console.Write ($" New Game");
+                            Console.ResetColor ();
+                            Console.SetCursorPosition (0, 6);
                             break;
                         }
                         else
@@ -455,7 +375,92 @@ namespace SpaceGame
                         }
                 }
             } while (cki.Key != ConsoleKey.Enter);
-            return (index);
+            if (selected == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                string loadQuestion = "Starting a new game will erase your current Save data. Are you Sure?";
+
+                Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
+                Console.WriteLine (loadQuestion);
+
+                Console.SetCursorPosition (Console.CursorLeft, 14);
+
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                Console.WriteLine ($" Yes, Start New Game");
+                Console.WriteLine ();
+
+                Console.ResetColor ();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                Console.Write ($" No, Load Current Saved Game");
+
+                Console.SetCursorPosition (0, 6);
+
+                cursorCurrent = 14;
+                selected = 0;
+
+                do
+                {
+                    cki = Console.ReadKey (true);
+                    switch (cki.Key)
+                    {
+                        case ConsoleKey.DownArrow:
+                            if (cursorCurrent < 16)
+                            {
+                                Console.SetCursorPosition (0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.Write ($" Yes, Start New Game");
+
+                                cursorCurrent += 2;
+                                selected += 1;
+
+                                Console.SetCursorPosition (0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                Console.Write ($" No, Load Current Saved Game");
+                                Console.ResetColor ();
+                                Console.SetCursorPosition (0, 6);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        case ConsoleKey.UpArrow:
+                            if (cursorCurrent > 14)
+                            {
+                                Console.SetCursorPosition (0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.Write ($" No, Load Current Saved Game");
+
+                                cursorCurrent -= 2;
+                                selected -= 1;
+
+                                Console.SetCursorPosition (0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                Console.Write ($" Yes, Start New Game");
+                                Console.ResetColor ();
+                                Console.SetCursorPosition (0, 6);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                    }
+                } while (cki.Key != ConsoleKey.Enter);
+
+                if (selected == 1)
+                {
+                    LoadGame load = new LoadGame ();
+                    loadPlanet = load.LoadG ();
+                }
+            }
+                return loadPlanet;
         }
     }
 }
