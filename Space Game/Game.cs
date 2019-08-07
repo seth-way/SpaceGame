@@ -17,7 +17,7 @@ namespace SpaceGame
         public void RunGame()
         {
             CurrentPlanet = Universe.Earth;
-            //Actions.newOrLoadGame();
+            Actions.newOrLoadGame();
             Console.SetCursorPosition(0, 15);
             Console.WriteLine($"{CurrentPlanet.name}");
             Game.NewShip.currentFuel = 10000000000000;
