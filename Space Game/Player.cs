@@ -17,7 +17,7 @@ namespace SpaceGame
         public int totalPassedPirateAttacks = 0;
         public int totalFailedPirateAttacks = 0;
         public int currentYear = 2023;
-        public int storyTracker = 0;
+        public int storyTracker = 1;
     }
 
     public class Ship

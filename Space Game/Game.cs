@@ -17,7 +17,6 @@ namespace SpaceGame
         public void RunGame()
         {
             CurrentPlanet = Universe.Earth;
-            UserMenu ();
             MenuSelection();
             
         }
