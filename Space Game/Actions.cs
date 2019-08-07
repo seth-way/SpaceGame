@@ -204,49 +204,52 @@ namespace SpaceGame
             int inventory = Products.CannedAir.onHand + Products.CentaurianFur.onHand + Products.MegaTreeSeeds.onHand + Products.ServiceRobot.onHand + Products.RealFakeDoors.onHand;
             Game.NewShip.currentInventory = inventory;
         }
-
-        public static void LoadGame(Planet CurrentPlanet)
+        class LoadGame
         {
-            string currentDirectory = Directory.GetCurrentDirectory();
-            int bin = currentDirectory.IndexOf("bin");
-            currentDirectory = currentDirectory.Substring(0, bin) + "assets/savedgame.txt";
+            public Planet LoadG ()
+            {
+                string currentDirectory = Directory.GetCurrentDirectory ();
+                int bin = currentDirectory.IndexOf ("bin");
+                currentDirectory = currentDirectory.Substring (0, bin) + "assets/savedgame.txt";
 
-            TextReader tr = new StreamReader(currentDirectory);
+                TextReader tr = new StreamReader (currentDirectory);
+                
+                Game.NewPlayer.name = tr.ReadLine ();
+                Game.NewPlayer.age = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.wallet = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.numOfProductsSold = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalDistanceTraveled = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalMoneyEarned = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalMoneyStolen = double.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalPiratesThwarted = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalPassedPirateAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalFailedPirateAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.currentYear = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.storyTracker = int.Parse (tr.ReadLine ());
+                Game.NewShip.name = tr.ReadLine ();
+                Game.NewShip.warpFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.currentFuel = double.Parse (tr.ReadLine ());
+                Game.NewShip.maxFuel = int.Parse (tr.ReadLine ());
+                Game.NewShip.fuelFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.fuelPerLightYear = double.Parse (tr.ReadLine ());
+                Game.NewShip.fuelEfficiencyFactor = int.Parse (tr.ReadLine ());
+                Game.NewShip.currentInventory = int.Parse (tr.ReadLine ());
+                Game.NewShip.maxInventory = int.Parse (tr.ReadLine ());
+                Game.NewShip.storageFactor = int.Parse (tr.ReadLine ());
+                Products.CannedAir.onHand = int.Parse (tr.ReadLine ());
+                Products.CentaurianFur.onHand = int.Parse (tr.ReadLine ());
+                Products.ServiceRobot.onHand = int.Parse (tr.ReadLine ());
+                Products.RealFakeDoors.onHand = int.Parse (tr.ReadLine ());
+                Products.MegaTreeSeeds.onHand = int.Parse (tr.ReadLine ());
+                Planet CurrentPlanet = Universe.planetTravel [int.Parse (tr.ReadLine ())];
 
-            Game.NewPlayer.name = tr.ReadLine();
-            Game.NewPlayer.age = double.Parse(tr.ReadLine());
-            Game.NewPlayer.wallet = double.Parse(tr.ReadLine());
-            Game.NewPlayer.numOfProductsSold = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalDistanceTraveled = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalMoneyEarned = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalMoneyStolen = double.Parse(tr.ReadLine());
-            Game.NewPlayer.totalPiratesThwarted = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalPassedPirateAttacks = int.Parse(tr.ReadLine());
-            Game.NewPlayer.totalFailedPirateAttacks = int.Parse(tr.ReadLine());
-            Game.NewPlayer.currentYear = int.Parse(tr.ReadLine());
-            Game.NewPlayer.storyTracker = int.Parse(tr.ReadLine());
-            Game.NewShip.name = tr.ReadLine();
-            Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.currentFuel = double.Parse(tr.ReadLine());
-            Game.NewShip.maxFuel = int.Parse(tr.ReadLine());
-            Game.NewShip.fuelFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.fuelPerLightYear = double.Parse(tr.ReadLine());
-            Game.NewShip.fuelEfficiencyFactor = int.Parse(tr.ReadLine());
-            Game.NewShip.currentInventory = int.Parse(tr.ReadLine());
-            Game.NewShip.maxInventory = int.Parse(tr.ReadLine());
-            Game.NewShip.storageFactor = int.Parse(tr.ReadLine());
-            Products.CannedAir.onHand = int.Parse(tr.ReadLine());
-            Products.CentaurianFur.onHand = int.Parse(tr.ReadLine());
-            Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
-            Products.RealFakeDoors.onHand = int.Parse(tr.ReadLine());
-            Products.MegaTreeSeeds.onHand = int.Parse(tr.ReadLine());
-            CurrentPlanet = Universe.planetTravel[int.Parse(tr.ReadLine())];
+                tr.Close ();
 
-            tr.Close();
+                return CurrentPlanet;
 
-            //Game.CurrentPlanet = Universe.thisPlanet;    not possible... but need to set current planet somehow?
+                //Game.CurrentPlanet = Universe.thisPlanet;    not possible... but need to set current planet somehow?
+            }
         }
-
         public static void SaveGame(Planet CurrentPlanet)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -288,10 +291,9 @@ namespace SpaceGame
             tw.Close();
         }
 
-        public static void newOrLoadGame(Planet CurrentPlanet)
+        public static void newOrLoadGame()
         {
 
-            UI.UserMenu(CurrentPlanet);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             string upgradeQuestion1 = "Use the UP and DOWN arrow keys to select an option" +
@@ -453,7 +455,8 @@ namespace SpaceGame
 
                 if (selected == 1)
                 {
-                    LoadGame(CurrentPlanet);
+                    LoadGame load = new LoadGame ();
+                    load.LoadG ();
                 }
             }
             UI.MenuSelection();
