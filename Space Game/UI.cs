@@ -250,7 +250,7 @@ namespace SpaceGame
             } while (cki.Key != ConsoleKey.Enter && finished != true);
             if (selected == 0 && finished != true)
             {
-                TradeMenu();
+                TradeMenu(CurrentPlanet);
             }
             else if (selected == 1 && finished != true)
             {
@@ -289,7 +289,7 @@ namespace SpaceGame
 
             List<double> upgradePrices = new List<double>()
             {
-                 Math.Round(Actions.UpdateFuelPrice(), 2),
+                 Math.Round(Actions.UpdateFuelPrice(CurrentPlanet), 2),
                  Equations.UpgradeCost(Game.NewShip.fuelFactor),
                  Equations.UpgradeCost(Game.NewShip.fuelEfficiencyFactor),
                  Equations.UpgradeCost(Game.NewShip.storageFactor),
@@ -509,7 +509,7 @@ namespace SpaceGame
         }
 
 
-        public static void TradeMenu()
+        public static void TradeMenu(Planet CurrentPlanet)
         {
             Actions.UpdateMarketPrices (CurrentPlanet);
 
@@ -866,7 +866,7 @@ namespace SpaceGame
             while (finished != true);
             Actions.UpdateInventoryTotal();
             Console.Clear();
-            UserMenu();
+            UserMenu(CurrentPlanet);
         }
 
         public static Planet TravelMenu (Planet CurrentPlanet)

@@ -175,7 +175,7 @@ namespace SpaceGame
             {
                 Game.CurrentMarket = Products.gromflomPrices;
             }
-            else if (Game.CurrentPlanet == Universe.ScreamingSun)
+            else if (CurrentPlanet == Universe.ScreamingSun)
             {
                 Game.CurrentMarket = Products.screamingPrices;
             }
@@ -288,10 +288,10 @@ namespace SpaceGame
             tw.Close();
         }
 
-        public static void newOrLoadGame()
+        public static void newOrLoadGame(Planet CurrentPlanet)
         {
 
-            UI.UserMenu();
+            UI.UserMenu(CurrentPlanet);
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             string upgradeQuestion1 = "Use the UP and DOWN arrow keys to select an option" +
@@ -453,7 +453,7 @@ namespace SpaceGame
 
                 if (selected == 1)
                 {
-                    LoadGame();
+                    LoadGame(CurrentPlanet);
                 }
             }
             UI.MenuSelection();
