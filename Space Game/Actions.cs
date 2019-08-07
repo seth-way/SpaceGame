@@ -182,6 +182,12 @@ namespace SpaceGame
             return currentPrice;
         }
 
+        public static void UpdateInventoryTotal()
+        {
+            int inventory = Products.CannedAir.onHand + Products.CentaurianFur.onHand + Products.MegaTreeSeeds.onHand + Products.ServiceRobot.onHand + Products.RealFakeDoors.onHand;
+            Game.NewShip.currentInventory = inventory;
+        }
+
         public static void LoadGame()
         {
             string currentDirectory = Directory.GetCurrentDirectory();
@@ -193,6 +199,7 @@ namespace SpaceGame
             Game.NewPlayer.name = tr.ReadLine();
             Game.NewPlayer.age = double.Parse(tr.ReadLine());
             Game.NewPlayer.wallet = double.Parse(tr.ReadLine());
+            Game.NewPlayer.storyTracker = int.Parse(tr.ReadLine());
             Game.NewShip.name = tr.ReadLine();
             Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
             Game.NewShip.currentFuel = double.Parse(tr.ReadLine());
@@ -223,6 +230,7 @@ namespace SpaceGame
             tw.WriteLine(Game.NewPlayer.name);
             tw.WriteLine(Game.NewPlayer.age);
             tw.WriteLine(Game.NewPlayer.wallet);
+            tw.WriteLine(Game.NewPlayer.storyTracker);
             tw.WriteLine(Game.NewShip.name);
             tw.WriteLine(Game.NewShip.warpFactor);
             tw.WriteLine(Game.NewShip.currentFuel);
@@ -238,5 +246,6 @@ namespace SpaceGame
 
             tw.Close();
         }
+
     }
 }
