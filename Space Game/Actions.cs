@@ -305,9 +305,8 @@ namespace SpaceGame
 
             Console.SetCursorPosition (Console.CursorLeft, 8);
 
-            if (selected == 0)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
 
             Console.WriteLine ($" New Game");
             Console.WriteLine ();
@@ -321,19 +320,24 @@ namespace SpaceGame
 
             ConsoleKeyInfo cki;
             Console.TreatControlCAsInput = true;
+
+            int cursorCurrent = 8;
+            int selected = 0;
+
             do
             {
                 cki = Console.ReadKey (true);
                 switch (cki.Key)
                 {
                     case ConsoleKey.DownArrow:
-                        if (index < list.Count - 1)
+                        if (cursorCurrent < 10)
                         {
                             Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.Write ($" New Game");
 
-                            index++;
+                            cursorCurrent += 2;
+                            selected += 1;
 
                             Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
@@ -347,16 +351,15 @@ namespace SpaceGame
                         {
                             break;
                         }
-
                     case ConsoleKey.UpArrow:
-
-                        if (index > 0)
+                        if (cursorCurrent > 8)
                         {
                             Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.Write ($" Load Game");
 
-                            index--;
+                            cursorCurrent -= 2;
+                            selected -= 1;
 
                             Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
@@ -370,35 +373,19 @@ namespace SpaceGame
                         {
                             break;
                         }
-                    case ConsoleKey.Escape:
-                        finished = true;
-                        break;
                 }
-            } while (cki.Key != ConsoleKey.Enter && finished != true);
-            return (finished, index);
-        }
-
-        public static int scrollList(List<string> list, int cursorStart)
-        {
-            Console.SetCursorPosition(0, cursorStart);
-
-            for (int i = 0; i < list.Count; i++)
+            } while (cki.Key != ConsoleKey.Enter);
+            if (selected == 0)
             {
-                Console.WriteLine($" {list[i]}");
-                Console.WriteLine();
-            }
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                string loadQuestion = "Starting a new game will erase your current Save data. Are you Sure?";
+
                 Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
                 Console.WriteLine (loadQuestion);
 
                 Console.SetCursorPosition (Console.CursorLeft, 14);
-            int index = 0;
 
-            Console.SetCursorPosition(0, cursorStart);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.Write($" {list[index]}");
-            Console.ResetColor();
-            Console.SetCursorPosition(0, 6);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
 
@@ -417,17 +404,18 @@ namespace SpaceGame
 
                 do
                 {
-                    cki = Console.ReadKey(true);
+                    cki = Console.ReadKey (true);
                     switch (cki.Key)
                     {
                         case ConsoleKey.DownArrow:
                             if (cursorCurrent < 16)
                             {
-                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.Write($" Yes, Start New Game");
+                                Console.Write ($" Yes, Start New Game");
 
-                            index++;
+                                cursorCurrent += 2;
+                                selected += 1;
 
                                 Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.White;
@@ -448,7 +436,8 @@ namespace SpaceGame
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                                 Console.Write ($" No, Load Current Saved Game");
 
-                            index--;
+                                cursorCurrent -= 2;
+                                selected -= 1;
 
                                 Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.White;
