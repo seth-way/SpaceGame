@@ -61,8 +61,8 @@ namespace SpaceGame
 
         public static readonly Planet GromflomPrime = new Planet()
         {
-            xLoc = 0,
-            yLoc = 0,
+            xLoc = -1,
+            yLoc = 32,
             inhabitants = "Genetically Engineered Gromflomites",
             dangerRating = 7.0,
             name = "Gromflom Prime",
@@ -112,7 +112,7 @@ namespace SpaceGame
             description = "A can of air from Earth. While it seems like an ordinary item to you, other" +
             "species that live in atmospheres different to Earth use this as a recreational drug.",
             onHand = 0,
-            unit = "keg(s) of Canned Earth Air"
+            unit = "Can(s) of Earth Air"
         };
 
         static public Good CentaurianFur = new Good()
@@ -129,7 +129,7 @@ namespace SpaceGame
 
         static public Good ServiceRobot = new Good()
         {
-            name = "Gazorpian Service Robot",
+            name = "Gazorpian Service Robots",
             price = 1.00,
             size = 1,
             originPlanet = Universe.Gazorpazorp,
@@ -171,56 +171,56 @@ namespace SpaceGame
 
         static public Market earthPrices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.Earth, CannedAir.originPlanet)) * Universe.Earth.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Earth, CentaurianFur.originPlanet)) * Universe.Earth.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Earth, ServiceRobot.originPlanet)) * Universe.Earth.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Earth, RealFakeDoors.originPlanet)) * Universe.Earth.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Earth, MegaTreeSeeds.originPlanet)) * Universe.Earth.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.Earth, CannedAir.originPlanet)) * Universe.Earth.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Earth, CentaurianFur.originPlanet)) * Universe.Earth.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Earth, ServiceRobot.originPlanet)) * Universe.Earth.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Earth, RealFakeDoors.originPlanet)) * Universe.Earth.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Earth, MegaTreeSeeds.originPlanet)) * Universe.Earth.dangerRating, 2)
         };
 
         static public Market proximaPrices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CannedAir.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CentaurianFur.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, ServiceRobot.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, RealFakeDoors.originPlanet)) * Universe.ProximaCentauriB.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, MegaTreeSeeds.originPlanet)) * Universe.ProximaCentauriB.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CannedAir.originPlanet)) * Universe.ProximaCentauriB.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, CentaurianFur.originPlanet)) * Universe.ProximaCentauriB.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, ServiceRobot.originPlanet)) * Universe.ProximaCentauriB.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, RealFakeDoors.originPlanet)) * Universe.ProximaCentauriB.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ProximaCentauriB, MegaTreeSeeds.originPlanet)) * Universe.ProximaCentauriB.dangerRating, 2)
         };
 
         static public Market gazorpazorpPrices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CannedAir.originPlanet)) * Universe.Gazorpazorp.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CentaurianFur.originPlanet)) * Universe.Gazorpazorp.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, ServiceRobot.originPlanet)) * Universe.Gazorpazorp.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, RealFakeDoors.originPlanet)) * Universe.Gazorpazorp.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, MegaTreeSeeds.originPlanet)) * Universe.Gazorpazorp.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CannedAir.originPlanet)) * Universe.Gazorpazorp.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, CentaurianFur.originPlanet)) * Universe.Gazorpazorp.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, ServiceRobot.originPlanet)) * Universe.Gazorpazorp.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, RealFakeDoors.originPlanet)) * Universe.Gazorpazorp.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.Gazorpazorp, MegaTreeSeeds.originPlanet)) * Universe.Gazorpazorp.dangerRating, 2)
         };
 
         static public Market screamingPrices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CannedAir.originPlanet)) * Universe.ScreamingSun.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CentaurianFur.originPlanet)) * Universe.ScreamingSun.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, ServiceRobot.originPlanet)) * Universe.ScreamingSun.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, RealFakeDoors.originPlanet)) * Universe.ScreamingSun.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, MegaTreeSeeds.originPlanet)) * Universe.ScreamingSun.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CannedAir.originPlanet)) * Universe.ScreamingSun.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, CentaurianFur.originPlanet)) * Universe.ScreamingSun.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, ServiceRobot.originPlanet)) * Universe.ScreamingSun.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, RealFakeDoors.originPlanet)) * Universe.ScreamingSun.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.ScreamingSun, MegaTreeSeeds.originPlanet)) * Universe.ScreamingSun.dangerRating, 2)
         };
 
         static public Market c35Prices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.C35, CannedAir.originPlanet)) * Universe.C35.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.C35, CentaurianFur.originPlanet)) * Universe.C35.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.C35, ServiceRobot.originPlanet)) * Universe.C35.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.C35, RealFakeDoors.originPlanet)) * Universe.C35.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.C35, MegaTreeSeeds.originPlanet)) * Universe.C35.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.C35, CannedAir.originPlanet)) * Universe.C35.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.C35, CentaurianFur.originPlanet)) * Universe.C35.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.C35, ServiceRobot.originPlanet)) * Universe.C35.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.C35, RealFakeDoors.originPlanet)) * Universe.C35.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.C35, MegaTreeSeeds.originPlanet)) * Universe.C35.dangerRating, 2)
         };
 
         static public Market gromflomPrices = new Market()
         {
-            air = CannedAir.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CannedAir.originPlanet)) * Universe.GromflomPrime.dangerRating,
-            fur = CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CentaurianFur.originPlanet)) * Universe.GromflomPrime.dangerRating,
-            robot = ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, ServiceRobot.originPlanet)) * Universe.GromflomPrime.dangerRating,
-            doors = RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, RealFakeDoors.originPlanet)) * Universe.GromflomPrime.dangerRating,
-            seeds = MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, MegaTreeSeeds.originPlanet)) * Universe.GromflomPrime.dangerRating
+            air = Math.Round(CannedAir.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CannedAir.originPlanet)) * Universe.GromflomPrime.dangerRating, 2),
+            fur = Math.Round(CentaurianFur.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, CentaurianFur.originPlanet)) * Universe.GromflomPrime.dangerRating, 2),
+            robot = Math.Round(ServiceRobot.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, ServiceRobot.originPlanet)) * Universe.GromflomPrime.dangerRating, 2),
+            doors = Math.Round(RealFakeDoors.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, RealFakeDoors.originPlanet)) * Universe.GromflomPrime.dangerRating, 2),
+            seeds = Math.Round(MegaTreeSeeds.price * (1 + Equations.DistanceBetween(Universe.GromflomPrime, MegaTreeSeeds.originPlanet)) * Universe.GromflomPrime.dangerRating, 2)
         };
 
     }
