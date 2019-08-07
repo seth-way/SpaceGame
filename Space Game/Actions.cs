@@ -291,31 +291,32 @@ namespace SpaceGame
             tw.Close();
         }
 
-        public static void newOrLoadGame()
+        public static Planet newOrLoadGame ()
         {
+            Planet loadPlanet = Universe.Earth;
 
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             string upgradeQuestion1 = "Use the UP and DOWN arrow keys to select an option" +
                 ", then press enter.";
 
-            Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
-            Console.WriteLine(upgradeQuestion1);
+            Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
+            Console.WriteLine (upgradeQuestion1);
 
-            Console.SetCursorPosition(Console.CursorLeft, 8);
+            Console.SetCursorPosition (Console.CursorLeft, 8);
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.DarkGreen;
 
-            Console.WriteLine($" New Game");
-            Console.WriteLine();
+            Console.WriteLine ($" New Game");
+            Console.WriteLine ();
 
-            Console.ResetColor();
+            Console.ResetColor ();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-            Console.Write($" Load Game");
+            Console.Write ($" Load Game");
 
-            Console.SetCursorPosition(0, 6);
+            Console.SetCursorPosition (0, 6);
 
             ConsoleKeyInfo cki;
             Console.TreatControlCAsInput = true;
@@ -325,25 +326,25 @@ namespace SpaceGame
 
             do
             {
-                cki = Console.ReadKey(true);
+                cki = Console.ReadKey (true);
                 switch (cki.Key)
                 {
                     case ConsoleKey.DownArrow:
                         if (cursorCurrent < 10)
                         {
-                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" New Game");
+                            Console.Write ($" New Game");
 
                             cursorCurrent += 2;
                             selected += 1;
 
-                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" Load Game");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
+                            Console.Write ($" Load Game");
+                            Console.ResetColor ();
+                            Console.SetCursorPosition (0, 6);
                             break;
                         }
                         else
@@ -353,19 +354,19 @@ namespace SpaceGame
                     case ConsoleKey.UpArrow:
                         if (cursorCurrent > 8)
                         {
-                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" Load Game");
+                            Console.Write ($" Load Game");
 
                             cursorCurrent -= 2;
                             selected -= 1;
 
-                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.SetCursorPosition (0, cursorCurrent);
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write($" New Game");
-                            Console.ResetColor();
-                            Console.SetCursorPosition(0, 6);
+                            Console.Write ($" New Game");
+                            Console.ResetColor ();
+                            Console.SetCursorPosition (0, 6);
                             break;
                         }
                         else
@@ -380,48 +381,48 @@ namespace SpaceGame
 
                 string loadQuestion = "Starting a new game will erase your current Save data. Are you Sure?";
 
-                Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
-                Console.WriteLine(loadQuestion);
+                Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
+                Console.WriteLine (loadQuestion);
 
-                Console.SetCursorPosition(Console.CursorLeft, 14);
+                Console.SetCursorPosition (Console.CursorLeft, 14);
 
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
 
-                Console.WriteLine($" Yes, Start New Game");
-                Console.WriteLine();
+                Console.WriteLine ($" Yes, Start New Game");
+                Console.WriteLine ();
 
-                Console.ResetColor();
+                Console.ResetColor ();
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
 
-                Console.Write($" No, Load Current Saved Game");
+                Console.Write ($" No, Load Current Saved Game");
 
-                Console.SetCursorPosition(0, 6);
+                Console.SetCursorPosition (0, 6);
 
                 cursorCurrent = 14;
                 selected = 0;
 
                 do
                 {
-                    cki = Console.ReadKey(true);
+                    cki = Console.ReadKey (true);
                     switch (cki.Key)
                     {
                         case ConsoleKey.DownArrow:
                             if (cursorCurrent < 16)
                             {
-                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.Write($" Yes, Start New Game");
+                                Console.Write ($" Yes, Start New Game");
 
                                 cursorCurrent += 2;
                                 selected += 1;
 
-                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.BackgroundColor = ConsoleColor.DarkGreen;
-                                Console.Write($" No, Load Current Saved Game");
-                                Console.ResetColor();
-                                Console.SetCursorPosition(0, 6);
+                                Console.Write ($" No, Load Current Saved Game");
+                                Console.ResetColor ();
+                                Console.SetCursorPosition (0, 6);
                                 break;
                             }
                             else
@@ -431,19 +432,19 @@ namespace SpaceGame
                         case ConsoleKey.UpArrow:
                             if (cursorCurrent > 14)
                             {
-                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.Write($" No, Load Current Saved Game");
+                                Console.Write ($" No, Load Current Saved Game");
 
                                 cursorCurrent -= 2;
                                 selected -= 1;
 
-                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.SetCursorPosition (0, cursorCurrent);
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Console.BackgroundColor = ConsoleColor.DarkGreen;
-                                Console.Write($" Yes, Start New Game");
-                                Console.ResetColor();
-                                Console.SetCursorPosition(0, 6);
+                                Console.Write ($" Yes, Start New Game");
+                                Console.ResetColor ();
+                                Console.SetCursorPosition (0, 6);
                                 break;
                             }
                             else
@@ -456,10 +457,10 @@ namespace SpaceGame
                 if (selected == 1)
                 {
                     LoadGame load = new LoadGame ();
-                    load.LoadG ();
+                    loadPlanet = load.LoadG ();
                 }
             }
-            UI.MenuSelection();
+                return loadPlanet;
         }
     }
 }

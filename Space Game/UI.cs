@@ -55,9 +55,9 @@ namespace SpaceGame
 
         }
 
-        public static void MenuSelection ()
+        public static void MenuSelection (Planet loadPlanet)
         {
-            Planet CurrentPlanet = Universe.Earth;
+            Planet CurrentPlanet = loadPlanet;
             bool gameFinish = false;
             do
             {
@@ -85,9 +85,6 @@ namespace SpaceGame
 
                     case ConsoleKey.F5:
                         Actions.SaveGame (CurrentPlanet);
-                        break;
-
-                    case ConsoleKey.F6://Load game?
                         break;
 
                     case ConsoleKey.F12:

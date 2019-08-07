@@ -15,8 +15,8 @@ namespace SpaceGame
        
         public void RunGame()
         {
-            Actions.newOrLoadGame ();
-            MenuSelection();
+           Planet StartPlanet = Actions.newOrLoadGame ();
+            MenuSelection(StartPlanet);
             
         }
     }
