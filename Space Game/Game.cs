@@ -17,8 +17,17 @@ namespace SpaceGame
         public void RunGame()
         {
             CurrentPlanet = Universe.Earth;
-            MenuSelection();
-            
+            //Actions.newOrLoadGame();
+            Console.SetCursorPosition(0, 15);
+            Console.WriteLine($"{CurrentPlanet.name}");
+            Game.NewShip.currentFuel = 10000000000000;
+            Actions.ChangePlanets(Universe.Gazorpazorp);
+            Console.WriteLine($"{CurrentPlanet.name}");
+
+
+
+
+
         }
     }
 }

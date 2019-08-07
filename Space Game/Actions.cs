@@ -72,7 +72,7 @@ namespace SpaceGame
                 Console.Write($"You can't afford that.\n" +
                     $"Maybe you should use one of those\n" +
                     $"Mega Tree Seeds, seems you could\n" +
-                    $"use the boost."); 
+                    $"use the boost.");
             }
 
         }
@@ -98,7 +98,7 @@ namespace SpaceGame
 
         static public void ChangePlanets(Planet destination)
         {
-            if(destination == Game.CurrentPlanet)
+            if (destination == Game.CurrentPlanet)
             {
                 Console.WriteLine("You are already there. . . . .\n" +
                     " . . . . . . . . . . . . . . . \n" +
@@ -199,13 +199,25 @@ namespace SpaceGame
             Game.NewPlayer.name = tr.ReadLine();
             Game.NewPlayer.age = double.Parse(tr.ReadLine());
             Game.NewPlayer.wallet = double.Parse(tr.ReadLine());
+            Game.NewPlayer.numOfProductsSold = int.Parse(tr.ReadLine());
+            Game.NewPlayer.totalDistanceTraveled = double.Parse(tr.ReadLine());
+            Game.NewPlayer.totalMoneyEarned = double.Parse(tr.ReadLine());
+            Game.NewPlayer.totalMoneyStolen = double.Parse(tr.ReadLine());
+            Game.NewPlayer.totalPiratesThwarted = int.Parse(tr.ReadLine());
+            Game.NewPlayer.totalPassedPirateAttacks = int.Parse(tr.ReadLine());
+            Game.NewPlayer.totalFailedPirateAttacks = int.Parse(tr.ReadLine());
+            Game.NewPlayer.currentYear = int.Parse(tr.ReadLine());
             Game.NewPlayer.storyTracker = int.Parse(tr.ReadLine());
             Game.NewShip.name = tr.ReadLine();
             Game.NewShip.warpFactor = int.Parse(tr.ReadLine());
             Game.NewShip.currentFuel = double.Parse(tr.ReadLine());
+            Game.NewShip.maxFuel = int.Parse(tr.ReadLine());
+            Game.NewShip.fuelFactor = int.Parse(tr.ReadLine());
             Game.NewShip.fuelPerLightYear = double.Parse(tr.ReadLine());
+            Game.NewShip.fuelEfficiencyFactor = int.Parse(tr.ReadLine());
             Game.NewShip.currentInventory = int.Parse(tr.ReadLine());
             Game.NewShip.maxInventory = int.Parse(tr.ReadLine());
+            Game.NewShip.storageFactor = int.Parse(tr.ReadLine());
             Products.CannedAir.onHand = int.Parse(tr.ReadLine());
             Products.CentaurianFur.onHand = int.Parse(tr.ReadLine());
             Products.ServiceRobot.onHand = int.Parse(tr.ReadLine());
@@ -230,13 +242,25 @@ namespace SpaceGame
             tw.WriteLine(Game.NewPlayer.name);
             tw.WriteLine(Game.NewPlayer.age);
             tw.WriteLine(Game.NewPlayer.wallet);
+            tw.WriteLine(Game.NewPlayer.numOfProductsSold);
+            tw.WriteLine(Game.NewPlayer.totalDistanceTraveled);
+            tw.WriteLine(Game.NewPlayer.totalMoneyEarned);
+            tw.WriteLine(Game.NewPlayer.totalMoneyStolen);
+            tw.WriteLine(Game.NewPlayer.totalPiratesThwarted);
+            tw.WriteLine(Game.NewPlayer.totalPassedPirateAttacks);
+            tw.WriteLine(Game.NewPlayer.totalFailedPirateAttacks);
+            tw.WriteLine(Game.NewPlayer.currentYear);
             tw.WriteLine(Game.NewPlayer.storyTracker);
             tw.WriteLine(Game.NewShip.name);
             tw.WriteLine(Game.NewShip.warpFactor);
             tw.WriteLine(Game.NewShip.currentFuel);
+            tw.WriteLine(Game.NewShip.maxFuel);
+            tw.WriteLine(Game.NewShip.fuelFactor);
             tw.WriteLine(Game.NewShip.fuelPerLightYear);
+            tw.WriteLine(Game.NewShip.fuelEfficiencyFactor);
             tw.WriteLine(Game.NewShip.currentInventory);
             tw.WriteLine(Game.NewShip.maxInventory);
+            tw.WriteLine(Game.NewShip.storageFactor);
             tw.WriteLine(Products.CannedAir.onHand);
             tw.WriteLine(Products.CentaurianFur.onHand);
             tw.WriteLine(Products.ServiceRobot.onHand);
@@ -247,5 +271,175 @@ namespace SpaceGame
             tw.Close();
         }
 
+        public static void newOrLoadGame()
+        {
+
+            UI.UserMenu();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            string upgradeQuestion1 = "Use the UP and DOWN arrow keys to select an option" +
+                ", then press enter.";
+
+            Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
+            Console.WriteLine(upgradeQuestion1);
+
+            Console.SetCursorPosition(Console.CursorLeft, 8);
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+            Console.WriteLine($" New Game");
+            Console.WriteLine();
+
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+            Console.Write($" Load Game");
+
+            Console.SetCursorPosition(0, 6);
+
+            ConsoleKeyInfo cki;
+            Console.TreatControlCAsInput = true;
+
+            int cursorCurrent = 8;
+            int selected = 0;
+
+            do
+            {
+                cki = Console.ReadKey(true);
+                switch (cki.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        if (cursorCurrent < 10)
+                        {
+                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.Write($" New Game");
+
+                            cursorCurrent += 2;
+                            selected += 1;
+
+                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkGreen;
+                            Console.Write($" Load Game");
+                            Console.ResetColor();
+                            Console.SetCursorPosition(0, 6);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    case ConsoleKey.UpArrow:
+                        if (cursorCurrent > 8)
+                        {
+                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.Write($" Load Game");
+
+                            cursorCurrent -= 2;
+                            selected -= 1;
+
+                            Console.SetCursorPosition(0, cursorCurrent);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.DarkGreen;
+                            Console.Write($" New Game");
+                            Console.ResetColor();
+                            Console.SetCursorPosition(0, 6);
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                }
+            } while (cki.Key != ConsoleKey.Enter);
+            if (selected == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                string loadQuestion = "Starting a new game will erase your current Save data. Are you Sure?";
+
+                Console.SetCursorPosition((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
+                Console.WriteLine(loadQuestion);
+
+                Console.SetCursorPosition(Console.CursorLeft, 14);
+
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                Console.WriteLine($" Yes, Start New Game");
+                Console.WriteLine();
+
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+
+                Console.Write($" No, Load Current Saved Game");
+
+                Console.SetCursorPosition(0, 6);
+
+                cursorCurrent = 14;
+                selected = 0;
+
+                do
+                {
+                    cki = Console.ReadKey(true);
+                    switch (cki.Key)
+                    {
+                        case ConsoleKey.DownArrow:
+                            if (cursorCurrent < 16)
+                            {
+                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.Write($" Yes, Start New Game");
+
+                                cursorCurrent += 2;
+                                selected += 1;
+
+                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                Console.Write($" No, Load Current Saved Game");
+                                Console.ResetColor();
+                                Console.SetCursorPosition(0, 6);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        case ConsoleKey.UpArrow:
+                            if (cursorCurrent > 14)
+                            {
+                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.Write($" No, Load Current Saved Game");
+
+                                cursorCurrent -= 2;
+                                selected -= 1;
+
+                                Console.SetCursorPosition(0, cursorCurrent);
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                Console.Write($" Yes, Start New Game");
+                                Console.ResetColor();
+                                Console.SetCursorPosition(0, 6);
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                    }
+                } while (cki.Key != ConsoleKey.Enter);
+
+                if (selected == 1)
+                {
+                    LoadGame();
+                }
+            }
+            UI.MenuSelection();
+        }
     }
 }

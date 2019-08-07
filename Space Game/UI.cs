@@ -289,10 +289,10 @@ namespace SpaceGame
             List<double> upgradePrices = new List<double>()
             {
                  Math.Round(Actions.UpdateFuelPrice(), 2),
-                 1000,
-                 1000,
-                 1000,
-                 1000
+                 Equations.UpgradeCost(Game.NewShip.fuelFactor),
+                 Equations.UpgradeCost(Game.NewShip.fuelEfficiencyFactor),
+                 Equations.UpgradeCost(Game.NewShip.storageFactor),
+                 Equations.UpgradeCost(Game.NewShip.warpFactor)
             };
 
             List<double> upgradeAdds = new List<double>()

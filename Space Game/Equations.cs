@@ -31,6 +31,12 @@ namespace SpaceGame
             return distance;
         }
 
+        static public double UpgradeCost(int factor)
+        {
+            double cost = 1000 + ((factor - 1) * 500);
+            return cost;
+        }
+
         /*
         static public List<double> getPlanetPrices(Planet targetPlanet)
         {
