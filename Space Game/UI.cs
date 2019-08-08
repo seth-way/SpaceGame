@@ -240,7 +240,8 @@ namespace SpaceGame
 
             (finished, selected) = ListNavigation.scrollList(upgradeStrings, 9, finished);
 
-            int toBuy = (int)(NewPlayer.wallet / upgradePrices[selected]);
+            int toBuy = 1;
+            int maxBuy = (int)(NewPlayer.wallet / upgradePrices[selected]);
 
             ConsoleKeyInfo cki;
             Console.TreatControlCAsInput = true;
@@ -272,7 +273,7 @@ namespace SpaceGame
                             Console.Write($"#{toBuy * upgradePrices[selected]}");
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write("?");
+                            Console.Write("?                                   ");
                             cki = Console.ReadKey(true);
                             switch (cki.Key)
                             {
@@ -290,9 +291,31 @@ namespace SpaceGame
 
                                 case ConsoleKey.UpArrow:
 
-                                    if (toBuy < (int)(NewPlayer.wallet / upgradePrices[selected]))
+                                    if (toBuy < maxBuy)
                                     {
                                         toBuy += 1;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                case ConsoleKey.LeftArrow:
+
+                                    if (toBuy > 24)
+                                    {
+                                        toBuy -= 25;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                case ConsoleKey.RightArrow:
+
+                                    if (toBuy + 24 < maxBuy)
+                                    {
+                                        toBuy += 25;
                                         break;
                                     }
                                     else
