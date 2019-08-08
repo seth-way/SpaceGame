@@ -16,6 +16,7 @@ namespace SpaceGame
         public void RunGame()
         {
             Planet StartPlanet = Actions.newOrLoadGame();
+            NewPlayer.wallet = 1000000;
             MenuSelection(StartPlanet);
             
         }

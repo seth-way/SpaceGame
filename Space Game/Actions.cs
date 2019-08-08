@@ -46,8 +46,8 @@ namespace SpaceGame
             double fuelPrice = UpdateFuelPrice(CurrentPlanet);
             if (fuelPrice * quantity <= Game.NewPlayer.wallet) // can afford fuel
             {
-                Game.NewPlayer.wallet -= fuelPrice * quantity;
-                Game.NewShip.currentFuel += quantity;
+                    Game.NewPlayer.wallet -= fuelPrice * quantity;
+                    Game.NewShip.currentFuel += quantity;
             }
             else
             {

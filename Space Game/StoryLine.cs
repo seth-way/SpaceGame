@@ -265,22 +265,20 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
-        public static void TextOutput(string input, int x = 30, bool speedUp = false, bool gameEnd = false)
+        public static void TextOutput(string input, int x = 0, bool speedUp = false, bool gameEnd = false)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(0, 0);
-            //Array story = input.Split ('\n');
 
             foreach (char a in input)
             {
-                //Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
                 Thread.Sleep(x);
                 Console.Write(a);
                 if (speedUp == true)
                 { if (x > 10) { x -= 2; } }
-
             }
+
             if (gameEnd == true)
             {
                 for (int y = 200; y < 1200; y += 150)
@@ -321,7 +319,7 @@ namespace SpaceGame
             {
                 if (wFactor >= 1 && NewPlayer.storyTracker == 1)
                 {
-                    TextOutput(story_1, 20);
+                    TextOutput(story_1);
                     NewPlayer.storyTracker++;
                 }
 

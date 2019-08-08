@@ -47,7 +47,7 @@ namespace SpaceGame
 
         public static void ConsoleWriteImage (Bitmap source, int? imageXPosition, int? imageYPosition, int imageSize)
         {
-            int sMax = 20; //adjusts the size of the image
+            int sMax = imageSize; //adjusts the size of the image
             decimal percent = Math.Min (decimal.Divide (sMax, source.Width), decimal.Divide (sMax, source.Height));
             Size dSize = new Size ((int)(source.Width * percent), (int)(source.Height * percent));
             Bitmap bmpMax = new Bitmap (source, dSize.Width * 2, dSize.Height);
