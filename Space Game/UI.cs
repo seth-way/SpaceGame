@@ -180,7 +180,6 @@ namespace SpaceGame
             }
             else
             {
-                Console.Clear();
                 UserMenu(CurrentPlanet);
             }
         }

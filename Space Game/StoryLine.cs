@@ -58,8 +58,8 @@ namespace SpaceGame
 
 
         public static string story_2 = "Captains Log\n" +
-            "I've quickly come to realize that keeping track of the time\n" +
-            "had started driving me insane. So I will no longer attempt to do so\n" +
+            "I've quickly come to the realization that keeping track of the time\n" +
+            "has started driving me insane. So I will no longer attempt to do so\n" +
             "\n" +
             "\n" +
             "\n" +
@@ -69,16 +69,21 @@ namespace SpaceGame
             "Normally. This. Is. Not. A. Normal. Situation. Apparently, Reginald Phillip Zwarkzefald III, is a conspirator who attempted to overthrow the\n" +
             "ENTIRE GALCTIC FEDERATION. In his defense, they do seem to be just as, if not more, corrupt as the government agencies on Earth. However,\n" +
             "they also have what they call The Enforcement Agency. Which is basically a super high tech military that's about 5,000,000,000 soldiers strong.\n" +
-            "So yes, I wish I would have known EXACTLY what I was getting into when I decided to join in on the Area 51 raid and freed Phillip. I should" +
+            "So yes, I wish I would have known EXACTLY what I was getting into when I decided to join in on the Area 51 raid and freed Phillip. I should\n" +
             "have listened to my mother and just stayed home.\n" +
             "\n" +
             "\n" +
             "   It's not all bad though, it's not as if we're flying from planet to planet smuggling illegal goods to make enough money so that we can upgrade\n" +
-            "our ship to get to the planet where Phillips militia is currently awaiting his return. . . . . .\n" +
+            "our ship to get to the planet where Phillips militia is currently awaiting his return so that they can try to overthrow the government again while\n" +
+            "at the same time attempting to elude that same government and their military that is trying to kill us at all costs. . . . . .\n" +
             ". . . \n" +
             ". . .\n" +
             "Ok. . .  It is all bad.\n" +
-            "Someone help me. Please.\n";
+            "\n" +
+            "\n" +
+            "Someone help me.\n" +
+            "\n" +
+            "Please.";
 
         public static string story_3 = "Captains Log\n" +
             "\n" +
@@ -92,7 +97,7 @@ namespace SpaceGame
             "home. Unfortunately, as I am reminded every time we do trade on Earth, I am Earth's most wanted 'Terrorist'. The real powers in charge\n" +
             "of Area 51 fabricated some horrific events that resulted in the near destruction of the USA and pinned it all on me. So I can never truly\n" +
             "go back. Ever. I can only resign myself to the cruel fate that has been placed upon me. Where there only some way to put everything back\n" +
-            "to how it was, I would do it in a heartbeat.\n";
+            "to how it was, I would do it in a heartbeat.";
 
         public static string story_4 = "captainslog\n" +
             "\n" +
@@ -172,7 +177,7 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
-        public static void TextOutput (string input, int x, bool speedUp = false, bool gameEnd = false)
+        public static void TextOutput (string input, int x = 30, bool speedUp = false, bool gameEnd = false)
         {
             Console.Clear ();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -221,38 +226,38 @@ namespace SpaceGame
 
             if (travelAvailable == false)
             {
-                TextOutput (story_GameOver, 0, gameEnd: true);
+                TextOutput (story_GameOver, 30, gameEnd: true);
 
             }
             if (travelAvailable == true)
             {
-                if (wFactor == 1 && NewPlayer.storyTracker == 1)
+                if (wFactor >= 1 && NewPlayer.storyTracker == 1)
                 {
-                    TextOutput (story_1, 65);
+                    TextOutput (story_1);
                     NewPlayer.storyTracker++;
                 }
 
-                else if (wFactor == 2 && NewPlayer.storyTracker == 2)
+                else if (wFactor >= 2 && NewPlayer.storyTracker == 2)
                 {
-                    TextOutput (story_2, 65);
+                    TextOutput (story_2);
                     NewPlayer.storyTracker++;
                 }
 
-                else if (wFactor == 3 && NewPlayer.storyTracker == 3)
+                else if (wFactor >= 3 && NewPlayer.storyTracker == 3)
                 {
-                    TextOutput (story_3, 65);
+                    TextOutput (story_3);
                     NewPlayer.storyTracker++;
                 }
 
-                else if (wFactor == 4 && NewPlayer.storyTracker == 4)
+                else if (wFactor >= 4 && NewPlayer.storyTracker == 4)
                 {
                     TextOutput (story_4, 400, true);
                     NewPlayer.storyTracker++;
                 }
 
-                else if (wFactor == 5 && NewPlayer.storyTracker == 5)
+                else if (wFactor >= 5 && NewPlayer.storyTracker == 5)
                 {
-                    TextOutput (story_5, 65);
+                    TextOutput (story_5);
                     NewPlayer.storyTracker++;
                 }
             }
