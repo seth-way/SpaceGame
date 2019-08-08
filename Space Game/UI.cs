@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using static SpaceGame.Game;
 using static SpaceGame.Universe;
-using System.IO;
-using System.Globalization;
 
 namespace SpaceGame
 {
     public static class UI
     {
         public static int currentSelection = 0;
+
         public static void UserMenu(Planet CurrentPlanet)
         {
             int i = Console.CursorTop;
@@ -61,7 +60,7 @@ namespace SpaceGame
             bool gameFinish = false;
             do
             {
-                StoryLine.StoryCheck(NewShip.warpFactor, CurrentPlanet);
+                gameFinish = StoryLine.StoryCheck(NewShip.warpFactor, CurrentPlanet, gameFinish);
                 Console.Clear();
                 UserMenu(CurrentPlanet);
                 ConsoleKey rKey = Console.ReadKey().Key;
@@ -193,10 +192,10 @@ namespace SpaceGame
             List<double> upgradePrices = new List<double>()
             {
                  Math.Round(Actions.UpdateFuelPrice(CurrentPlanet), 2),
-                 Equations.UpgradeCost(Game.NewShip.fuelFactor),
-                 Equations.UpgradeCost(Game.NewShip.fuelEfficiencyFactor),
-                 Equations.UpgradeCost(Game.NewShip.storageFactor),
-                 Equations.UpgradeCost(Game.NewShip.warpFactor)
+                 Equations.UpgradeCost(NewShip.fuelFactor),
+                 Equations.UpgradeCost(NewShip.fuelEfficiencyFactor),
+                 Equations.UpgradeCost(NewShip.storageFactor),
+                 Equations.UpgradeCost(NewShip.warpFactor)
             };
 
             List<string> upgradeStrings = new List<string>()
@@ -316,20 +315,20 @@ namespace SpaceGame
                             NewPlayer.wallet -= (upgradePrices[selected] * toBuy);
                             if (selected == 1)
                             {
-                                Game.NewShip.maxFuel += upgradeAdds[selected];
+                                NewShip.maxFuel += upgradeAdds[selected];
 
                             }
                             else if (selected == 2)
                             {
-                                Game.NewShip.fuelPerLightYear -= Game.NewShip.fuelPerLightYear / upgradeAdds[selected]; //reduces fuel/lightyear by 10%
+                                NewShip.fuelPerLightYear -= NewShip.fuelPerLightYear / upgradeAdds[selected]; //reduces fuel/lightyear by 10%
                             }
                             else if (selected == 3)
                             {
-                                Game.NewShip.maxInventory += upgradeAdds[selected];
+                                NewShip.maxInventory += upgradeAdds[selected];
                             }
                             else if (selected == 4)
                             {
-                                Game.NewShip.warpFactor += 1;
+                                NewShip.warpFactor += 1;
                             }
                             finished = true;
                         }
@@ -345,7 +344,7 @@ namespace SpaceGame
                     if (finished != true && selected == 0)
                     {
                         NewPlayer.wallet -= (upgradePrices[selected] * toBuy);
-                        Game.NewShip.currentFuel += toBuy;
+                        NewShip.currentFuel += toBuy;
                         finished = true;
                     }
                 } while (finished != true);
@@ -367,11 +366,11 @@ namespace SpaceGame
 
             List<double> productPrices = new List<double>()
             {
-                 Game.CurrentMarket.air,
-                 Game.CurrentMarket.fur,
-                 Game.CurrentMarket.robot,
-                 Game.CurrentMarket.doors,
-                 Game.CurrentMarket.seeds
+                 CurrentMarket.air,
+                 CurrentMarket.fur,
+                 CurrentMarket.robot,
+                 CurrentMarket.doors,
+                 CurrentMarket.seeds
             };
 
             List<string> productStrings = new List<string>()
@@ -738,7 +737,7 @@ namespace SpaceGame
         public static void PlanetTravelFunction(int planetSel, Planet CurrentPlanet)
         {
 
-            Console.SetCursorPosition((Console.WindowWidth - Universe.planetTravel[planetSel].name.Length - 18) / 2, 8);
+            Console.SetCursorPosition((Console.WindowWidth - planetTravel[planetSel].name.Length - 18) / 2, 8);
 
             Console.WriteLine($"<----    {planetTravel[planetSel].name}    ---->");
 
@@ -766,64 +765,93 @@ namespace SpaceGame
             Console.WriteLine("Danger Rating: " + planetTravel[planetSel].dangerRating);
             Console.WriteLine();
             Console.WriteLine();
-            if (planetSel == 3)
-            {
-                Console.WriteLine(planetTravel[4].screamingProduct);
-            }
-            else
-            {
-                Console.WriteLine("Product Prices: ");
-            }
-            Console.WriteLine();
+            PlanetProducePrint(planetSel+1);
         }
         public static void PlanetProducePrint(int sel)
         {
             switch (sel)
             {
                 case 1:
-                    //Earth
-
+                    Console.WriteLine("Current Product Unit Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.earthPrices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.earthPrices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.earthPrices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.earthPrices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.earthPrices.seeds);
                     break;
-
-                    //ProximaCentauriB
-                    //    gazorp
-                    //screaming
-                    //c35
-                    //gromflom
-
+                case 2:
+                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.proximaPrices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.proximaPrices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.proximaPrices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.proximaPrices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.proximaPrices.seeds);
+                    break;
+                case 3:
+                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.gazorpazorpPrices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.gazorpazorpPrices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.gazorpazorpPrices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.gazorpazorpPrices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.gazorpazorpPrices.seeds);
+                    break;
+                case 4:
+                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.screamingPrices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.screamingPrices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.screamingPrices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.screamingPrices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.screamingPrices.seeds);
+                    break;
+                case 5:
+                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.c35Prices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.c35Prices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.c35Prices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.c35Prices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.c35Prices.seeds);
+                    break;
+                case 6:
+                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine();
+                    Console.WriteLine("Canned Earth Air: #" + Products.gromflomPrices.air);
+                    Console.WriteLine();
+                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.gromflomPrices.fur);
+                    Console.WriteLine();
+                    Console.WriteLine("Gazorpian Service Robot: #" + Products.gromflomPrices.robot);
+                    Console.WriteLine();
+                    Console.WriteLine("Real Fake Door: #" + Products.gromflomPrices.doors);
+                    Console.WriteLine();
+                    Console.WriteLine("Mega Tree Seed: #" + Products.gromflomPrices.seeds);
+                    break;
             }
 
         }
 
     }
 }
-
-//public static void PrintPage (List<string> List)
-//{
-//    UserMenu ();
-//    int displayLength = List.Count;
-//    if (displayLength + currentSelection >= List.Count)
-//    {
-//        displayLength = List.Count - currentSelection;
-//    }
-//    List<string> display = List.GetRange (currentSelection, displayLength);
-//    for (int i = 0; i < displayLength; i++)
-//    {
-//        if (i == currentSelection)
-//        {
-//            Console.ForegroundColor = ConsoleColor.Black;
-//            Console.BackgroundColor = ConsoleColor.White;
-//        }
-//        else if (List [i + currentSelection].StartsWith ("* /"))
-//        {
-//            Console.ForegroundColor = ConsoleColor.DarkGray;
-//        }
-
-//        string elem = display [i];
-//        Console.WriteLine (elem.ToString ());
-
-//        Console.ForegroundColor = ConsoleColor.White;
-//        Console.BackgroundColor = ConsoleColor.Black;
-//    }
-//    Console.SetCursorPosition (Console.CursorLeft, 6);
-//}

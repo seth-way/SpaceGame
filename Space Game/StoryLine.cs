@@ -11,6 +11,7 @@ namespace SpaceGame
            "1553 Days since event\n" +
            "4 Days since awakening from initial Cryosleep\n " +
            "\n" +
+           "\n" +
            "    Nobody took it seriously. The publicity that had surrounded the event was entirely soaked with mocking humor, blatant sarcasm, and incredibility.\n" +
            "For months people all over the states laughed at the ridiculousness of the proposed event, they created memes, shared news articles, and joked about\n" +
            "it with their friends. The idea that a single person would truly commit to it, let alone the 2,000,000 people who said they would attend, was so\n" +
@@ -62,7 +63,6 @@ namespace SpaceGame
             "has started driving me insane. So I will no longer attempt to do so\n" +
             "\n" +
             "\n" +
-            "\n" +
             "   I wish I would have known. Perhaps I would have been able to live a normal life. I could have had a decent job, married a nice girl, and died\n" +
             "a peaceful death. It seems as if that is but a far off dream now, there is no going back. In escaping with Phillip, the extraterrestrial being\n" +
             "who is most certainly not a normal human male, I have been branded as a supporter of his. Now, normally I would have no problem with this.\n" +
@@ -76,7 +76,7 @@ namespace SpaceGame
             "   It's not all bad though, it's not as if we're flying from planet to planet smuggling illegal goods to make enough money so that we can upgrade\n" +
             "our ship to get to the planet where Phillips militia is currently awaiting his return so that they can try to overthrow the government again while\n" +
             "at the same time attempting to elude that same government and their military that is trying to kill us at all costs. . . . . .\n" +
-            ". . . \n" +
+            ". . .\n" +
             ". . .\n" +
             "Ok. . .  It is all bad.\n" +
             "\n" +
@@ -88,15 +88,14 @@ namespace SpaceGame
         public static string story_3 = "Captains Log\n" +
             "\n" +
             "\n" +
-            "\n" +
             "   I can't remember when my birthday is. I can barely remember my age. The only attachment I still have to who I am as a person is\n" +
             "my name and even that seems foreign to me these days. There are times when I wonder if I really ever lived on Earth. Am I really a\n" +
             "human? What was my life like? Was I happy? What does happy even feel like? What does it look like? I guarantee it isn't being shot\n" +
             "at by Space Pirates as you attempt to warp to another planet so you can try and survive there long enough to sell some goD DAMN DOORS.\n" +
             "I've given serious thought to just killing Phillip and turning his body in to the Federation so they'll stop pursuing me and I can go\n" +
-            "home. Unfortunately, as I am reminded every time we do trade on Earth, I am Earth's most wanted 'Terrorist'. The real powers in charge\n" +
+            "home. Unfortunately, as I am reminded every time we trade on Earth, I am Earth's most wanted 'Terrorist'. The real powers in charge\n" +
             "of Area 51 fabricated some horrific events that resulted in the near destruction of the USA and pinned it all on me. So I can never truly\n" +
-            "go back. Ever. I can only resign myself to the cruel fate that has been placed upon me. Where there only some way to put everything back\n" +
+            "go back. Ever. I can only resign myself to the cruel fate that has been placed upon me. Were there only some way to put everything back\n" +
             "to how it was, I would do it in a heartbeat.";
 
         public static string story_4 = "captainslog\n" +
@@ -118,6 +117,8 @@ namespace SpaceGame
             "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH";
 
         public static string story_5 = "Captains Log\n" +
+            "\n" +
+            "\n" +
             "   Are we getting closer to our goal? Is any of this 'progress' that Phillip talks about even real? Is there really an end to this madness\n" +
             "I remain doubtful of every word he says.Too often I have found myself gaining hope again only to have reality come crashing back down\n" +
             "and breaking me even further.I have given up on the idea of normality and allowed myself to embrace the madness that has surrounded me,\n" +
@@ -125,9 +126,96 @@ namespace SpaceGame
             "even remember their names or faces so there's really no point in even trying. I must move forward, I must face my fears, I must allow them\n" +
             "to pass over me and through me, I must persevere so that in the end, only I remain.\n";
 
+        public static string story_6 = "Captains Log\n" +
+
+            "   Perhaps I was wrong.Perhaps there is a reason for hope, we have already gotten so close to the necessary upgrades we need to make it to Phillips planet.\n" +
+            "I still don't know it's name. Every time I ask him about it he just tells me it's better the less I know. In fact there really isn't anything that I actually\n" +
+            "know about Phillip either, we've been doing this for so long and yet I have no idea who he really is. I guess at this point it doesn't really matter.Whether\n" +
+            "or not I actually agree with his values or what he plans to do is a mute point at this point.I should have thought of it before \"agreeing\" to help him.Not\n" +
+            "like I had a choice back then. Not like I have a choice now.Regardless of any of that I have long since come to terms with the fact that there's a high\n" +
+            "chance that what I am assisting him with isn't exactly the most moral or just cause. I never would have guessed that I would spend my life assisting the\n" +
+            "being who was singlehandedly leading the coupe d'état against an intergalactic government. I still have a single memory from my childhood that makes me\n" +
+            "laugh when I think about it. Watching leaves fall and float away and wishing I could be free like them. If I only knew.";
 
 
+        public static string story_7 = "Captains Log\n" +
+            "\n" +
+            "\n" +
+            "    I often wonder who I am speaking to when recording these. To? Or is it for? I'm amazed that\n" +
+            "I have been able to remember how to speak and write in English after all of this. Or perhaps\n" +
+            "I'm not and it's just our built in translators on our suits that cause me to think I'm reading\n" +
+            "and writing in English, perhaps I'm writing in some crazy alien language at this point. Wouldn't\n" +
+            "that be something, imagine waking up one morning and the translator is broken and now everything\n" +
+            "is in some weird alien language that you somehow understand. I'm not entirely sure how I would\n" +
+            "handle that, but I do know that it wouldn't be the craziest thing that has happened to me so far.\n" +
+            "There was that time with Phillip, the Gromflomites, and the big bag of squanch... but I promised\n" +
+            "Phillip to never tell anyone about that and I guess speaking to the computer on board the ship\n" +
+            "kinda constitutes telling someone.Sorry for that.";
 
+
+        public static string story_8 = "Captains Log\n" +
+            "\n" +
+            "\n" +
+            "    We have one more upgrade to go till we are able to make the journey to the destination.It's\n" +
+            "been a long journey and most of the time I honestly didn't think we would make it. I'm not sure\n" +
+            "what will happen once we get there or if I'll even continue to assist Phillip with his plans...\n" +
+            "I guess I won't know until we get there and I see the true state of everything. I have a lot of\n" +
+            "thoughts and emotions to think over and work through...\n" +
+            "\n" +
+            "The next Log I make will be before we embark on what may be our final journey together.";
+
+
+        public static string story_9 = "Captains Log\n" +
+            "\n" +
+            "\n" +
+            "    This is it. The beginning of what could very well be the last journey that Phillip and I share.\n" +
+            "I still haven't completely processed everything, there's just so much going on in my mind. I've\n" +
+            "spent so many years traveling the galaxy, had so many adventures, experienced so much heartbreak\n" +
+            "and joy, experienced so much adventure, I've had so many moments that I didn't think I would live\n" +
+            "through, had so many times I wish I wouldn't have lived through them, and yet, here I am, thankful\n" +
+            "to still be here. This life of mine might not have been the one I imagined when I was but a child,\n" +
+            "but it is undoubtedly the best life that I could have asked for. So, if there is somebody listening,\n" +
+            "if there is any higher being out there paying attention, if there is anyone who cares, I am extremely\n" +
+            "thankful that you have been able to experience this journey with me.Most importantly, I am extremely\n" +
+            "grateful that I have actually existed, that I am still ali";
+
+        public static string story_glitch = "  fg                    *#@             ()          j                 @\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "@@                3                                             \n" +
+            "\n" +
+            "\n" +
+            "            5                                                   \n" +
+            "\n" +
+            "               23          a  5         5       3   df jo       \n" +
+            "\n" +
+            "\n" +
+            "            %#      3      &$#        0   !@9  ^  2             \n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    !7G S           1!              &";
+
+        public static string story_ending = "    You wake up, bright lights shining in  your face from all around you, in the background you here" +
+            "the incessant clicking of keys and buttons, accompanied by a myriad of random whistles, beeps, and\n" +
+            "other noises.You squeeze your eyes shut before slowly trying to open them, as you finally start to\n" +
+            "be able to see you hear a voice that you don't recognize, but somehow seems familiar call out to...\n" +
+            "you?....\n" +
+            "\"Aaaaawwwwwww Morrtty, it looks like you glitched the game out. Now you\'ll never know what\n" +
+            "happens to Phillip.Oh well, not like you were doing well anyway's. Now move out of the way"
+            "so I can have a turn.\"\n" +
+            "\n" +
+            "You feel a pair of hands shove you out of the chair you were in as you are finally able to fully see\n" +
+            "again.You take in your surroundings, your old memories slowly coming back to you, you slowly start\n" +
+            "to remember that you were only playing a game, that it wasn't your real life, Phillip wasn't real,\n" +
+            "none of it was real.As soon as you start to adjust back to reality a stray thought crosses your\n" +
+            "mind....\n" +
+            "     \n" +
+            "     \n" +
+            "     \n" +
+            "     \n" +
+            "How can you be sure that your current existence is the real one....";
 
         public static string story_GameOver = "Captains Log\n" +
             "\n" +
@@ -177,18 +265,18 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
-        public static void TextOutput (string input, int x = 30, bool speedUp = false, bool gameEnd = false)
+        public static void TextOutput(string input, int x = 30, bool speedUp = false, bool gameEnd = false)
         {
-            Console.Clear ();
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.SetCursorPosition (0, 0);
+            Console.SetCursorPosition(0, 0);
             //Array story = input.Split ('\n');
 
             foreach (char a in input)
             {
                 //Console.SetCursorPosition (((Console.LargestWindowWidth - 1 - a.Length) / 2), (Program.windowHeight - 1));
-                Thread.Sleep (x);
-                Console.Write (a);
+                Thread.Sleep(x);
+                Console.Write(a);
                 if (speedUp == true)
                 { if (x > 10) { x -= 2; } }
 
@@ -197,25 +285,25 @@ namespace SpaceGame
             {
                 for (int y = 200; y < 1200; y += 150)
                 {
-                    Thread.Sleep (y);
-                    Console.Beep (1000, 200);
+                    Thread.Sleep(y);
+                    Console.Beep(1000, 200);
                 }
-                Thread.Sleep (1200);
-                Console.Beep (1000, 3000);
+                Thread.Sleep(1200);
+                Console.Beep(1000, 3000);
             }
-            Console.ReadKey ();
-            Console.Clear ();
+            Console.ReadKey();
+            Console.Clear();
         }
-        public static void StoryCheck (int wFactor, Planet CurrentPlanet)
+        public static bool StoryCheck(int wFactor, Planet CurrentPlanet, bool gameFinish)
         {
-            CurrentPlanet = Universe.Earth;
+            wFactor = 0;
             bool travelAvailable = true;
-            if (NewPlayer.wallet < Actions.UpdateFuelPrice (CurrentPlanet) && NewShip.currentInventory == 0)
+            if (NewPlayer.wallet < Actions.UpdateFuelPrice(CurrentPlanet) && NewShip.currentInventory == 0)
             {
                 travelAvailable = false;
                 foreach (Planet a in Universe.planetTravel)
                 {
-                    if ((NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo (a, CurrentPlanet))) > 0)
+                    if ((NewShip.currentFuel - (NewShip.fuelPerLightYear * Equations.DistanceTo(a, CurrentPlanet))) > 0)
                     {
                         travelAvailable = true;
                     }
@@ -226,44 +314,66 @@ namespace SpaceGame
 
             if (travelAvailable == false)
             {
-                TextOutput (story_GameOver, 30, gameEnd: true);
+                TextOutput(story_GameOver, 30, gameEnd: true);
+                gameFinish = false;
 
             }
             if (travelAvailable == true)
             {
                 if (wFactor >= 1 && NewPlayer.storyTracker == 1)
                 {
-                    TextOutput (story_1);
+                    TextOutput(story_1, 20);
                     NewPlayer.storyTracker++;
                 }
 
                 else if (wFactor >= 2 && NewPlayer.storyTracker == 2)
                 {
-                    TextOutput (story_2);
+                    TextOutput(story_2);
                     NewPlayer.storyTracker++;
                 }
 
                 else if (wFactor >= 3 && NewPlayer.storyTracker == 3)
                 {
-                    TextOutput (story_3);
+                    TextOutput(story_3);
                     NewPlayer.storyTracker++;
                 }
 
                 else if (wFactor >= 4 && NewPlayer.storyTracker == 4)
                 {
-                    TextOutput (story_4, 400, true);
+                    TextOutput(story_4, 400, true);
                     NewPlayer.storyTracker++;
                 }
 
                 else if (wFactor >= 5 && NewPlayer.storyTracker == 5)
                 {
-                    TextOutput (story_5);
+                    TextOutput(story_5);
                     NewPlayer.storyTracker++;
                 }
+                else if (wFactor >= 6 && NewPlayer.storyTracker == 6)
+                {
+                    TextOutput(story_6);
+                    NewPlayer.storyTracker++;
+                }
+                else if (wFactor >= 7 && NewPlayer.storyTracker == 7)
+                {
+                    TextOutput(story_7);
+                    NewPlayer.storyTracker++;
+                }
+                else if (wFactor >= 8 && NewPlayer.storyTracker == 8)
+                {
+                    TextOutput(story_8);
+                    NewPlayer.storyTracker++;
+                }
+                else if (wFactor >= 9 && NewPlayer.storyTracker == 9)
+                {
+                    TextOutput(story_9);
+                    TextOutput(story_glitch,0);
+                    TextOutput(story_ending);
+                    gameFinish = false;
+                }
             }
-
+                return gameFinish;
         }
     }
-
 }
 

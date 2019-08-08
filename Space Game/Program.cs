@@ -8,14 +8,14 @@ namespace SpaceGame
         public static readonly int windowHeight = Console.LargestWindowHeight;
         static void Main (string [] args)
         {
-            Console.SetWindowSize (windowWidth, windowHeight);
-            Console.SetBufferSize (windowWidth, windowHeight);
+            Console.SetWindowSize(windowWidth, windowHeight);
+            Console.SetBufferSize(windowWidth, windowHeight);
             Console.CursorVisible = false;
-            Console.WriteLine ("What is your name?");
-            string playerName = Console.ReadLine ();
-            Console.Title = playerName + ": A Life Well Lived";
-            Game MainGame = new Game ();
-            MainGame.RunGame ();
+            //Console.WriteLine ("What is your name?");
+            //string playerName = Console.ReadLine ();
+            //Console.Title = playerName + ": A Life Well Lived";
+            Game MainGame = new Game();
+            MainGame.RunGame();
         }
     }
 }

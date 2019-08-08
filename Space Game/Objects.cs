@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SpaceGame
 {
@@ -79,6 +78,7 @@ namespace SpaceGame
         public string inhabitants, name;
         public string description = " ";
         public string imageFile;
+        public string soundClip = "HereComesTheSun.wav";
         public string screamingProduct = "The people of this planet seem too tired to trade. Though they do seem interested in your ship.\n" +
             "A little too interested. It's probably best if you leave while you still have one.";
     }
