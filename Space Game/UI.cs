@@ -753,19 +753,36 @@ namespace SpaceGame
             Console.WriteLine("Inhabitants: " + planetTravel[planetSel].inhabitants);
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Travel Distance: " + Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet));
+            Console.WriteLine("Travel Distance: " + Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet) + " light years");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Travel Time: " + Equations.TravelTime(Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
+            Console.WriteLine("Travel Time: " + Equations.TravelTime(Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)) + " years");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Fuel Cost: " + (NewShip.fuelPerLightYear * Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
+            Console.WriteLine("Fuel Cost: #" + (NewShip.fuelPerLightYear * Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Danger Rating: " + planetTravel[planetSel].dangerRating);
             Console.WriteLine();
             Console.WriteLine();
-            PlanetProducePrint(planetSel+1);
+            if (planetSel == 3)
+            {
+                Console.WriteLine(planetTravel[4].screamingProduct);
+            }
+            else
+            {
+                Market displayMarket = planetMarket[planetSel];
+                double[] displayMarket2 = {displayMarket.air, displayMarket.fur, displayMarket.robot, displayMarket.doors, displayMarket.seeds };
+
+                Console.Write("Product Prices: ");
+
+                int cursor = Console.CursorTop;
+                int i = 0;
+                foreach (var x in displayMarket2)
+                {
+                    Console.SetCur+
+                        0 
+            //PlanetProducePrint(planetSel+1);
         }
         public static void PlanetProducePrint(int sel)
         {
