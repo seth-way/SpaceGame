@@ -12,6 +12,9 @@ namespace SpaceGame
             bool gameWin = true;
             if (x > 70)
             {
+                Console.WriteLine("The Enforcement Agency has caught up with you.\n" +
+                    "Use your arrow keys to navigate past them and your spacebar to shoot.");
+                Console.ReadKey();
                 gameWin = PirateGame ();
             }
             return gameWin;
