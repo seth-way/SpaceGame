@@ -85,7 +85,7 @@ namespace SpaceGame
 
             if (imageSize == null)
             {
-                imageSize = (Console.WindowHeight + Console.WindowWidth) / 5;
+                imageSize = (Console.WindowHeight + Console.WindowWidth) / 6;
             }
 
             string filePath = ImageDirectory() + "\\" + fileName;
