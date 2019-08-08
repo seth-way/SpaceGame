@@ -84,7 +84,7 @@ namespace SpaceGame
             if (quantity <= Products.productList[index].onHand) // have enough on hand to sell
             {
                 Game.NewPlayer.wallet += price * quantity;
-                Products.productList[index].onHand = Products.productList[index].onHand - quantity;
+                Products.productList[index].onHand -= quantity;
             }
             else //not enough on hand to sell
             {
@@ -303,78 +303,9 @@ namespace SpaceGame
             Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 6);
             Console.WriteLine (upgradeQuestion1);
 
-            Console.SetCursorPosition (Console.CursorLeft, 8);
+            List<string> newOrLoad = new List<string>() { "New Game", "Load Saved Game" };
+            int selected = ListNavigation.scrollList(newOrLoad, 8);
 
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-
-            Console.WriteLine ($" New Game");
-            Console.WriteLine ();
-
-            Console.ResetColor ();
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-            Console.Write ($" Load Game");
-
-            Console.SetCursorPosition (0, 6);
-
-            ConsoleKeyInfo cki;
-            Console.TreatControlCAsInput = true;
-
-            int cursorCurrent = 8;
-            int selected = 0;
-
-            do
-            {
-                cki = Console.ReadKey (true);
-                switch (cki.Key)
-                {
-                    case ConsoleKey.DownArrow:
-                        if (cursorCurrent < 10)
-                        {
-                            Console.SetCursorPosition (0, cursorCurrent);
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write ($" New Game");
-
-                            cursorCurrent += 2;
-                            selected += 1;
-
-                            Console.SetCursorPosition (0, cursorCurrent);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write ($" Load Game");
-                            Console.ResetColor ();
-                            Console.SetCursorPosition (0, 6);
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    case ConsoleKey.UpArrow:
-                        if (cursorCurrent > 8)
-                        {
-                            Console.SetCursorPosition (0, cursorCurrent);
-                            Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.Write ($" Load Game");
-
-                            cursorCurrent -= 2;
-                            selected -= 1;
-
-                            Console.SetCursorPosition (0, cursorCurrent);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.DarkGreen;
-                            Console.Write ($" New Game");
-                            Console.ResetColor ();
-                            Console.SetCursorPosition (0, 6);
-                            break;
-                        }
-                        else
-                        {
-                            break;
-                        }
-                }
-            } while (cki.Key != ConsoleKey.Enter);
             if (selected == 0)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -384,75 +315,8 @@ namespace SpaceGame
                 Console.SetCursorPosition ((Console.WindowWidth - upgradeQuestion1.Length) / 2, 12);
                 Console.WriteLine (loadQuestion);
 
-                Console.SetCursorPosition (Console.CursorLeft, 14);
-
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-
-                Console.WriteLine ($" Yes, Start New Game");
-                Console.WriteLine ();
-
-                Console.ResetColor ();
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-
-                Console.Write ($" No, Load Current Saved Game");
-
-                Console.SetCursorPosition (0, 6);
-
-                cursorCurrent = 14;
-                selected = 0;
-
-                do
-                {
-                    cki = Console.ReadKey (true);
-                    switch (cki.Key)
-                    {
-                        case ConsoleKey.DownArrow:
-                            if (cursorCurrent < 16)
-                            {
-                                Console.SetCursorPosition (0, cursorCurrent);
-                                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.Write ($" Yes, Start New Game");
-
-                                cursorCurrent += 2;
-                                selected += 1;
-
-                                Console.SetCursorPosition (0, cursorCurrent);
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                                Console.Write ($" No, Load Current Saved Game");
-                                Console.ResetColor ();
-                                Console.SetCursorPosition (0, 6);
-                                break;
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        case ConsoleKey.UpArrow:
-                            if (cursorCurrent > 14)
-                            {
-                                Console.SetCursorPosition (0, cursorCurrent);
-                                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                                Console.Write ($" No, Load Current Saved Game");
-
-                                cursorCurrent -= 2;
-                                selected -= 1;
-
-                                Console.SetCursorPosition (0, cursorCurrent);
-                                Console.ForegroundColor = ConsoleColor.White;
-                                Console.BackgroundColor = ConsoleColor.DarkGreen;
-                                Console.Write ($" Yes, Start New Game");
-                                Console.ResetColor ();
-                                Console.SetCursorPosition (0, 6);
-                                break;
-                            }
-                            else
-                            {
-                                break;
-                            }
-                    }
-                } while (cki.Key != ConsoleKey.Enter);
+                List<string> areYouSure = new List<string>() { "Yes, Start New Game", "No, Load Current Saved Game" };
+                selected = ListNavigation.scrollList(areYouSure, 14);
 
                 if (selected == 1)
                 {
