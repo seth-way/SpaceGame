@@ -11,7 +11,7 @@ namespace SpaceGame
             var changeX = destination.xLoc - CurrentPlanet.xLoc;
             var changeY = destination.yLoc - CurrentPlanet.yLoc;
 
-            double distance = Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY));
+            double distance = Math.Round(Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY)), 2);
             return distance;
 
         }
@@ -27,7 +27,7 @@ namespace SpaceGame
             var changeX = A.xLoc - B.xLoc;
             var changeY = A.yLoc - B.yLoc;
 
-            double distance = Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY));
+            double distance = Math.Round(Math.Sqrt(Math.Abs(changeX * changeX + changeY * changeY)), 2);
             return distance;
         }
 

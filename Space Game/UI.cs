@@ -61,7 +61,7 @@ namespace SpaceGame
             bool gameFinish = false;
             do
             {
-                StoryLine.StoryCheck(NewShip.warpFactor, CurrentPlanet);
+               // StoryLine.StoryCheck(NewShip.warpFactor, CurrentPlanet);
                 Console.Clear();
                 UserMenu(CurrentPlanet);
                 ConsoleKey rKey = Console.ReadKey().Key;
@@ -754,13 +754,13 @@ namespace SpaceGame
             Console.WriteLine("Inhabitants: " + planetTravel[planetSel].inhabitants);
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Travel Distance: " + Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet));
+            Console.WriteLine("Travel Distance: " + Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet) + " light years");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Travel Time: " + Equations.TravelTime(Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
+            Console.WriteLine("Travel Time: " + Equations.TravelTime(Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)) + " years");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("Fuel Cost: " + (NewShip.fuelPerLightYear * Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
+            Console.WriteLine("Fuel Cost: #" + (NewShip.fuelPerLightYear * Equations.DistanceTo(planetTravel[planetSel], CurrentPlanet)));
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Danger Rating: " + planetTravel[planetSel].dangerRating);
@@ -772,7 +772,19 @@ namespace SpaceGame
             }
             else
             {
-                Console.WriteLine("Product Prices: ");
+                Market displayMarket = planetMarket[planetSel];
+                double[] displayMarket2 = {displayMarket.air, displayMarket.fur, displayMarket.robot, displayMarket.doors, displayMarket.seeds };
+
+                Console.Write("Product Prices: ");
+
+                int cursor = Console.CursorTop;
+                int i = 0;
+                foreach (var x in displayMarket2)
+                {
+                    Console.SetCursorPosition(18, cursor + i);
+                    Console.WriteLine($"{Universe.stringMarket[i]}" + x);
+                    i++;
+                }
             }
             Console.WriteLine();
         }

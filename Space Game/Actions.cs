@@ -12,27 +12,27 @@ namespace SpaceGame
             double price;
             if (index == 0)
             {
-                price = Game.CurrentMarket.air;
+                price = Math.Round(Game.CurrentMarket.air, 2);
                 return price;
             }
             else if (index == 1)
             {
-                price = Game.CurrentMarket.fur;
+                price = Math.Round(Game.CurrentMarket.fur, 2);
                 return price;
             }
             else if (index == 2)
             {
-                price = Game.CurrentMarket.robot;
+                price = Math.Round(Game.CurrentMarket.robot, 2);
                 return price;
             }
             else if (index == 3)
             {
-                price = Game.CurrentMarket.doors;
+                price = Math.Round(Game.CurrentMarket.doors, 2);
                 return price;
             }
             else if (index == 4)
             {
-                price = Game.CurrentMarket.seeds;
+                price = Math.Round(Game.CurrentMarket.seeds, 2);
                 return price;
             }
             else
@@ -195,7 +195,7 @@ namespace SpaceGame
 
         public static double UpdateFuelPrice(Planet CurrentPlanet)
         {
-            double currentPrice = CurrentPlanet.dangerRating * 1; // modifier may require tweaking
+            double currentPrice = Math.Round(CurrentPlanet.dangerRating * 1, 2); // modifier may require tweaking
             return currentPrice;
         }
 

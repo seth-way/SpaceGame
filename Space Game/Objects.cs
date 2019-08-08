@@ -9,7 +9,7 @@ namespace SpaceGame
 
         // things to change if adding a new planet: UI.TravelMenu planet array length and add the planet to the list + create planet display function
 
-        public static readonly Planet Earth = new Planet ()
+        public static readonly Planet Earth = new Planet()
         {
             xLoc = 0.0,
             yLoc = 0.0,
@@ -20,7 +20,7 @@ namespace SpaceGame
             imageFile = "Earth.bmp"
         };
 
-        public static readonly Planet ProximaCentauriB = new Planet ()
+        public static readonly Planet ProximaCentauriB = new Planet()
         {
             xLoc = 2.0,
             yLoc = 3.75,
@@ -70,8 +70,10 @@ namespace SpaceGame
         };
 
         public static Planet[] planetTravel = { Earth, ProximaCentauriB, Gazorpazorp, ScreamingSun, C35, GromflomPrime };
+        public static Market[] planetMarket = { Products.earthPrices, Products.proximaPrices, Products.gazorpazorpPrices, Products.screamingPrices, Products.c35Prices, Products.gromflomPrices };
+        public static string[] stringMarket = { "Canned Earth Air: #", "Proxima Centaurian Fur: #", "Gazorpian Service Robots: #", "Real Fake Doors: #", "Mega Tree Seeds: #" };
 
-        }
+    }
 
     public class Planet
     {
@@ -100,7 +102,7 @@ namespace SpaceGame
     {
         public double air, fur, robot, doors, seeds;
     }
-
+ 
     public class Products
     {
         static public Good CannedAir = new Good()
