@@ -203,7 +203,7 @@ namespace SpaceGame
             "be able to see you hear a voice that you don't recognize, but somehow seems familiar call out to...\n" +
             "you?....\n" +
             "\"Aaaaawwwwwww Morrtty, it looks like you glitched the game out. Now you\'ll never know what\n" +
-            "happens to Phillip.Oh well, not like you were doing well anyway's. Now move out of the way"
+            "happens to Phillip.Oh well, not like you were doing well anyway's. Now move out of the way\n" +
             "so I can have a turn.\"\n" +
             "\n" +
             "You feel a pair of hands shove you out of the chair you were in as you are finally able to fully see\n" +
@@ -296,7 +296,6 @@ namespace SpaceGame
         }
         public static bool StoryCheck(int wFactor, Planet CurrentPlanet, bool gameFinish)
         {
-            wFactor = 0;
             bool travelAvailable = true;
             if (NewPlayer.wallet < Actions.UpdateFuelPrice(CurrentPlanet) && NewShip.currentInventory == 0)
             {

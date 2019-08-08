@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace SpaceGame
 {
@@ -38,7 +39,7 @@ namespace SpaceGame
 
             while (gameFinish == false)
             {
-                //Thread.Sleep (5);
+                Thread.Sleep(5);
                 DrawMiniGame(playerXCursor, playerYCursor, enemyActiveList, bulletList, lives);
                 ConsoleKey rKey = Console.ReadKey().Key;
                 if (rKey == ConsoleKey.LeftArrow)

@@ -448,8 +448,8 @@ namespace SpaceGame
                                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                                     Console.Write($"{productStrings[selectedGood]}");
 
-                                    cursorCurrent = cursorCurrent + 4;
-                                    selectedGood = selectedGood + 1;
+                                    cursorCurrent += 4;
+                                    selectedGood += 1;
 
                                     Console.SetCursorPosition(0, cursorCurrent);
                                     Console.ForegroundColor = ConsoleColor.White;
@@ -472,8 +472,8 @@ namespace SpaceGame
                                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                                     Console.Write($"{productStrings[selectedGood]}");
 
-                                    cursorCurrent = cursorCurrent - 4;
-                                    selectedGood = selectedGood - 1;
+                                    cursorCurrent -= 4;
+                                    selectedGood -= 1;
 
                                     Console.SetCursorPosition(0, cursorCurrent);
                                     Console.ForegroundColor = ConsoleColor.White;
@@ -581,7 +581,7 @@ namespace SpaceGame
                                     {
                                         if (toBuy > 0)
                                         {
-                                            toBuy = toBuy - 1;
+                                            toBuy -= 1;
                                             break;
                                         }
                                         else
@@ -593,7 +593,7 @@ namespace SpaceGame
                                     {
                                         if (toSell > 0)
                                         {
-                                            toSell = toSell - 1;
+                                            toSell -= 1;
                                             break;
                                         }
                                         else
@@ -607,7 +607,7 @@ namespace SpaceGame
                                     {
                                         if (toBuy < (int)(NewPlayer.wallet / productPrices[selectedGood]))
                                         {
-                                            toBuy = toBuy + 1;
+                                            toBuy += 1;
                                             break;
                                         }
                                         else
@@ -619,7 +619,7 @@ namespace SpaceGame
                                     {
                                         if (toSell < Products.productList[selectedGood].onHand)
                                         {
-                                            toSell = toSell + 1;
+                                            toSell += 1;
                                             break;
                                         }
                                         else
@@ -649,13 +649,13 @@ namespace SpaceGame
 
                 if (buyOrSell == 0 && finished != true)
                 {
-                    NewPlayer.wallet = NewPlayer.wallet - (productPrices[selectedGood] * toBuy);
+                    NewPlayer.wallet -= (productPrices[selectedGood] * toBuy);
                     Products.productList[selectedGood].onHand = Products.productList[selectedGood].onHand + toBuy;
                     finished = true;
                 }
                 else if (buyOrSell == 1 && finished != true)
                 {
-                    NewPlayer.wallet = NewPlayer.wallet + (productPrices[selectedGood] * toSell);
+                    NewPlayer.wallet += (productPrices[selectedGood] * toSell);
                     Products.productList[selectedGood].onHand = Products.productList[selectedGood].onHand - toSell;
                     finished = true;
                 }
@@ -765,23 +765,23 @@ namespace SpaceGame
             Console.WriteLine("Danger Rating: " + planetTravel[planetSel].dangerRating);
             Console.WriteLine();
             Console.WriteLine();
-            if (planetSel == 3)
-            {
-                Console.WriteLine(planetTravel[4].screamingProduct);
-            }
-            else
-            {
-                Market displayMarket = planetMarket[planetSel];
-                double[] displayMarket2 = {displayMarket.air, displayMarket.fur, displayMarket.robot, displayMarket.doors, displayMarket.seeds };
+            //if (planetSel == 3)
+            //{
+            //    Console.WriteLine(planetTravel[4].screamingProduct);
+            //}
+            //else
+            //{
+            //    Market displayMarket = planetMarket[planetSel];
+            //    double[] displayMarket2 = {displayMarket.air, displayMarket.fur, displayMarket.robot, displayMarket.doors, displayMarket.seeds };
 
-                Console.Write("Product Prices: ");
+            //    Console.Write("Product Prices: ");
 
-                int cursor = Console.CursorTop;
-                int i = 0;
-                foreach (var x in displayMarket2)
-                {
-                    Console.SetCur+
-                        0 
+            //    int cursor = Console.CursorTop;
+            //    int i = 0;
+            //    foreach (var x in displayMarket2)
+            //    {
+            //        Console.SetCur +;
+                        
             //PlanetProducePrint(planetSel+1);
         }
         public static void PlanetProducePrint(int sel)
