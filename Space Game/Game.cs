@@ -17,6 +17,8 @@ namespace SpaceGame
         {
             Planet StartPlanet = Actions.newOrLoadGame();
             NewPlayer.wallet = 1000000;
+            NewPlayer.storyTracker = 8;
+            NewShip.warpFactor = 8;
             MenuSelection(StartPlanet);
             
         }

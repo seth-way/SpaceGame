@@ -15,7 +15,7 @@ namespace SpaceGame
             inhabitants = "Earthlings",
             dangerRating = 5.0,
             name = "Earth",
-            description = StoryLine.earthDescription,
+            description = StoryLine.earthDescr,
             imageFile = "Earth.bmp"
         };
 
@@ -26,16 +26,18 @@ namespace SpaceGame
             inhabitants = "Proxima Centaurians",
             dangerRating = 2.0,
             name = "Proxima Centauri B",
+            description = StoryLine.proximaDescr,
             imageFile = "ProximaB.bmp"
         };
 
-        public static readonly Planet Gazorpazorp = new Planet()
+        public static readonly Planet Gazorpazorp = new Planet ()
         {
             xLoc = 14.0,
             yLoc = -6.0,
             inhabitants = "Gazorpazorp",
             dangerRating = 6.0,
             name = "Gazorpazorp",
+            description = StoryLine.gazorpDescr,
             imageFile = "Gazorpazorp.bmp"
         };
 
@@ -46,6 +48,7 @@ namespace SpaceGame
             inhabitants = "Tired Earthlings",
             dangerRating = 1.5,
             name = "Screaming Sun Earth",
+            description = StoryLine.screamingSunDescr,
             imageFile = "ScreamingSun.bmp"
         };
 
@@ -55,6 +58,7 @@ namespace SpaceGame
             inhabitants = "Galactic Federation",
             dangerRating = 5.0,
             name = "35-C",
+            description = StoryLine.c35Descr,
             imageFile = "C35.bmp"
         };
 
@@ -65,6 +69,7 @@ namespace SpaceGame
             inhabitants = "Genetically Engineered Gromflomites",
             dangerRating = 7.0,
             name = "Gromflom Prime",
+            description = StoryLine.gromDescr,
             imageFile = "GromflomPrime.bmp"
         };
 
@@ -80,9 +85,7 @@ namespace SpaceGame
         public string inhabitants, name;
         public string description = " ";
         public string imageFile;
-        public string soundClip = "HereComesTheSun.wav";
-        public string screamingProduct = "The people of this planet seem too tired to trade. Though they do seem interested in your ship.\n" +
-            "A little too interested. It's probably best if you leave while you still have one.";
+        public string soundClip;
     }
 
     public class WarpFactor

@@ -197,19 +197,20 @@ namespace SpaceGame
             "\n" +
             "    !7G S           1!              &";
 
-        public static string story_ending = "    You wake up, bright lights shining in  your face from all around you, in the background you here" +
+        public static string story_ending = "    You wake up, bright lights shining in  your face from all around you, in the background you here\n" +
             "the incessant clicking of keys and buttons, accompanied by a myriad of random whistles, beeps, and\n" +
             "other noises.You squeeze your eyes shut before slowly trying to open them, as you finally start to\n" +
             "be able to see you hear a voice that you don't recognize, but somehow seems familiar call out to...\n" +
             "you?....\n" +
+            "\n" +
             "\"Aaaaawwwwwww Morrtty, it looks like you glitched the game out. Now you\'ll never know what\n" +
-            "happens to Phillip.Oh well, not like you were doing well anyway's. Now move out of the way\n" +
+            "happens to Phillip. Oh well, not like you were doing well anyway. Now move out of the way\n" +
             "so I can have a turn.\"\n" +
             "\n" +
             "You feel a pair of hands shove you out of the chair you were in as you are finally able to fully see\n" +
             "again.You take in your surroundings, your old memories slowly coming back to you, you slowly start\n" +
             "to remember that you were only playing a game, that it wasn't your real life, Phillip wasn't real,\n" +
-            "none of it was real.As soon as you start to adjust back to reality a stray thought crosses your\n" +
+            "none of it was real. As soon as you start to adjust back to reality a stray thought crosses your\n" +
             "mind....\n" +
             "     \n" +
             "     \n" +
@@ -255,7 +256,7 @@ namespace SpaceGame
             "\n" +
             "\"I am a leaf on the wind, watch how I ";
 
-        public static string earthDescription = "" +
+        public static string earthDescr = "" +
            "Your home planet. Phillip has a contact here that\n" +
             "will trade goods with you without asking too many\n" +
             "questions. You just have to be sure not to stay for\n" +
@@ -265,6 +266,36 @@ namespace SpaceGame
             "as you still haven't fully come to terms with your\n" +
             "new life.\n\n" +
             "Perhaps you never will";
+
+        public static string proximaDescr = "" +
+            "One of the planets orbiting the closest Star to Earth's\n" +
+            "Sun. You didn't expect to find other species living\n" +
+            "on a planet so close to home. You're still not sure\n" +
+            "how the two of you managed to start trading with the\n" +
+            "planets inhabitants, you're only sure that you don't\n" +
+            "like handling the product they sell.";
+
+        public static string gazorpDescr = "" +
+            "A mostly baren planet that hosts the extremely violent\n" +
+            "male Gazorpians. The females seem to have abandoned the\n" +
+            "rest of their kin.";
+
+        public static string screamingSunDescr = "" +
+            "The people of this planet seem too tired to trade.\n" +
+            "Though they do seem interested in your ship.\n" +
+            "A little too interested. It's probably best if you\n" +
+            "leave while you still have one.";
+
+        public static string c35Descr = "" +
+            "You still don't understand how a world that looks\n" +
+            "like a Dr. Seuss book could cause so many nightmares...\n" +
+            "Home of the Galactic Federation.";
+
+        public static string gromDescr = "" +
+            "Abandoned by the government and reduced to a lawless\n" +
+            "wasteland, you're surprised that there is anything\n" +
+            "left worth selling.";
+
         public static void TextOutput(string input, int x = 0, bool speedUp = false, bool gameEnd = false)
         {
             Console.Clear();
@@ -319,7 +350,7 @@ namespace SpaceGame
             {
                 if (wFactor >= 1 && NewPlayer.storyTracker == 1)
                 {
-                    TextOutput(story_1);
+                    TextOutput(story_1, 10);
                     NewPlayer.storyTracker++;
                 }
 
@@ -363,8 +394,8 @@ namespace SpaceGame
                 }
                 else if (wFactor >= 9 && NewPlayer.storyTracker == 9)
                 {
-                    TextOutput(story_9);
-                    TextOutput(story_glitch,0);
+                    TextOutput(story_9, 5);
+                    TextOutput(story_glitch, 0);
                     TextOutput(story_ending);
                     gameFinish = false;
                 }
