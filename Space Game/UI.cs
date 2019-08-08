@@ -821,82 +821,82 @@ namespace SpaceGame
             switch (sel)
             {
                 case 1:
-                    Console.WriteLine("Current Product Unit Prices");
+                    Console.WriteLine("Current Product Unit Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.earthPrices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.earthPrices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.earthPrices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.earthPrices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.earthPrices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.earthPrices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.earthPrices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.earthPrices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.earthPrices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.earthPrices.seeds);
                     break;
                 case 2:
-                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine("Current Product Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.proximaPrices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.proximaPrices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.proximaPrices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.proximaPrices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.proximaPrices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.proximaPrices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.proximaPrices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.proximaPrices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.proximaPrices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.proximaPrices.seeds);
                     break;
                 case 3:
-                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine("Current Product Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.gazorpazorpPrices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.gazorpazorpPrices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.gazorpazorpPrices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.gazorpazorpPrices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.gazorpazorpPrices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.gazorpazorpPrices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.gazorpazorpPrices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.gazorpazorpPrices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.gazorpazorpPrices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.gazorpazorpPrices.seeds);
                     break;
                 case 4:
-                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine("Current Product Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.screamingPrices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.screamingPrices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.screamingPrices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.screamingPrices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.screamingPrices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.screamingPrices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.screamingPrices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.screamingPrices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.screamingPrices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.screamingPrices.seeds);
                     break;
                 case 5:
-                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine("Current Product Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.c35Prices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.c35Prices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.c35Prices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.c35Prices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.c35Prices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.c35Prices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.c35Prices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.c35Prices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.c35Prices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.c35Prices.seeds);
                     break;
                 case 6:
-                    Console.WriteLine("Current Product Prices");
+                    Console.WriteLine("Current Product Prices:");
                     Console.WriteLine();
-                    Console.WriteLine("Canned Earth Air: #" + Products.gromflomPrices.air);
+                    Console.WriteLine(" Canned Earth Air: # " + Products.gromflomPrices.air);
                     Console.WriteLine();
-                    Console.WriteLine("Proxima Centaurian Fur: #" + Products.gromflomPrices.fur);
+                    Console.WriteLine(" Proxima Centaurian Fur: # " + Products.gromflomPrices.fur);
                     Console.WriteLine();
-                    Console.WriteLine("Gazorpian Service Robot: #" + Products.gromflomPrices.robot);
+                    Console.WriteLine(" Gazorpian Service Robot: # " + Products.gromflomPrices.robot);
                     Console.WriteLine();
-                    Console.WriteLine("Real Fake Door: #" + Products.gromflomPrices.doors);
+                    Console.WriteLine(" Real Fake Door: # " + Products.gromflomPrices.doors);
                     Console.WriteLine();
-                    Console.WriteLine("Mega Tree Seed: #" + Products.gromflomPrices.seeds);
+                    Console.WriteLine(" Mega Tree Seed: # " + Products.gromflomPrices.seeds);
                     break;
             }
 
