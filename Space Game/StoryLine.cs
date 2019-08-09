@@ -321,7 +321,7 @@ namespace SpaceGame
                 Thread.Sleep(1200);
                 Console.Beep(1000, 3000);
             }
-            Console.Read();
+            Console.ReadKey();
             Console.Clear();
         }
         public static bool StoryCheck(int wFactor, Planet CurrentPlanet, bool gameFinish)
@@ -350,7 +350,7 @@ namespace SpaceGame
             {
                 if (wFactor >= 1 && NewPlayer.storyTracker == 1)
                 {
-                    TextOutput(story_1, 10);
+                    TextOutput(story_1);
                     NewPlayer.storyTracker++;
                 }
 
@@ -394,7 +394,7 @@ namespace SpaceGame
                 }
                 else if (wFactor >= 9 && NewPlayer.storyTracker == 9)
                 {
-                    TextOutput(story_9, 5);
+                    TextOutput(story_9);
                     TextOutput(story_glitch, 0);
                     TextOutput(story_ending);
                     gameFinish = false;
