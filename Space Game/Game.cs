@@ -15,11 +15,13 @@ namespace SpaceGame
        
         public void RunGame()
         {
-            Planet StartPlanet = Actions.newOrLoadGame();
+            Planet StartPlanet = Actions.newOrLoadGame ();
+            Console.WriteLine ("What is your name?");
+            string name = Console.ReadLine ();
+            Console.Title = name + ": A Life Well Lived";
             NewPlayer.wallet = 1000000;
-            NewPlayer.storyTracker = 8;
-            NewShip.warpFactor = 8;
-            MenuSelection(StartPlanet);
+            //NewPlayer.age = 60;
+            MenuSelection (StartPlanet);
             
         }
     }

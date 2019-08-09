@@ -312,6 +312,7 @@ namespace SpaceGame
 
             if (gameEnd == true)
             {
+                Console.ReadKey ();
                 for (int y = 200; y < 1200; y += 150)
                 {
                     Thread.Sleep(y);
@@ -320,7 +321,7 @@ namespace SpaceGame
                 Thread.Sleep(1200);
                 Console.Beep(1000, 3000);
             }
-            Console.ReadKey();
+            Console.Read();
             Console.Clear();
         }
         public static bool StoryCheck(int wFactor, Planet CurrentPlanet, bool gameFinish)
@@ -342,9 +343,8 @@ namespace SpaceGame
 
             if (travelAvailable == false)
             {
-                TextOutput(story_GameOver, 30, gameEnd: true);
+                TextOutput(story_GameOver, 5, gameEnd: true);
                 gameFinish = false;
-
             }
             if (travelAvailable == true)
             {
@@ -368,7 +368,7 @@ namespace SpaceGame
 
                 else if (wFactor >= 4 && NewPlayer.storyTracker == 4)
                 {
-                    TextOutput(story_4, 400, true);
+                    TextOutput(story_4, 300, true);
                     NewPlayer.storyTracker++;
                 }
 
