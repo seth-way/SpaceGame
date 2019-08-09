@@ -91,7 +91,7 @@ namespace SpaceGame
             "   I can't remember when my birthday is. I can barely remember my age. The only attachment I still have to who I am as a person is\n" +
             "my name and even that seems foreign to me these days. There are times when I wonder if I really ever lived on Earth. Am I really a\n" +
             "human? What was my life like? Was I happy? What does happy even feel like? What does it look like? I guarantee it isn't being shot\n" +
-            "at by Space Pirates as you attempt to warp to another planet so you can try and survive there long enough to sell some goD DAMN DOORS.\n" +
+            "at by Space Enforcers as you attempt to warp to another planet so you can try and survive there long enough to sell some goD DAMN DOORS.\n" +
             "I've given serious thought to just killing Phillip and turning his body in to the Federation so they'll stop pursuing me and I can go\n" +
             "home. Unfortunately, as I am reminded every time we trade on Earth, I am Earth's most wanted 'Terrorist'. The real powers in charge\n" +
             "of Area 51 fabricated some horrific events that resulted in the near destruction of the USA and pinned it all on me. So I can never truly\n" +

@@ -220,9 +220,9 @@ namespace SpaceGame
                 Game.NewPlayer.totalDistanceTraveled = double.Parse (tr.ReadLine ());
                 Game.NewPlayer.totalMoneyEarned = double.Parse (tr.ReadLine ());
                 Game.NewPlayer.totalMoneyStolen = double.Parse (tr.ReadLine ());
-                Game.NewPlayer.totalPiratesThwarted = int.Parse (tr.ReadLine ());
-                Game.NewPlayer.totalPassedPirateAttacks = int.Parse (tr.ReadLine ());
-                Game.NewPlayer.totalFailedPirateAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalEnforcersThwarted = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalPassedEnforcerAttacks = int.Parse (tr.ReadLine ());
+                Game.NewPlayer.totalFailedEnforcerAttacks = int.Parse (tr.ReadLine ());
                 Game.NewPlayer.currentYear = int.Parse (tr.ReadLine ());
                 Game.NewPlayer.storyTracker = int.Parse (tr.ReadLine ());
                 Game.NewShip.name = tr.ReadLine ();
@@ -265,9 +265,9 @@ namespace SpaceGame
             tw.WriteLine (Game.NewPlayer.totalDistanceTraveled);
             tw.WriteLine (Game.NewPlayer.totalMoneyEarned);
             tw.WriteLine (Game.NewPlayer.totalMoneyStolen);
-            tw.WriteLine (Game.NewPlayer.totalPiratesThwarted);
-            tw.WriteLine (Game.NewPlayer.totalPassedPirateAttacks);
-            tw.WriteLine (Game.NewPlayer.totalFailedPirateAttacks);
+            tw.WriteLine (Game.NewPlayer.totalEnforcersThwarted);
+            tw.WriteLine (Game.NewPlayer.totalPassedEnforcerAttacks);
+            tw.WriteLine (Game.NewPlayer.totalFailedEnforcerAttacks);
             tw.WriteLine (Game.NewPlayer.currentYear);
             tw.WriteLine (Game.NewPlayer.storyTracker);
             tw.WriteLine (Game.NewShip.name);

@@ -9,9 +9,9 @@
         public double totalDistanceTraveled = 4.25;
         public double totalMoneyEarned = 0;
         public double totalMoneyStolen = 0;
-        public int totalPiratesThwarted = 0;
-        public int totalPassedPirateAttacks = 0;
-        public int totalFailedPirateAttacks = 0;
+        public int totalEnforcersThwarted = 0;
+        public int totalPassedEnforcerAttacks = 0;
+        public int totalFailedEnforcerAttacks = 0;
         public int currentYear = 2023;
         public int storyTracker = 1;
     }
@@ -25,8 +25,8 @@
         public int fuelFactor = 1;
         public double fuelPerLightYear = 100;
         public int fuelEfficiencyFactor = 1;
-        public double currentInventory = 0;
-        public double maxInventory = 50;
+        public int currentInventory = 0;
+        public int maxInventory = 50;
         public int storageFactor;
     }
 }

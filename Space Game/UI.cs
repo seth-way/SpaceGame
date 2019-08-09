@@ -56,6 +56,7 @@ namespace SpaceGame
 
         public static void MenuSelection(Planet loadPlanet)
         {
+            Console.CursorVisible = false;
             Planet CurrentPlanet = loadPlanet;
             bool gameFinish = false;
             do
@@ -140,13 +141,13 @@ namespace SpaceGame
             Console.WriteLine();
             Console.WriteLine("Total Galactic Credits Earned: " + NewPlayer.totalMoneyEarned);
             Console.WriteLine();
-            Console.WriteLine("Total Galactic Credits Stolen By Pirates: " + NewPlayer.totalMoneyStolen);
+            Console.WriteLine("Total Galactic Credits Stolen By Enforcers: " + NewPlayer.totalMoneyStolen);
             Console.WriteLine();
-            Console.WriteLine("Number Of Pirates Killed: " + NewPlayer.totalPiratesThwarted);
+            Console.WriteLine("Number Of Enforcers Killed: " + NewPlayer.totalEnforcersThwarted);
             Console.WriteLine();
-            Console.WriteLine("Total Pirate Attacks Stopped: " + NewPlayer.totalPassedPirateAttacks);
+            Console.WriteLine("Total Enforcer Attacks Stopped: " + NewPlayer.totalPassedEnforcerAttacks);
             Console.WriteLine();
-            Console.WriteLine("Total Pirate Attacks Failed: " + NewPlayer.totalFailedPirateAttacks);
+            Console.WriteLine("Total Enforcer Attacks Failed: " + NewPlayer.totalFailedEnforcerAttacks);
             Console.ReadKey();
         }
 
@@ -347,7 +348,7 @@ namespace SpaceGame
                             }
                             else if (selected == 3)
                             {
-                                NewShip.maxInventory += upgradeAdds[selected];
+                                NewShip.maxInventory += (int)upgradeAdds[selected];
                             }
                             else if (selected == 4)
                             {
@@ -542,7 +543,15 @@ namespace SpaceGame
                     (finished, buyOrSell) = ListNavigation.scrollList(buySell, 9, finished);
                 }
 
-                int toBuy = (int)(NewPlayer.wallet / productPrices[selectedGood]);
+                int toBuy;
+                if ((NewPlayer.wallet / productPrices [selectedGood]) > (NewShip.maxInventory - NewShip.currentInventory))
+                {
+                    toBuy = NewShip.maxInventory - NewShip.currentInventory;
+                }
+                else
+                {
+                    toBuy = ((int)NewPlayer.wallet / (int)productPrices [selectedGood]);
+                }
                 int toSell = Products.productList[selectedGood].onHand;
                 if (finished != true)
                 {
@@ -682,15 +691,16 @@ namespace SpaceGame
                 if (buyOrSell == 0 && finished != true)
                 {
                     Actions.UpdateInventoryTotal();
-                    if (Game.NewShip.maxInventory > Game.NewShip.currentInventory + toBuy)
+                    if (Game.NewShip.maxInventory >= Game.NewShip.currentInventory + toBuy)
                     {
                         NewPlayer.wallet -= (productPrices[selectedGood] * toBuy);
                         Products.productList[selectedGood].onHand = Products.productList[selectedGood].onHand + toBuy;
                         finished = true;
-                    }
+                    } 
                     else
                     {
-                        Console.WriteLine("You don't have enough space on your ship.");
+                        Console.WriteLine("\nYou don't have enough space on your ship.");
+                        Console.ReadKey ();
                         finished = true;
                     }
                 }

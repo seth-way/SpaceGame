@@ -5,7 +5,7 @@ using System.IO;
 
 namespace SpaceGame
 {
-    class Draw //Code written by Stack Overflow user Antonín Lejsek.Dynamic and adjustable xLocation, yLocation, and imageSize added by Justin Hughes
+    class Draw //Code written by Stack Overflow user Antonín Lejsek. Dynamic and adjustable xLocation, yLocation, and imageSize added by Justin Hughes
     {
 
         static int [] cColors = { 0x000000, 0x000080, 0x008000, 0x008080, 0x800000, 0x800080, 0x808000, 0xC0C0C0, 0x808080, 0x0000FF, 0x00FF00, 0x00FFFF, 0xFF0000, 0xFF00FF, 0xFFFF00, 0xFFFFFF };
@@ -58,7 +58,7 @@ namespace SpaceGame
 
             for (int i = 0; i < dSize.Height; i++)
             {
-                Console.CursorLeft = (int)imageXPosition;// adjusts x position
+                Console.CursorLeft = (int)imageXPosition; // adjusts x and y positions
                 Console.CursorTop =  (int)imageYPosition + i;
 
                 for (int j = 0; j < dSize.Width; j++)

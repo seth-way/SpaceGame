@@ -16,12 +16,12 @@ namespace SpaceGame
                 Console.WriteLine("The Enforcement Agency has caught up with you.\n" +
                     "Use your arrow keys to navigate past them and your spacebar to shoot.");
                 Console.ReadKey();
-                gameWin = PirateGame ();
+                gameWin = EnforcerGame ();
             }
             return gameWin;
         }
 
-        public static bool PirateGame()
+        public static bool EnforcerGame()
         {
             List<Enemy> enemyActiveList = new List<Enemy>();
             List<Bullet> bulletList = new List<Bullet>();
@@ -185,8 +185,8 @@ namespace SpaceGame
                 }
 
             }
-            if (gameWin == true) {Game.NewPlayer.totalPassedPirateAttacks++; }
-            else { Game.NewPlayer.totalFailedPirateAttacks++; }
+            if (gameWin == true) {Game.NewPlayer.totalPassedEnforcerAttacks++; }
+            else { Game.NewPlayer.totalFailedEnforcerAttacks++; }
 
             return gameWin;
         }

@@ -10,7 +10,6 @@ namespace SpaceGame
         {
             Console.SetWindowSize(windowWidth, windowHeight);
             Console.SetBufferSize(windowWidth, windowHeight);
-            Console.CursorVisible = false;
             Game MainGame = new Game();
             MainGame.RunGame();
         }
