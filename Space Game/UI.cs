@@ -681,9 +681,18 @@ namespace SpaceGame
 
                 if (buyOrSell == 0 && finished != true)
                 {
-                    NewPlayer.wallet -= (productPrices[selectedGood] * toBuy);
-                    Products.productList[selectedGood].onHand = Products.productList[selectedGood].onHand + toBuy;
-                    finished = true;
+                    Actions.UpdateInventoryTotal();
+                    if (Game.NewShip.maxInventory > Game.NewShip.currentInventory + toBuy)
+                    {
+                        NewPlayer.wallet -= (productPrices[selectedGood] * toBuy);
+                        Products.productList[selectedGood].onHand = Products.productList[selectedGood].onHand + toBuy;
+                        finished = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You don't have enough space on your ship.");
+                        finished = true;
+                    }
                 }
                 else if (buyOrSell == 1 && finished != true)
                 {
