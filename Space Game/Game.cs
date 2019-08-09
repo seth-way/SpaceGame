@@ -15,6 +15,7 @@ namespace SpaceGame
        
         public void RunGame()
         {
+            Console.CursorVisible = false;
             Planet StartPlanet = Actions.newOrLoadGame ();
             MenuSelection (StartPlanet);
         }

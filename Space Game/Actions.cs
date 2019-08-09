@@ -324,6 +324,8 @@ namespace SpaceGame
                 }
                 else
                 {
+                    Console.SetCursorPosition (0, 22);
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine ("What is your name?");
                     Game.NewPlayer.name = Console.ReadLine ();
                 }
