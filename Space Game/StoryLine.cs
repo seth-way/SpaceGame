@@ -296,7 +296,7 @@ namespace SpaceGame
             "wasteland, you're surprised that there is anything\n" +
             "left worth selling.";
 
-        public static void TextOutput(string input, int x = 0, bool speedUp = false, bool gameEnd = false)
+        public static void TextOutput(string input, int x = 20, bool speedUp = false, bool gameEnd = false)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -343,7 +343,7 @@ namespace SpaceGame
 
             if (travelAvailable == false)
             {
-                TextOutput(story_GameOver, 5, gameEnd: true);
+                TextOutput(story_GameOver, gameEnd: true);
                 gameFinish = false;
             }
             if (travelAvailable == true)
@@ -397,7 +397,7 @@ namespace SpaceGame
                     TextOutput(story_9);
                     TextOutput(story_glitch, 0);
                     TextOutput(story_ending);
-                    gameFinish = false;
+                    gameFinish = true;
                 }
             }
                 return gameFinish;

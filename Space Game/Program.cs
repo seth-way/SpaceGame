@@ -4,8 +4,8 @@ namespace SpaceGame
 {
     class Program
     {
-        public static readonly int windowWidth = Console.LargestWindowWidth - 15;
-        public static readonly int windowHeight = Console.LargestWindowHeight - 15;
+        public static readonly int windowWidth = Console.LargestWindowWidth;
+        public static readonly int windowHeight = Console.LargestWindowHeight;
         static void Main (string [] args)
         {
             Console.SetWindowSize(windowWidth, windowHeight);
