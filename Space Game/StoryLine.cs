@@ -400,7 +400,7 @@ namespace SpaceGame
                     gameFinish = true;
                 }
             }
-                return gameFinish;
+            return gameFinish;
         }
     }
 }
