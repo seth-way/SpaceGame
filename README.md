@@ -14,7 +14,7 @@ It started as a light hearted rebellion against the powers that be. How it ends 
 
 ## Interplanetary Space travel
 
-Travel from planet to planet, evading space pirates and trading goods to earn Galactic Credits.
+Travel from planet to planet, evading the Galactic Federation and trading on the black market to earn Galactic Credits.
 
 ![Image of Travel Menu](https://github.com/SethanielWay/SpaceGame/blob/master/Space%20Game/assets/PlanetTravel.png)
 
