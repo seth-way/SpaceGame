@@ -1,8 +1,8 @@
 # SpaceGame
 
-Pair-Programming Project.
+**Pair-Programming Project.**
 
-Console Based Space Trading Game.
+**Console Based Space Trading Game.**
 
 "Nobody took it seriously...."
 
